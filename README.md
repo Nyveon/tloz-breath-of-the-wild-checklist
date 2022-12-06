@@ -1,2 +1,3 @@
-# tloz-breath-of-the-wild-checklist
-Checklist for 100+%ing The Legend of Zelda: Breath of The Wild
+# The Legend of Zelda: Breath of the Wild Checklist
+
+Checklist website for tracking 100%+ completion of The Legend of Zelda: Breath of The Wild.
