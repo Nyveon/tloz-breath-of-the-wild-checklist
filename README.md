@@ -20,3 +20,6 @@ Fonts:
 Other:
 
 - This thing <https://codepen.io/bschwartz92/pen/BaaLdEp>
+- This other thing <https://www.spriters-resource.com/nintendo_switch/thelegendofzeldabreathofthewild/>
+- BOTW UI KIT: <https://www.figma.com/community/file/965825767811358609>
+- SHEIKAH FONT: <https://www.deviantart.com/calicostonewolf/art/Breath-of-the-Wild-Stylized-Sheikah-Fonts-672234458>

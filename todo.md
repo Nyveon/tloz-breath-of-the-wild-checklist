@@ -11,5 +11,7 @@
   - Materials
   - Equipment
   - Treasure
-- Shrines
-- Medals of Honor
+- Other
+  - Shrines
+  - Medals of Honor
+  - Completion stats
