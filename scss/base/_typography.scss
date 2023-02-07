@@ -1,0 +1,24 @@
+@font-face {
+	font-family: 'Hylia Serif';
+	src: url(../fonts/HyliaSerifBeta-Regular.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Calamity Sans';
+	src: url(../fonts/Calamity-Regular.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Calamity Sans';
+	font-weight: bold;
+	src: url(../fonts/Calamity-Bold.otf) format('opentype');
+}
+
+html {
+	font-family: 'Calamity Sans', sans-serif;
+	color: $color-text;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Hylia Serif', serif;
+}
