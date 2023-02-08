@@ -5,12 +5,104 @@
 		"icon": "images/quest-main.svg",
 		"quests": [
 			{
-				"name": "Quest Title Text",
-				"location": "Quest Location"
+				"name": "Destroy Ganon",
+				"npc": "King Rhoam",
+				"location": "Great Plateau"
 			},
 			{
-				"name": "Quest 2 (epic)",
-				"location": "Other location"
+				"name": "EX The Champions' Ballad",
+				"npc": "Zelda",
+				"location": "Shrine of Resurrection"
+			},
+			{
+				"name": "EX Champion Urbosa's Song",
+				"npc": "Monk Maz Koshia",
+				"location": "East Gerudo Mesa"
+			},
+			{
+				"name": "EX Champion Daruk's Song",
+				"npc": "Monk Maz Koshia",
+				"location": "Eldin Mountains"
+			},
+			{
+				"name": "EX Champion Mipha's Song",
+				"npc": "Monk Maz Koshia",
+				"location": "Ja'Abu Ridge"
+			},
+			{
+				"name": "EX Champion Revali's Song",
+				"npc": "Monk Maz Koshia",
+				"location": "Strock Lake"
+			},
+			{
+				"name": "Follow the Sheikah Slate",
+				"npc": "???",
+				"location": "Great Plateau"
+			},
+			{
+				"name": "The Isolated Plateau",
+				"npc": "Old Man",
+				"location": "Great Plateau"
+			},
+			{
+				"name": "Seek Out Impa",
+				"npc": "King Rhoam",
+				"location": "Great Plateau"
+			},
+			{
+				"name": "The Hero's Sword",
+				"npc": "The Great Deku Tree",
+				"location": "Korok Forest"
+			},
+			{
+				"name": "Free the Divine Beasts",
+				"npc": "Impa",
+				"location": "Kakariko Village"
+			},
+			{
+				"name": "Locked Mementos",
+				"npc": "Impa",
+				"location": "Kakariko Village"
+			},
+			{
+				"name": "Divine Beast Vah Medoh",
+				"npc": "Kaneli",
+				"location": "Rito Village"
+			},
+			{
+				"name": "Divine Beast Vah Rudania",
+				"npc": "Bludo",
+				"location": "Goron City"
+			},
+			{
+				"name": "Reach Zora's Domain",
+				"npc": "Sidon",
+				"location": "Inogo Bridge"
+			},
+			{
+				"name": "Divine Beast Vah Ruta",
+				"npc": "King Dorephan",
+				"location": "Zora's Domain"
+			},
+			{
+				"name": "Forbidden City Entry",
+				"npc": "Benja",
+				"location": "Gerudo Town"
+			},
+			{
+				"name": "Divine Beast Vah Naboris",
+				"npc": "Riju",
+				"location": "Gerudo Town"
+			},
+			{
+				"name": "Captured Memories",
+				"npc": "Impa",
+				"location": "Kakariko Village"
+			},
+			{
+				"name": "Find the Fairy Fountain",
+				"npc": "Pikango",
+				"location": "Kakariko Village"
 			}
 		]
 	},
@@ -20,16 +112,12 @@
 		"icon": "images/quest-side.svg",
 		"quests": [
 			{
-				"name": "epic quest",
-				"location": "Location 2"
+				"name": "Quest 1",
+				"location": "Location 1"
 			},
 			{
-				"name": "Quest 3",
-				"location": "Location 3"
-			},
-			{
-				"name": "The Side Quest",
-				"location": "Location 4"
+				"name": "Quest 2 (epic)",
+				"location": "Other location"
 			}
 		]
 	},
@@ -39,12 +127,214 @@
 		"icon": "images/quest-shrine.svg",
 		"quests": [
 			{
-				"name": "Quest 1",
-				"location": "Location 1"
+				"name": "The Skull's Eye",
+				"npc": "Jerrin",
+				"location": "Akkala Ancient Tech Lab"
 			},
 			{
-				"name": "Quest 2 (epic)",
-				"location": "Other location"
+				"name": "Into the Vortex",
+				"npc": "Stone Tablet",
+				"location": "Rist Peninsula"
+			},
+			{
+				"name": "Trial of the Labyrinth",
+				"npc": "???",
+				"location": "Lomei Labyrinth Island"
+			},
+			{
+				"name": "The Spring of Power",
+				"npc": "Nobo",
+				"location": "East Akkala Stable"
+			},
+			{
+				"name": "The Gut Check Challenge",
+				"npc": "Bayge",
+				"location": "Gut Check Rock"
+			},
+			{
+				"name": "A Brother's Roast",
+				"npc": "Bladon",
+				"location": "Goron City"
+			},
+			{
+				"name": "A Landscape of a Stable",
+				"npc": "Mayro",
+				"location": "Foothill Stable"
+			},
+			{
+				"name": "The Perfect Drink",
+				"npc": "Pokki",
+				"location": "East Barrens"
+			},
+			{
+				"name": "Test of Will",
+				"npc": "Bayge",
+				"location": "Mount Nabooru"
+			},
+			{
+				"name": "Sign of the Shadow",
+				"npc": "Kass",
+				"location": "Gerudo Tower"
+			},
+			{
+				"name": "The Silent Swordswomen",
+				"npc": "Laine",
+				"location": "Gerudo Town"
+			},
+			{
+				"name": "The Desert Labyrinth",
+				"npc": "???",
+				"location": "South Lomei Labyrinth"
+			},
+			{
+				"name": "The Seven Heroines",
+				"npc": "Rotana",
+				"location": "Gerudo Town"
+			},
+			{
+				"name": "The Eye of the Sandstorm",
+				"npc": "Nobiro",
+				"location": "Kara Kara Bazaar"
+			},
+			{
+				"name": "Secret of the Snowy Peaks",
+				"npc": "Mountain Peak Log",
+				"location": "Mount Granajh"
+			},
+			{
+				"name": "The Undefeated Champ",
+				"npc": "Tali",
+				"location": "Sand-Seal Rally"
+			},
+			{
+				"name": "Watch Out for the Flowers",
+				"npc": "Magda",
+				"location": "Hylia River"
+			},
+			{
+				"name": "The Three Giant Brothers",
+				"npc": "Stone Tablet",
+				"location": "Mount Taran"
+			},
+			{
+				"name": "Secret of the Cedars",
+				"npc": "Clavia",
+				"location": "Hateno Village"
+			},
+			{
+				"name": "The Cursed Statue",
+				"npc": "Calip",
+				"location": "Fort Hateno"
+			},
+			{
+				"name": "A Fragmented Monument",
+				"npc": "Garini",
+				"location": "Palmorae Ruins"
+			},
+			{
+				"name": "The Stolen Heirloom",
+				"npc": "Paya",
+				"location": "Kakariko Village"
+			},
+			{
+				"name": "Guardian Slideshow",
+				"npc": "Loone",
+				"location": "Puffer Beach"
+			},
+			{
+				"name": "A Song of Storms",
+				"npc": "Kass",
+				"location": "Calora Lake"
+			},
+			{
+				"name": "The Serpent's Jaws",
+				"npc": "Kass",
+				"location": "Pagos Woods"
+			},
+			{
+				"name": "Stranded on Eventide",
+				"npc": "???",
+				"location": "Eventide Island"
+			},
+			{
+				"name": "The Bird in the Mountains",
+				"npc": "Molli",
+				"location": "Rito Village"
+			},
+			{
+				"name": "Recital at Warbler's Nest",
+				"npc": "Kheel",
+				"location": "Rito Village"
+			},
+			{
+				"name": "The Ancient Rito Song",
+				"npc": "Bedoli",
+				"location": "Rito Village"
+			},
+			{
+				"name": "Trial on the Cliff",
+				"npc": "???",
+				"location": "North Lomei Labyrinth"
+			},
+			{
+				"name": "The Spring of Wisdom",
+				"npc": "Medda",
+				"location": "Hateno Village"
+			},
+			{
+				"name": "The Ceremonial Song",
+				"npc": "Laruta",
+				"location": "Zora's Domain"
+			},
+			{
+				"name": "The Crowned Beast",
+				"npc": "Kass",
+				"location": "Rabia Plain"
+			},
+			{
+				"name": "Master of the Wind",
+				"npc": "Kass",
+				"location": "Horon Lagoon"
+			},
+			{
+				"name": "The Lost Pilgrimage",
+				"npc": "Tasho",
+				"location": "Korok Forest"
+			},
+			{
+				"name": "The Two Rings",
+				"npc": "Kass",
+				"location": "West Hyrule Plains"
+			},
+			{
+				"name": "Shrouded Shrine",
+				"npc": "???",
+				"location": "Thyphlo Ruins"
+			},
+			{
+				"name": "Under a Red Moon",
+				"npc": "Kass",
+				"location": "Washa's Bluff"
+			},
+			{
+				"name": "Cliffside Etchings",
+				"npc": "Geggle",
+				"location": "Tabantha Bridge Stable"
+			},
+			{
+				"name": "Trial of Second Sight",
+				"npc": "Zooki",
+				"location": "Korok Forest"
+			},
+			{
+				"name": "The Test of Wood",
+				"npc": "Damia",
+				"location": "Korok Forest"
+			},
+			{
+				"name": "Trial of Thunder",
+				"npc": "???",
+				"location": "Thundra Plateau"
 			}
 		]
 	},

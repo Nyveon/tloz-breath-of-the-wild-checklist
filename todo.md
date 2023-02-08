@@ -36,3 +36,12 @@ TODO: All amiibo-excsluive gear
 TODO: All Armor (With upgrade tiers)
 
 spoiler mode: switch to sheikah font and swap the letter randomly
+
+Quest screen:
+
+- 4 Categories
+  - Switch tabs?
+- Search by name
+- Complete quests
+- Hide completed option
+- Include DLC quests

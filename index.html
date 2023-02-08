@@ -48,53 +48,86 @@
 		<main>
 			<section
 				class="quests"
-				x-data="{ 
-					categories: [],
-					search: '',
-					get filteredQuests() {
-						return this.categories.map(category => {
-							return {
-								...category,
-								quests: category.quests.filter(quest => {
-									return quest.name.toLowerCase().includes(this.search.toLowerCase());
-								})
-							}
-						});
-					}
-				}"
+				x-data="questData()"
 				x-init="
 					categories = await (await fetch('data/quests.json')).json();
 				"
 			>
-				<input
-					x-ref="searchField"
-					x-model="search"
-					placeholder="Search for a quest..."
-					type="search"
-				/>
+				<div>
+					<div class="search">
+						<label for="search">Search:</label>
+						<input
+							name="search"
+							x-model="search"
+							placeholder="Search for a quest..."
+							type="search"
+						/>
+					</div>
 
-				<template x-for="category in filteredQuests">
-					<article>
-						<div class="title">
-							<img :src="category.icon" />
-							<h1 x-text="category.name"></h1>
-						</div>
+					<div class="radio">
+						<label for="sort">Sort by:</label>
 
-						<ul class="quest-list">
-							<template x-for="quest in category.quests">
-								<li>
-									<img :src="category.icon" />
-									<hgroup>
-										<span class="top"></span>
-										<span class="bottom"></span>
-										<h2 x-text="quest.name"></h2>
-										<h5 x-text="quest.location" :class="category.type"></h5>
-									</hgroup>
-								</li>
-							</template>
+						<ul>
+							<li>
+								<input
+									type="radio"
+									value="asc"
+									x-model="sorting"
+									name="sort"
+									id="sort-asc"
+								/>
+								<label for="sort-asc">Ascending</label>
+							</li>
+
+							<li>
+								<input
+									type="radio"
+									name="sort"
+									x-model="sorting"
+									value="desc"
+									id="sort-desc"
+								/>
+								<label for="sort-desc">Descending</label>
+							</li>
+
+							<li>
+								<input
+									type="radio"
+									value="none"
+									x-model="sorting"
+									name="sort"
+									id="sort-none"
+								/>
+								<label for="sort-none">None</label>
+							</li>
 						</ul>
-					</article>
-				</template>
+					</div>
+				</div>
+
+				<div class="content">
+					<template x-for="category in filteredQuests">
+						<article>
+							<div class="title">
+								<img :src="category.icon" />
+								<h1 x-text="category.name"></h1>
+							</div>
+
+							<ul class="quest-list pending">
+								<template x-for="quest in category.quests">
+									<li>
+										<img :src="category.icon" />
+										<hgroup>
+											<span class="top"></span>
+											<span class="bottom"></span>
+											<h2 x-text="quest.name"></h2>
+											<h5 x-text="quest.location" :class="category.type"></h5>
+										</hgroup>
+									</li>
+								</template>
+							</ul>
+						</article>
+					</template>
+				</div>
 			</section>
 		</main>
 
