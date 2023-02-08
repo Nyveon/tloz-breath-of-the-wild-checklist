@@ -53,7 +53,7 @@
 					categories = await (await fetch('data/quests.json')).json();
 				"
 			>
-				<div>
+				<div class="filterbar">
 					<div class="search">
 						<label for="search">Search:</label>
 						<input
@@ -65,68 +65,78 @@
 					</div>
 
 					<div class="radio">
-						<label for="sort">Sort by:</label>
+						<label for="sort">Sort:</label>
 
-						<ul>
-							<li>
-								<input
-									type="radio"
-									value="asc"
-									x-model="sorting"
-									name="sort"
-									id="sort-asc"
-								/>
-								<label for="sort-asc">Ascending</label>
-							</li>
+						<input
+							type="radio"
+							value="asc"
+							x-model="sorting"
+							name="sort"
+							id="sort-asc"
+						/>
+						<label for="sort-asc"> Ascending </label>
 
-							<li>
-								<input
-									type="radio"
-									name="sort"
-									x-model="sorting"
-									value="desc"
-									id="sort-desc"
-								/>
-								<label for="sort-desc">Descending</label>
-							</li>
+						<input
+							type="radio"
+							name="sort"
+							x-model="sorting"
+							value="desc"
+							id="sort-desc"
+						/>
+						<label for="sort-desc"> Descending </label>
 
-							<li>
-								<input
-									type="radio"
-									value="none"
-									x-model="sorting"
-									name="sort"
-									id="sort-none"
-								/>
-								<label for="sort-none">None</label>
-							</li>
-						</ul>
+						<input
+							type="radio"
+							value="none"
+							x-model="sorting"
+							name="sort"
+							id="sort-none"
+						/>
+						<label for="sort-none"> None </label>
 					</div>
 				</div>
 
 				<div class="content">
-					<template x-for="category in filteredQuests">
-						<article>
-							<div class="title">
+					<div class="tabs">
+						<template x-for="category in filteredQuests" :key="category.type">
+							<a
+								href="#"
+								@click="activeTab = category.type"
+								:id="category.type"
+								class="title"
+								:class="{
+									'active': getActiveTab(category.type),
+									'main': category.type === 'main',
+									'side': category.type === 'side',
+									'shrine': category.type === 'shrine',
+									'memory': category.type === 'memory',
+								}"
+							>
 								<img :src="category.icon" />
 								<h1 x-text="category.name"></h1>
-							</div>
+							</a>
+						</template>
+					</div>
 
-							<ul class="quest-list pending">
-								<template x-for="quest in category.quests">
-									<li>
-										<img :src="category.icon" />
-										<hgroup>
-											<span class="top"></span>
-											<span class="bottom"></span>
-											<h2 x-text="quest.name"></h2>
-											<h5 x-text="quest.location" :class="category.type"></h5>
-										</hgroup>
-									</li>
-								</template>
-							</ul>
-						</article>
-					</template>
+					<ul class="quest-list">
+						<template x-for="category in filteredQuests">
+							<template x-for="quest in category.quests">
+								<li
+									class="category.type"
+									x-show="getActiveTab(category.type)"
+									x-transition:enter.scale
+								>
+									<img :src="category.icon" />
+									<hgroup>
+										<span class="top"></span>
+										<span class="bottom"></span>
+										<h2 x-text="quest.name"></h2>
+										<h5 x-text="quest.location" :class="category.type"></h5>
+									</hgroup>
+								</li>
+							</template>
+						</template>
+					</ul>
 				</div>
 			</section>
 		</main>

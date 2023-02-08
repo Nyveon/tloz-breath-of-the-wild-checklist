@@ -45,3 +45,28 @@ Quest screen:
 - Complete quests
 - Hide completed option
 - Include DLC quests
+
+## General
+
+- [ ] Saving
+- [ ] Save bacckups (to json string)
+- [ ] Save import (from json string)
+  
+## Quests
+
+- [ ] Make responsive
+
+- Tabs
+  - [ ] Main Data
+  - [ ] Side Data
+  - [ ] Shrine Data
+  - [ ] Memory Data
+  - [ ] Tab switcher
+
+- Filter
+  - [x] Search by name
+  - [x] Sort by asc/desc/none
+  - [ ] Send completed to end
+  - [ ] Hide location names
+  - [ ] Show quest giver
+  - [ ] Compact mode

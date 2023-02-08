@@ -15,6 +15,7 @@ $botw-ui-lighter: #22211f;
 
 // Text element colors
 $color-text: $botw-text-white;
+$color-text-inactive: #41423D;
 $color-primary: $botw-text-white;
 $color-highlight: $botw-item-blue;
 
@@ -30,4 +31,5 @@ $colors-quest: (
 $color-border: $botw-selected-grey;
 $color-frame: $botw-ui-lighter;
 $color-background: $botw-ui-dark;
+$color-transparent-dark: rgba(0, 0, 0, 0.8);
 $color-white-glow: rgb(255, 255, 255, 0.4);

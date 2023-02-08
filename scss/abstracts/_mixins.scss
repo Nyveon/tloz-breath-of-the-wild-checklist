@@ -1,0 +1,37 @@
+@mixin corner-triangle($horizontal, $vertical) {
+	content: "";
+	position: absolute;
+	width: 0;
+	height: 0;
+
+	@if $horizontal {
+		left: 0;
+		border-right: $small solid transparent;
+	} @else {
+		right: 0;
+		border-left: $small solid transparent;
+	}
+
+	@if $vertical {
+		top: 0;
+		border-top: $small solid $color-primary;
+	} @else {
+		bottom: 0;
+		border-bottom: $small solid $color-primary;
+	}
+}
+
+@mixin botw-border {
+	border: {
+		color: $color-border;
+		style: solid;
+		width: 1px;
+		radius: 2px;
+	}
+
+	outline: {
+		color: $color-transparent-dark;
+		style: solid;
+		width: 2px;
+	}
+}

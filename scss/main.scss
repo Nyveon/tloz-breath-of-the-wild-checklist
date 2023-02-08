@@ -1,5 +1,6 @@
 @import 'abstracts/colors';
 @import 'abstracts/sizes';
+@import 'abstracts/mixins';
 
 @import 'base/sanitize';
 @import 'base/typography';
@@ -7,6 +8,7 @@
 @import 'layout/body';
 @import 'layout/header';
 @import 'layout/navigation';
+@import 'layout/filterbar';
 @import 'layout/main';
 @import 'layout/footer';
 

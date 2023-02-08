@@ -9,6 +9,8 @@ function questData() {
 		categories: [],
 		search: "",
 		sorting: 'none',
+		activeTab: 'main',
+
 		get filteredQuests() {
 			return this.categories.map((category) => {
 				return {
@@ -23,5 +25,11 @@ function questData() {
 				};
 			});
 		},
+
+		getActiveTab(id) {
+			return this.activeTab === id;
+		}
 	};
 }
+
+

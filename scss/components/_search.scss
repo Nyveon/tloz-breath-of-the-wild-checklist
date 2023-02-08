@@ -1,0 +1,12 @@
+.search {
+	input {
+
+		height: $large;
+		width: 20em;
+		background-color: $color-frame;
+		color: $color-text;
+		padding: $small;
+
+		@include botw-border;
+	}
+}
