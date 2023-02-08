@@ -1,27 +1,4 @@
 body {
 	background-color: $color-frame;
-}
-
-main {
-	margin-inline: auto;
-	height: 90vh;
-	background-color: $color-background;
-}
-
-header, footer {
 	text-align: center;
-}
-
-header {
-	border-bottom: 3px solid $color-outline;
-	margin-top: auto;
-}
-
-footer {
-	border-top: 3px solid $color-outline;
-	height: 10vh;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
 }
