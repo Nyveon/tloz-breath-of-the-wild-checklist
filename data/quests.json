@@ -1,31 +1,66 @@
-{
-	"main": {
+[
+	{
+		"type": "main",
 		"name": "Main Quests",
 		"icon": "images/quest-main.svg",
+		"quests": [
+			{
+				"name": "Quest Title Text",
+				"location": "Quest Location"
+			},
+			{
+				"name": "Quest 2 (epic)",
+				"location": "Other location"
+			}
+		]
+	},
+	{
+		"type": "side",
+		"name": "Side Quests",
+		"icon": "images/quest-side.svg",
+		"quests": [
+			{
+				"name": "epic quest",
+				"location": "Location 2"
+			},
+			{
+				"name": "Quest 3",
+				"location": "Location 3"
+			},
+			{
+				"name": "The Side Quest",
+				"location": "Location 4"
+			}
+		]
+	},
+	{
+		"type": "shrine",
+		"name": "Shrine Quests",
+		"icon": "images/quest-shrine.svg",
 		"quests": [
 			{
 				"name": "Quest 1",
 				"location": "Location 1"
 			},
 			{
-				"name": "Quest 2",
+				"name": "Quest 2 (epic)",
 				"location": "Other location"
 			}
 		]
 	},
-	"side": {
-		"name": "Side Quests",
-		"icon": "images/quest-side.svg",
-		"quests": []
-	},
-	"shrine": {
-		"name": "Shrine Quests",
-		"icon": "images/quest-shrine.svg",
-		"quests": []
-	},
-	"memory": {
+	{
+		"type": "memory",
 		"name": "Memories",
 		"icon": "images/quest-memory.svg",
-		"quests": []
+		"quests": [
+			{
+				"name": "Quest 1",
+				"location": "Location 1"
+			},
+			{
+				"name": "Quest 2 (epic)",
+				"location": "Other location"
+			}
+		]
 	}
-}
+]

@@ -4,34 +4,57 @@ ul.quest-list {
 	margin: 0;
 
 	li {
-		background-color: rgb(0, 0, 0, 0.8);
-
-		position: relative;
-		$width: 24em;
+		$width: 28.3em;
 		$height: 4em;
 		width: $width;
 		height: $height;
-		border-radius: $border-thickness;
-		border: 1px solid $color-border;
 
+		$color-background: rgb(0, 0, 0, 0.8);
+		background-color: $color-background;
+
+		border: {
+			color: $color-border;
+			style: solid;
+			width: 1px;
+			radius: 2px;
+		}
+
+		outline: {
+			color: $color-background;
+			style: solid;
+			width: 2px;
+		}
+
+		position: relative;
 		display: flex;
 		align-items: center;
 
 		padding: $large $very-small;
 
 		img {
-			$icon-size: $height * 0.75;
+			$icon-size: $height * 0.85;
 			width: $icon-size;
 			height: $icon-size;
-			margin-inline: $very-small;
 		}
 
 		hgroup {
 			margin-left: $very-small;
 			text-align: left;
+			font-family: "Calamity Sans", sans-serif;
+
+			h2 {
+				font-family: inherit;
+				font-weight: bold;
+			}
 
 			h5 {
-				color: $color-accent;
+				font-family: inherit;
+
+				@each $type, $color in $colors-quest {
+					&.#{$type} {
+						color: $color;
+					}
+				}
 			}
 		}
 

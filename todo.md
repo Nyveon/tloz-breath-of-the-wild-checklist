@@ -35,5 +35,4 @@ TODO: All non sellable gear (Armor, Horse Gear)
 TODO: All amiibo-excsluive gear
 TODO: All Armor (With upgrade tiers)
 
-
-spoiler mode: switch to sheikah font
+spoiler mode: switch to sheikah font and swap the letter randomly
