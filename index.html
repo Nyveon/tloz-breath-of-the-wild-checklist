@@ -4,30 +4,29 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Checklist website for tracking 100%+ completion of The Legend of Zelda: Breath of The Wild." />
-        <meta name="keywords" content="BOTW, TLOZ, Breath of the Wild, Checklist, Cheat Sheet" />
-        <meta name="author" content="Nyveon (Eric K.)" />
+		<meta
+			name="description"
+			content="Checklist website for tracking 100%+ completion of The Legend of Zelda: Breath of The Wild."
+		/>
+		<meta
+			name="keywords"
+			content="BOTW, TLOZ, Breath of the Wild, Checklist, Cheat Sheet"
+		/>
+		<meta name="author" content="Nyveon (Eric K.)" />
 
 		<title>TLOZ: Breath of the Wild Checklist</title>
 
-		<script
-			defer
-			src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.1/dist/module.cjs.min.js"
-		></script>
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js"></script>
 
 		<script
 			defer
 			src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/module.cjs.min.js"
 		></script>
 
-		<link
-			rel="stylesheet"
-			href="css/main.css"
-		/>
+		<link rel="stylesheet" href="css/main.css" />
 	</head>
 
 	<body>
-
 		<header>
 			<h1>TLOZ: Breath of the Wild Checklist</h1>
 
@@ -42,52 +41,36 @@
 		</header>
 
 		<main>
-			<section class="quests">
-				<article>
-					<div class="title">
-						<img src="images/quest-main.svg">
-						<h2>Main Quests</h2>
-					</div>
+			<section
+				class="quests"
+				x-data="{ quests: {} }"
+				x-init="quests = await (await fetch('data/quests.json')).json();"
+			>
+				<template x-for="category in quests">
+					<article>
+						<div class="title">
+							<img :src="category['icon']">
+							<h2 x-text="category['name']"></h2>
+						</div>
 
-					<ul class="quest-list">
-						<li>
-							<img src="images/quest-main.svg">
-							<hgroup>
-								<span class="top"></span>
-								<span class="bottom"></span>
-								<h3>Quest 1 Name</h3>
-								<h5>Quest Location</h5>
-							</hgroup>
-						</li>
-					</ul>
-				</article>
-
-				<article>
-					<div class="title">
-						<img src="images/quest-side.svg">
-						<h2>Side Quests</h2>
-					</div>
-				</article>
-
-				<article>
-					<div class="title">
-						<img src="images/quest-shrine.svg">
-						<h2>Shrine Quests</h2>
-					</div>
-				</article>
-
-				<article>
-					<div class="title">
-						<img src="images/quest-memory.svg">
-						<h2>Memories</h2>
-					</div>
-				</article>
+						<ul class="quest-list">
+							<template x-for="quest in category['quests']">
+								<li>
+									<img :src="category['icon']">
+									<hgroup>
+										<span class="top"></span>
+										<span class="bottom"></span>
+										<h3 x-text="quest['name']"></h3>
+										<h5 x-text="quest['location']"></h5>
+									</hgroup>
+								</li>
+							</template>
+						</ul>
+					</article>
+				</template>
 			</section>
 		</main>
 
-		<footer>
-			Page by Nyveon. (Eric K)
-		</footer>
-
+		<footer>Page by Nyveon. (Eric K)</footer>
 	</body>
 </html>

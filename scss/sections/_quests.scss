@@ -7,8 +7,8 @@ ul.quest-list {
 		background-color: rgb(0, 0, 0, 0.8);
 
 		position: relative;
-		$width: 32em;
-		$height: 5em;
+		$width: 24em;
+		$height: 4em;
 		width: $width;
 		height: $height;
 		border-radius: $border-thickness;
@@ -17,17 +17,17 @@ ul.quest-list {
 		display: flex;
 		align-items: center;
 
-		padding: $large $small;
+		padding: $large $very-small;
 
 		img {
 			$icon-size: $height * 0.75;
 			width: $icon-size;
 			height: $icon-size;
-			margin: $small;
+			margin-inline: $very-small;
 		}
 
 		hgroup {
-			margin-left: $small;
+			margin-left: $very-small;
 			text-align: left;
 
 			h5 {
@@ -36,11 +36,12 @@ ul.quest-list {
 		}
 
 		&:not(:last-child) {
-			margin-bottom: $small;
+			margin-bottom: $very-small;
 		}
 
 		&:hover {
 			border-color: $color-primary;
+			box-shadow: 0 0 10px 1px $color-white-glow;
 
 			@mixin corner-triangle($horizontal, $vertical) {
 				content: "";
@@ -48,30 +49,36 @@ ul.quest-list {
 				width: 0;
 				height: 0;
 
-				left: ($horizontal) ? 0 : auto;
-				right: ($horizontal) ? auto : 0;
-				border-left: ($horizontal) ? $medium solid transparent : none;
-				border-right: ($horizontal) ? none : $medium solid transparent;
-	
-				top: ($vertical) ? 0 : auto;
-				bottom: ($vertical) ? auto : 0;
-				border-top: ($vertical) ? $medium solid $color-primary : none;
-				border-bottom: ($vertical) ? none : $medium solid $color-primary;
+				@if $horizontal {
+					left: 0;
+					border-right: $small solid transparent;
+				} @else {
+					right: 0;
+					border-left: $small solid transparent;
+				}
+
+				@if $vertical {
+					top: 0;
+					border-top: $small solid $color-primary;
+				} @else {
+					bottom: 0;
+					border-bottom: $small solid $color-primary;
+				}
 			}
 
-			span.top:before {
+			span.top::before {
 				@include corner-triangle(true, true);
 			}
 
-			span.top:after {
+			span.top::after {
 				@include corner-triangle(false, true);
 			}
 
-			span.bottom:before {
+			span.bottom::before {
 				@include corner-triangle(false, false);
 			}
 
-			span.bottom:after {
+			span.bottom::after {
 				@include corner-triangle(true, false);
 			}
 		}

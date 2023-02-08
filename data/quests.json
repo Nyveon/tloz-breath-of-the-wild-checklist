@@ -1,0 +1,31 @@
+{
+	"main": {
+		"name": "Main Quests",
+		"icon": "images/quest-main.svg",
+		"quests": [
+			{
+				"name": "Quest 1",
+				"location": "Location 1"
+			},
+			{
+				"name": "Quest 2",
+				"location": "Other location"
+			}
+		]
+	},
+	"side": {
+		"name": "Side Quests",
+		"icon": "images/quest-side.svg",
+		"quests": []
+	},
+	"shrine": {
+		"name": "Shrine Quests",
+		"icon": "images/quest-shrine.svg",
+		"quests": []
+	},
+	"memory": {
+		"name": "Memories",
+		"icon": "images/quest-memory.svg",
+		"quests": []
+	}
+}
