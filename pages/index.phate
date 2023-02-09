@@ -1,0 +1,8 @@
+	{{@partial head}}
+
+{{@data index}}
+test
+
+	{{index.test}}
+
+<h1>Hello! {{index.test}}</h1>
