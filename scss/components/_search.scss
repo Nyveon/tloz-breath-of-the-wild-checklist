@@ -1,11 +1,21 @@
 .search input {
-	height: $large;
+	height: $large + $small;
 	width: 20em;
+	padding-left: $large;
+	padding-block: $medium;
 
-	background-color: $color-frame;
+	border: none;
+	border-radius: $large;
+	outline: 1px solid $color-border;
+
 	color: $color-text;
+	
+	background-color: $color-frame;
+	background-image: url('/static/img/search.svg');
+    background-size: $medium $medium;
+	background-position: 0.5em center;
+    background-repeat: no-repeat;
 
-	@include botw-border;
 
 	&:focus {
 		outline-color: $color-primary;

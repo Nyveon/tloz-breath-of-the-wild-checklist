@@ -1,11 +1,11 @@
 main {
 	margin-inline: auto;
 	min-height: 100vh;
+	padding: $medium;
 
 	section {
 		width: 90%;
 		margin-inline: auto;
-		overflow: hidden;
 
 		.content {
 			@include flex(column, space-around, normal);
@@ -13,6 +13,7 @@ main {
 
 		.tabs {
 			@include flex(row, space-around, normal);
+			flex-wrap: wrap;
 			list-style: none;
 			padding: 0;
 

@@ -22,6 +22,7 @@ Checklist website for tracking 100%+ completion of The Legend of Zelda: Breath o
 ### Icons
 
 - Zelda BOTW UI Kit by <https://www.figma.com/@hparamore>
+- Fontawesome
 
 ### To be used (future)
 

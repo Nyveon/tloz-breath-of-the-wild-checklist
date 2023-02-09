@@ -1,4 +1,15 @@
 .filterbar {
 	@include flex(row, center, center);
-	padding: $medium;
+	flex-wrap: wrap;
+}
+
+fieldset {
+	border: none;
+
+	label {
+		img {
+			width: $large;
+			height: $large;
+		}
+	}
 }

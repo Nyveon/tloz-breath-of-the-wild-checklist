@@ -1,0 +1,6 @@
+# Ignore installed npm modules
+node_modules/
+package-lock.json
+
+# Ignore folders from source code editors
+.idea

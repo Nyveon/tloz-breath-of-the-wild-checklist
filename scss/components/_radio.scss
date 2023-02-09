@@ -13,10 +13,6 @@
 
 		margin: 0;
 
-		&:not(:first-child) {
-			margin-left: $small;
-		}
-
 		&:checked {
 			background-color: $color-highlight;
 			@include glow($color-highlight);
@@ -27,7 +23,14 @@
 		}
 	}
 
-	label:hover {
-		@include glow-text($color-white-glow);
+	label {
+		&:hover {
+			@include glow-text($color-white-glow);
+		}
+		
+
+		&:not(:first-child) {
+			margin-left: $small;
+		}
 	}
 }
