@@ -8,24 +8,20 @@ main {
 		overflow: hidden;
 
 		.content {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-around;
+			@include flex(column, space-around, normal);
 		}
 
 		.tabs {
-			display: flex;
-			flex-direction: row;
-			justify-content: space-around;
+			@include flex(row, space-around, normal);
+			list-style: none;
+			padding: 0;
 
 			.title {
-				display: flex;
-				flex-direction: row;
-				align-items: center;
+				@include flex(row, space-around, center);
 
 				img {
-					width: 50px;
-					height: 50px;
+					width: $very-large;
+					height: $very-large;
 					margin-inline: $medium;
 				}
 

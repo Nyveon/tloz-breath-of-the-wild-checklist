@@ -1,0 +1,76 @@
+.quest-list li {
+	width: $quest-card-width;
+	height: $quest-card-height;
+	padding: $large $very-small;
+
+	background-color: $color-transparent-dark;
+	@include botw-border;
+
+	position: relative;
+	@include flex(row, flex-start, center);
+
+	img {
+		$icon-size: $quest-card-height * 0.85;
+		width: $icon-size;
+		height: $icon-size;
+	}
+
+	hgroup {
+		margin-left: $very-small;
+		text-align: left;
+		font-family: "Calamity Sans", sans-serif;
+
+		h2 {
+			font-family: inherit;
+			font-weight: bold;
+			line-height: 1.2em;
+		}
+
+		span {
+			font-family: inherit;
+
+			@each $type, $color in $colors-quest {
+				&.#{$type} {
+					color: $color;
+				}
+			}
+		}
+
+		h5 {
+			font-family: inherit;
+
+			@each $type, $color in $colors-quest {
+				&.#{$type} {
+					color: $color;
+				}
+			}
+		}
+	}
+
+	&:not(:last-child) {
+		margin-bottom: $very-small;
+	}
+
+	&:hover {
+		border-color: $color-primary;
+		box-shadow: inset 0 0 10px 1px $color-white-glow,
+			0 0 10px 1px $color-white-glow;
+
+		span.top::before {
+			@include corner-triangle(true, true);
+		}
+
+		span.top::after {
+			@include corner-triangle(false, true);
+		}
+
+		span.bottom::before {
+			@include corner-triangle(false, false);
+		}
+
+		span.bottom::after {
+			@include corner-triangle(true, false);
+		}
+	}
+}
+

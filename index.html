@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html data-theme="dark">
+<html data-theme="dark" lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -53,8 +53,8 @@
 					categories = await (await fetch('data/quests.json')).json();
 				"
 			>
-				<div class="filterbar">
-					<div class="search">
+				<section class="filterbar">
+					<fieldset class="search">
 						<label for="search">Search:</label>
 						<input
 							name="search"
@@ -62,9 +62,9 @@
 							placeholder="Search for a quest..."
 							type="search"
 						/>
-					</div>
+					</fieldset>
 
-					<div class="radio">
+					<fieldset class="radio">
 						<label for="sort">Sort:</label>
 
 						<input
@@ -93,14 +93,14 @@
 							id="sort-none"
 						/>
 						<label for="sort-none">Game</label>
-					</div>
-				</div>
+					</fieldset>
+				</section>
 
-				<div class="content">
-					<div class="tabs">
+				<section class="content">
+					<ul class="tabs">
 						<template x-for="category in filteredQuests" :key="category.type">
-							<div :class="{ 'active': getActiveTab(category.type) }">
-								<img :src="category.background" class="background" />
+							<li :class="{ 'active': getActiveTab(category.type) }">
+								<img :src="category.background" class="background" alt="" />
 								<a
 									href="#"
 									@click="activeTab = category.type"
@@ -114,12 +114,12 @@
 										'memory': category.type === 'memory',
 									}"
 								>
-									<img :src="category.icon" />
+									<img :src="category.icon" alt="category.name" />
 									<h1 x-text="category.name"></h1>
 								</a>
-							</div>
+							</li>
 						</template>
-					</div>
+					</ul>
 
 					<ul class="quest-list">
 						<template x-for="category in filteredQuests">
@@ -129,7 +129,7 @@
 									x-show="getActiveTab(category.type)"
 									x-transition:enter.scale
 								>
-									<img :src="category.icon" />
+									<img :src="category.icon" alt="" />
 									<hgroup>
 										<span class="top"></span>
 										<span class="bottom"></span>
@@ -143,7 +143,7 @@
 							</template>
 						</template>
 					</ul>
-				</div>
+				</section>
 			</section>
 		</main>
 

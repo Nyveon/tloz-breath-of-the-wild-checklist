@@ -1,3 +1,4 @@
 .filterbar {
+	@include flex(row, center, center);
 	padding: $medium;
 }

@@ -1,10 +1,7 @@
 footer {
-	border-top: $border-thickness solid $color-border;
 	height: 10vh;
-
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	@include flex(row, center, center);
 	
 	background-color: $color-frame;
+	border-top: $border-thickness solid $color-border;
 }

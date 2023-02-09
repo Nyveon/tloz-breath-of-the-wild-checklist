@@ -1,3 +1,4 @@
+// Borders, outlines and glows
 @mixin corner-triangle($horizontal, $vertical) {
 	content: "";
 	position: absolute;
@@ -34,4 +35,20 @@
 		style: solid;
 		width: 2px;
 	}
+}
+
+@mixin glow($color) {
+	box-shadow: 0 0 0.5em $color;
+}
+
+@mixin glow-text($color) {
+	text-shadow: 0 0 0.5em $color;
+}
+
+// Layout utilities
+@mixin flex($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
 }

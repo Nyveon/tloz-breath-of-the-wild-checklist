@@ -2,9 +2,7 @@ nav {
 	font-weight: bold;
 
 	ul {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-around;
+		@include flex(row, space-around, normal);
 
 		li {
 			display: inline-block;

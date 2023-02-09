@@ -1,12 +1,17 @@
-.search {
-	input {
+.search input {
+	height: $large;
+	width: 20em;
 
-		height: $large;
-		width: 20em;
-		background-color: $color-frame;
-		color: $color-text;
-		padding: $small;
+	background-color: $color-frame;
+	color: $color-text;
 
-		@include botw-border;
+	@include botw-border;
+
+	&:focus {
+		outline-color: $color-primary;
+	}
+
+	&:hover {
+		border-color: $color-primary;
 	}
 }

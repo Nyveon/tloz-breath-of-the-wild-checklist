@@ -1,17 +1,20 @@
 @font-face {
 	font-family: 'Hylia Serif';
 	src: url(../fonts/HyliaSerifBeta-Regular.otf) format('opentype');
+	font-display: swap;
 }
 
 @font-face {
 	font-family: 'Calamity Sans';
 	src: url(../fonts/Calamity-Regular.otf) format('opentype');
+	font-display: swap;
 }
 
 @font-face {
 	font-family: 'Calamity Sans';
 	font-weight: bold;
 	src: url(../fonts/Calamity-Bold.otf) format('opentype');
+	font-display: swap;
 }
 
 html {

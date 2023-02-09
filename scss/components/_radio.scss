@@ -4,8 +4,8 @@
 	input {
 		-webkit-appearance: none;
 		appearance: none;
-
 		color: currentColor;
+
 		width: $medium;
 		height: $medium;
 		border: 0.15em solid currentColor;
@@ -19,17 +19,15 @@
 
 		&:checked {
 			background-color: $color-highlight;
-			box-shadow: 0 0 0.5em $color-highlight;
+			@include glow($color-highlight);
 		}
 
 		&:hover {
-			box-shadow: 0 0 0.5em $color-white-glow;
+			@include glow($color-white-glow);
 		}
 	}
 
-	label {
-		&:hover {
-			text-shadow: 0 0 0.5em $color-white-glow;
-		}
+	label:hover {
+		@include glow-text($color-white-glow);
 	}
 }
