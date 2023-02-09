@@ -14,7 +14,7 @@
 		/>
 		<meta name="author" content="Nyveon (Eric K.)" />
 
-		<title>TLOZ: Breath of the Wild Checklist</title>
+		<title>BOTW Checklist</title>
 
 		<script
 			defer
@@ -33,7 +33,7 @@
 
 	<body>
 		<header>
-			<h1>TLOZ: Breath of the Wild Checklist</h1>
+			<h1>The Legend of Zelda: Breath of the Wild Checklist</h1>
 
 			<nav>
 				<ul>
@@ -74,7 +74,7 @@
 							name="sort"
 							id="sort-asc"
 						/>
-						<label for="sort-asc"> Ascending </label>
+						<label for="sort-asc">Ascending</label>
 
 						<input
 							type="radio"
@@ -83,7 +83,7 @@
 							value="desc"
 							id="sort-desc"
 						/>
-						<label for="sort-desc"> Descending </label>
+						<label for="sort-desc">Descending</label>
 
 						<input
 							type="radio"
@@ -92,29 +92,32 @@
 							name="sort"
 							id="sort-none"
 						/>
-						<label for="sort-none"> None </label>
+						<label for="sort-none">Game</label>
 					</div>
 				</div>
 
 				<div class="content">
 					<div class="tabs">
 						<template x-for="category in filteredQuests" :key="category.type">
-							<a
-								href="#"
-								@click="activeTab = category.type"
-								:id="category.type"
-								class="title"
-								:class="{
-									'active': getActiveTab(category.type),
-									'main': category.type === 'main',
-									'side': category.type === 'side',
-									'shrine': category.type === 'shrine',
-									'memory': category.type === 'memory',
-								}"
-							>
-								<img :src="category.icon" />
-								<h1 x-text="category.name"></h1>
-							</a>
+							<div :class="{ 'active': getActiveTab(category.type) }">
+								<img :src="category.background" class="background" />
+								<a
+									href="#"
+									@click="activeTab = category.type"
+									:id="category.type"
+									class="title"
+									:class="{
+										'active': getActiveTab(category.type),
+										'main': category.type === 'main',
+										'side': category.type === 'side',
+										'shrine': category.type === 'shrine',
+										'memory': category.type === 'memory',
+									}"
+								>
+									<img :src="category.icon" />
+									<h1 x-text="category.name"></h1>
+								</a>
+							</div>
 						</template>
 					</div>
 
@@ -131,7 +134,10 @@
 										<span class="top"></span>
 										<span class="bottom"></span>
 										<h2 x-text="quest.name"></h2>
-										<h5 x-text="quest.location" :class="category.type"></h5>
+										<h5
+											x-text="quest.location ? quest.location : quest.nameCensored"
+											:class="category.type"
+										></h5>
 									</hgroup>
 								</li>
 							</template>

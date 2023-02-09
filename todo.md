@@ -57,11 +57,13 @@ Quest screen:
 - [ ] Make responsive
 
 - Tabs
-  - [ ] Main Data
-  - [ ] Side Data
-  - [ ] Shrine Data
-  - [ ] Memory Data
-  - [ ] Tab switcher
+  - [x] Main Data
+  - [x] Side Data
+  - [x] Shrine Data
+  - [x] Memory Data
+  - [x] Tab switcher
+  - [x] Tab backgrounds
+  - [ ] Persistent tab selection
 
 - Filter
   - [x] Search by name
@@ -70,3 +72,5 @@ Quest screen:
   - [ ] Hide location names
   - [ ] Show quest giver
   - [ ] Compact mode
+  - [ ] Censor Memory names (???)
+  - [ ] Hide DLC Quests option

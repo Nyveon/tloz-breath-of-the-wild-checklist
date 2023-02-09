@@ -104,6 +104,23 @@ ul.quest-list {
 			height: 2px;
 			transition: transform 0.25s ease-in-out;
 			transform: scaleX(0);
+		}	
+	}
+
+	.background {
+		position: fixed;
+		right: 0;
+		top: 0;
+		height: 100%;
+		z-index: -1;
+		visibility: hidden;
+	}
+
+	.active {
+		.background {
+			visibility: visible;
 		}
 	}
 }
+
+

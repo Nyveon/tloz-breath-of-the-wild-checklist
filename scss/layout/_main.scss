@@ -1,12 +1,11 @@
 main {
 	margin-inline: auto;
-	background-color: $color-background;
-
 	min-height: 100vh;
 
 	section {
 		width: 90%;
 		margin-inline: auto;
+		overflow: hidden;
 
 		.content {
 			display: flex;
