@@ -1,0 +1,24 @@
+{
+  "name": "tloz-breath-of-the-wild-checklist",
+  "version": "1.0.0",
+  "description": "Checklist website for tracking 100%+ completion of The Legend of Zelda: Breath of The Wild.",
+  "main": "index.js",
+  "scripts": {
+    "start": "eleventy --serve",
+	"build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nyveon/tloz-breath-of-the-wild-checklist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nyveon/tloz-breath-of-the-wild-checklist/issues"
+  },
+  "homepage": "https://github.com/Nyveon/tloz-breath-of-the-wild-checklist#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.0"
+  }
+}

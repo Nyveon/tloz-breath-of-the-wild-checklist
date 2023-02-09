@@ -2,8 +2,8 @@
 	{
 		"type": "main",
 		"name": "Main Quests",
-		"icon": "/static/img/quest-main.svg",
-		"background": "/static/img/illustration-main.svg",
+		"icon": "/img/quest-main.svg",
+		"background": "/img/illustration-main.svg",
 		"quests": [
 			{
 				"name": "Destroy Ganon",
@@ -110,8 +110,8 @@
 	{
 		"type": "side",
 		"name": "Side Quests",
-		"icon": "/static/img/quest-side.svg",
-		"background": "/static/img/illustration-side.svg",
+		"icon": "/img/quest-side.svg",
+		"background": "/img/illustration-side.svg",
 		"quests": [
 			{
 				"name": "EX Ancient Horse Rumors",
@@ -573,8 +573,8 @@
 	{
 		"type": "shrine",
 		"name": "Shrine Quests",
-		"icon": "/static/img/quest-shrine.svg",
-		"background": "/static/img/illustration-shrine.svg",
+		"icon": "/img/quest-shrine.svg",
+		"background": "/img/illustration-shrine.svg",
 		"quests": [
 			{
 				"name": "The Skull's Eye",
@@ -791,8 +791,8 @@
 	{
 		"type": "memory",
 		"name": "Memories",
-		"icon": "/static/img/quest-memory.svg",
-		"background": "/static/img/illustration-memory.svg",
+		"icon": "/img/quest-memory.svg",
+		"background": "/img/illustration-memory.svg",
 		"quests": [
 			{
 				"nameCensored": "EX Recovered Memory #1",

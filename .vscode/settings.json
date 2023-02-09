@@ -3,11 +3,8 @@
     	{
             "format": "compressed",
             "extensionName": ".css",
-            "savePath": "/static/css"
+            "savePath": "/src/css"
         }
 	],
 	"svn.ignoreMissingSvnWarning": true,
-	"files.associations": {
-		"*.phate": "html"
-	}
 }

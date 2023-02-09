@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html data-theme="dark" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta
+			name="description"
+			content="Checklist website for tracking 100%+ completion of The Legend of Zelda: Breath of The Wild."
+		/>
+		<meta
+			name="keywords"
+			content="BOTW, TLOZ, Breath of the Wild, Checklist, Cheat Sheet"
+		/>
+		<meta name="author" content="Nyveon (Eric K.)" />
+
+		<title>BOTW Checklist</title>
+
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js"
+		></script>
+
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/module.cjs.min.js"
+		></script>
+
+		<script src="/js/index.js"></script>
+
+		<link rel="stylesheet" href="/css/main.css" />
+	</head>
+
+	<body>
+		<header>
+			<h1>The Legend of Zelda: Breath of the Wild Checklist</h1>
+
+			<nav>
+				<ul>
+					<li><a href="#" role="button">Quests</a></li>
+					<li><a href="#" role="button">Compendium</a></li>
+					<li><a href="#" role="button">Completion</a></li>
+					<li><a href="#" role="button">Settings</a></li>
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			<section
+				class="quests"
+				x-data="questData()"
+				x-init="
+					categories = await (await fetch('data/quests.json')).json();
+				"
+			>
+				<section class="filterbar">
+					<fieldset class="search">
+						<input
+							name="search"
+							x-model="search"
+							placeholder="Search for a quest..."
+							type="search"
+						/>
+					</fieldset>
+
+					<fieldset class="radio">
+						<label for="sort-asc" title="Ascending sort">
+							<input
+								type="radio"
+								value="asc"
+								x-model="sorting"
+								name="sort"
+								id="sort-asc"
+							/>
+							<img src="/img/asc.svg" alt="Ascending sort" />
+						</label>
+
+						<label for="sort-desc" title="Descending sort">
+							<input
+								type="radio"
+								name="sort"
+								x-model="sorting"
+								value="desc"
+								id="sort-desc"
+							/>
+							<img src="/img/desc.svg" alt="Descending sort" />
+						</label>
+
+						<label for="sort-none" title="Sort by index">
+							<input
+								type="radio"
+								value="none"
+								x-model="sorting"
+								name="sort"
+								id="sort-none"
+							/>
+							<img src="/img/none.svg" alt="Sort by index" />
+						</label>
+					</fieldset>
+				</section>
+
+				<section class="content">
+					<ul class="tabs">
+						<template x-for="category in filteredQuests" :key="category.type">
+							<li :class="{ 'active': getActiveTab(category.type) }">
+								<img :src="category.background" class="background" alt="" />
+								<a
+									href="#"
+									@click="activeTab = category.type"
+									:id="category.type"
+									class="title"
+									:class="{
+										'active': getActiveTab(category.type),
+										'main': category.type === 'main',
+										'side': category.type === 'side',
+										'shrine': category.type === 'shrine',
+										'memory': category.type === 'memory',
+									}"
+								>
+									<img :src="category.icon" alt="category.name" />
+									<h1 x-text="category.name"></h1>
+								</a>
+							</li>
+						</template>
+					</ul>
+
+					<ul class="quest-list">
+						<template x-for="category in filteredQuests">
+							<template x-for="quest in category.quests">
+								<li
+									class="category.type"
+									x-show="getActiveTab(category.type)"
+									x-transition:enter.scale
+								>
+									<img :src="category.icon" alt="" />
+									<hgroup>
+										<span class="top"></span>
+										<span class="bottom"></span>
+										<h2 x-text="quest.name"></h2>
+										<h5
+											x-text="quest.location ? quest.location : quest.nameCensored"
+											:class="category.type"
+										></h5>
+									</hgroup>
+								</li>
+							</template>
+						</template>
+					</ul>
+				</section>
+			</section>
+		</main>
+
+		<footer>
+			<span>Page by Nyveon. (Eric K)</span>
+			<span>credits to go here, currently in the readme</span>
+		</footer>
+	</body>
+</html>
