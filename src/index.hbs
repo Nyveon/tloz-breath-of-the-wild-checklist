@@ -1,0 +1,102 @@
+--- layout: base.hbs title: "BOTW: Quests" ---
+
+<main>
+	<section class="quests" x-data="questData()">
+		<section class="filterbar">
+			<fieldset class="search">
+				<input
+					name="search"
+					x-model="search"
+					placeholder="Search for a quest..."
+					type="search"
+				/>
+			</fieldset>
+
+			<fieldset class="radio">
+				<label for="sort-asc" title="Ascending sort">
+					<input
+						type="radio"
+						value="asc"
+						x-model="sorting"
+						name="sort"
+						id="sort-asc"
+					/>
+					<img src="/img/asc.svg" alt="Ascending sort" />
+				</label>
+
+				<label for="sort-desc" title="Descending sort">
+					<input
+						type="radio"
+						name="sort"
+						x-model="sorting"
+						value="desc"
+						id="sort-desc"
+					/>
+					<img src="/img/desc.svg" alt="Descending sort" />
+				</label>
+
+				<label for="sort-none" title="Sort by index">
+					<input
+						type="radio"
+						value="none"
+						x-model="sorting"
+						name="sort"
+						id="sort-none"
+					/>
+					<img src="/img/none.svg" alt="Sort by index" />
+				</label>
+			</fieldset>
+		</section>
+
+		<section class="content">
+			<ul class="tabs">
+				{{#each categories}}
+					<li :class="{ 'active': isActiveTab('{{this.type}}') }">
+						<img src="{{this.background}}" class="background" alt="" />
+						<a
+							href="#"
+							id="{{this.type}}"
+							class="title {{this.type}}"
+							:class="{'active': isActiveTab('{{this.type}}')}"
+							@click="activeTab = '{{this.type}}'"
+						>
+							<img src="{{this.icon}}" alt="{{this.name}}" />
+							<h1>{{this.name}}</h1>
+						</a>
+					</li>
+				{{/each}}
+			</ul>
+
+			<ul class="quest-list">
+				{{#each categories}}
+					<template
+						x-data="{ 
+							quests: {{json this.quests}},
+							get filteredQuests() {
+								return this.questFilter(this.quests);
+							}
+						}"
+						x-for="quest in filteredQuests"
+					>
+						<li
+							class="{{this.type}}"
+							x-show="isActiveTab('{{this.type}}')"
+							x-transition:enter.scale
+						>
+							<img src="{{this.icon}}" alt="" />
+							<hgroup>
+								<span class="top"></span>
+								<span class="bottom"></span>
+								<h2 x-text="quest.name"></h2>
+								<h5
+									class="{{this.type}}"
+									x-text="quest.location ? quest.location : quest.nameCensored"
+								></h5>
+							</hgroup>
+						</li>
+					</template>
+				{{/each}}
+			</ul>
+		</section>
+	</section>
+</main>

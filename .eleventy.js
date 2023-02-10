@@ -3,7 +3,10 @@ module.exports = function(eleventyConfig) {
 	eleventyConfig.addPassthroughCopy("./src/js");
 	eleventyConfig.addPassthroughCopy("./src/img");
 	eleventyConfig.addPassthroughCopy("./src/fonts");
-	eleventyConfig.addPassthroughCopy("./src/data");
+
+	eleventyConfig.addHandlebarsHelper('json', function(context) {
+		return JSON.stringify(context);
+	});
 
 	return {
 		dir: {

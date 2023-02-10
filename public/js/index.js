@@ -6,29 +6,21 @@ const sorts = {
 
 function questData() {
 	return {
-		categories: [],
 		search: "",
 		sorting: 'none',
 		activeTab: 'main',
 
-		get filteredQuests() {
-			return this.categories.map((category) => {
-				return {
-					...category,
-					quests: category.quests
-						.filter((quest) => {
-							return quest.name
-								.toLowerCase()
-								.includes(this.search.toLowerCase());
-						})
-						.sort(sorts[this.sorting]),
-				};
-			});
+		isActiveTab(id) {
+			return this.activeTab === id;
 		},
 
-		getActiveTab(id) {
-			return this.activeTab === id;
-		}
+		questFilter(quests) {
+			return quests
+				.filter((quest) => {
+					return quest.name.toLowerCase().includes(this.search.toLowerCase());
+				})
+				.sort(sorts[this.sorting]);
+		}		
 	};
 }
 
