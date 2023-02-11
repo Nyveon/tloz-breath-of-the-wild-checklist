@@ -4,24 +4,10 @@ const sorts = {
 	'none': () => 0,
 };
 
-function questData() {
-	return {
-		search: "",
-		sorting: 'none',
-		activeTab: 'main',
-
-		isActiveTab(id) {
-			return this.activeTab === id;
-		},
-
-		questFilter(quests) {
-			return quests
-				.filter((quest) => {
-					return quest.name.toLowerCase().includes(this.search.toLowerCase());
-				})
-				.sort(sorts[this.sorting]);
-		}		
-	};
+function questFilter(quests, search, sorting) {
+	return quests
+		.filter((quest) => {
+			return quest.name.toLowerCase().includes(search.toLowerCase());
+		})
+		.sort(sorts[sorting]);
 }
-
-

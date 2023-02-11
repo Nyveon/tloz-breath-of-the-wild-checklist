@@ -72,5 +72,9 @@
 			@include corner-triangle(true, false);
 		}
 	}
+
+	&.completed {
+		opacity: 0.5;
+	}
 }
 

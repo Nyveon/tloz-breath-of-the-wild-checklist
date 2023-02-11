@@ -4,7 +4,18 @@ title: "BOTW: Quests"
 ---
 
 <main>
-	<section class="quests" x-data="questData()">
+	<section
+		class="quests"
+		x-data="{
+			search: '',
+			sorting: $persist('none'),
+			activeTab: $persist('main'),
+
+			isActiveTab(id) {
+				return this.activeTab === id;
+			},
+		}"
+	>
 		<section class="filterbar">
 			<fieldset class="search">
 				<input
@@ -16,38 +27,19 @@ title: "BOTW: Quests"
 			</fieldset>
 
 			<fieldset class="radio">
-				<label for="sort-asc" title="Ascending sort">
+				{% for key, name in { 'asc': 'Ascending', 'desc': 'Descending', 'none':
+				'Index' } %}
+				<label for="sort-{{ key }}" title="Sort by {{ name }}">
 					<input
 						type="radio"
-						value="asc"
+						value="{{ key }}"
 						x-model="sorting"
 						name="sort"
-						id="sort-asc"
+						id="sort-{{ key }}"
 					/>
-					<img src="/img/asc.svg" alt="Ascending sort" />
+					<img src="/img/{{ key }}.svg" alt="Sort by {{ name }}" />
 				</label>
-
-				<label for="sort-desc" title="Descending sort">
-					<input
-						type="radio"
-						name="sort"
-						x-model="sorting"
-						value="desc"
-						id="sort-desc"
-					/>
-					<img src="/img/desc.svg" alt="Descending sort" />
-				</label>
-
-				<label for="sort-none" title="Sort by index">
-					<input
-						type="radio"
-						value="none"
-						x-model="sorting"
-						name="sort"
-						id="sort-none"
-					/>
-					<img src="/img/none.svg" alt="Sort by index" />
-				</label>
+				{% endfor %}
 			</fieldset>
 		</section>
 
@@ -76,15 +68,20 @@ title: "BOTW: Quests"
 					x-data="{ 
 							quests: {{ category.quests | dump }},
 							get filteredQuests() {
-								return this.questFilter(this.quests);
+								return questFilter(this.quests, this.search, this.sorting);
 							}
 						}"
 					x-for="quest in filteredQuests"
+					:key="quest.index"
 				>
 					<li
+						:id="'{{ category.type }}-' + quest.index"
+						x-data="{ completed: $persist(false).as('{{ category.type }}-' + quest.index) }"
 						class="{{ category.type }}"
+						:class="{ 'completed': completed }"
+						@click="completed = !completed"
 						x-show="isActiveTab('{{ category.type }}')"
-						x-transition:enter.scale
+						x-transition:enter
 					>
 						<img src="{{ category.icon }}" alt="" />
 						<hgroup>

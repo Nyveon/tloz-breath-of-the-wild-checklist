@@ -16,11 +16,11 @@
 
 		<script
 			defer
-			src="https://cdn.jsdelivr.net/npm/alpinejs@3.11.1/dist/cdn.min.js"
+			src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"
 		></script>
 		<script
 			defer
-			src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.11.1/dist/module.cjs.min.js"
+			src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
 		></script>
 		<script src="/js/index.js"></script>
 
@@ -33,10 +33,11 @@
 
 			<nav>
 				<ul>
-					<li><a href="#" role="button">Quests</a></li>
-					<li><a href="#" role="button">Compendium</a></li>
-					<li><a href="#" role="button">Completion</a></li>
-					<li><a href="#" role="button">Settings</a></li>
+					{% for page in ['Quests', 'Compendium', 'Completion', 'Settings'] %}
+					<li>
+						<a href="/{{ page | lower }}" role="button">{{ page }}</a>
+					</li>
+					{% endfor %}
 				</ul>
 			</nav>
 		</header>
