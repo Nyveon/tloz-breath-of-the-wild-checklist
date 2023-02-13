@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html data-theme="dark" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta
+			name="description"
+			content="Checklist website for tracking 100%+ completion of The Legend of Zelda: Breath of The Wild."
+		/>
+		<meta
+			name="keywords"
+			content="BOTW, TLOZ, Breath of the Wild, Checklist, Cheat Sheet"
+		/>
+		<meta name="author" content="Nyveon (Eric K.)" />
+		<title>BOTW: Quests</title>
+
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.x.x/dist/cdn.min.js"
+		></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+		></script>
+		<script src="/js/index.js"></script>
+
+		<link rel="stylesheet" href="/css/main.css" />
+	</head>
+
+	<body>
+		<header>
+			<h1><a href="/">The Legend of Zelda: Breath of the Wild Checklist</a></h1>
+
+			<nav>
+				<ul>
+					
+					<li>
+						<a href="/quests">Quests</a>
+					</li>
+					
+					<li>
+						<a href="/compendium">Compendium</a>
+					</li>
+					
+					<li>
+						<a href="/completion">Completion</a>
+					</li>
+					
+					<li>
+						<a href="/settings">Settings</a>
+					</li>
+					
+				</ul>
+			</nav>
+		</header>
+
+		<main>
+			
+<section
+	class="quests"
+	x-data="{
+		search: '',
+		sorting: $persist('none'),
+		activeTab: $persist('main'),
+		showCompleted: $persist(true),
+		showDLC: $persist(true),
+		compactMode: $persist(false),
+		spoilerLocation: $persist(true),
+
+		isActiveTab(id) {
+			return this.activeTab === id;
+		},
+	}"
+>
+	<section class="filterbar" role="toolbar" aria-label="Quest filters">
+		<fieldset class="search" role="search">
+			<input
+				name="search"
+				x-model="search"
+				type="search"
+				placeholder="Search for a quest..."
+			/>
+		</fieldset>
+
+		<fieldset class="radio">
+			
+			<label for="sort-asc" title="Sort by Ascending">
+				<input
+					type="radio"
+					value="asc"
+					x-model="sorting"
+					name="sort"
+					id="sort-asc"
+				/>
+				<img src="/img/asc.svg" alt="Sort by Ascending" />
+			</label>
+			
+			<label for="sort-desc" title="Sort by Descending">
+				<input
+					type="radio"
+					value="desc"
+					x-model="sorting"
+					name="sort"
+					id="sort-desc"
+				/>
+				<img src="/img/desc.svg" alt="Sort by Descending" />
+			</label>
+			
+			<label for="sort-none" title="Sort by Index">
+				<input
+					type="radio"
+					value="none"
+					x-model="sorting"
+					name="sort"
+					id="sort-none"
+				/>
+				<img src="/img/none.svg" alt="Sort by Index" />
+			</label>
+			
+		</fieldset>
+
+		<fieldset class="checkbox">
+			
+			<label for="showCompleted" title="Show completed quests">
+				<input
+					type="checkbox"
+					x-model="showCompleted"
+					name="showCompleted"
+					id="showCompleted"
+				/>
+				<span>Show completed quests</span>
+			</label>
+			
+			<label for="showDLC" title="Show DLC quests">
+				<input
+					type="checkbox"
+					x-model="showDLC"
+					name="showDLC"
+					id="showDLC"
+				/>
+				<span>Show DLC quests</span>
+			</label>
+			
+			<label for="compactMode" title="Compact mode">
+				<input
+					type="checkbox"
+					x-model="compactMode"
+					name="compactMode"
+					id="compactMode"
+				/>
+				<span>Compact mode</span>
+			</label>
+			
+			<label for="spoilerLocation" title="Censor location">
+				<input
+					type="checkbox"
+					x-model="spoilerLocation"
+					name="spoilerLocation"
+					id="spoilerLocation"
+				/>
+				<span>Censor location</span>
+			</label>
+			
+		</fieldset>
+	</section>
+
+	<section class="content" aria-label="Quests">
+		<ul role="tablist">
+			
+			<li role="tab" :aria-selected="isActiveTab('main')">
+				<img src="/img/illustration-main.svg" class="background" alt="" />
+				<a
+					href="#"
+					id="main"
+					class="title main"
+					@click="activeTab = 'main'"
+				>
+					<img src="/img/quest-main.svg" alt="Main Quests" />
+					<h2>Main Quests</h2>
+				</a>
+			</li>
+			
+			<li role="tab" :aria-selected="isActiveTab('side')">
+				<img src="/img/illustration-side.svg" class="background" alt="" />
+				<a
+					href="#"
+					id="side"
+					class="title side"
+					@click="activeTab = 'side'"
+				>
+					<img src="/img/quest-side.svg" alt="Side Quests" />
+					<h2>Side Quests</h2>
+				</a>
+			</li>
+			
+			<li role="tab" :aria-selected="isActiveTab('shrine')">
+				<img src="/img/illustration-shrine.svg" class="background" alt="" />
+				<a
+					href="#"
+					id="shrine"
+					class="title shrine"
+					@click="activeTab = 'shrine'"
+				>
+					<img src="/img/quest-shrine.svg" alt="Shrine Quests" />
+					<h2>Shrine Quests</h2>
+				</a>
+			</li>
+			
+			<li role="tab" :aria-selected="isActiveTab('memory')">
+				<img src="/img/illustration-memory.svg" class="background" alt="" />
+				<a
+					href="#"
+					id="memory"
+					class="title memory"
+					@click="activeTab = 'memory'"
+				>
+					<img src="/img/quest-memory.svg" alt="Memories" />
+					<h2>Memories</h2>
+				</a>
+			</li>
+			
+		</ul>
+
+		
+		<template x-if="isActiveTab('main')">
+			<ul role="tabpanel" :class="{ 'compact': compactMode }">
+				<template
+					x-data="{ 
+							quests: [{&quot;name&quot;:&quot;Destroy Ganon&quot;,&quot;npc&quot;:&quot;King Rhoam&quot;,&quot;location&quot;:&quot;Great Plateau&quot;,&quot;index&quot;:0},{&quot;name&quot;:&quot;EX The Champions&#39; Ballad&quot;,&quot;npc&quot;:&quot;Zelda&quot;,&quot;location&quot;:&quot;Shrine of Resurrection&quot;,&quot;index&quot;:1,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Champion Urbosa&#39;s Song&quot;,&quot;npc&quot;:&quot;Monk Maz Koshia&quot;,&quot;location&quot;:&quot;East Gerudo Mesa&quot;,&quot;index&quot;:2,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Champion Daruk&#39;s Song&quot;,&quot;npc&quot;:&quot;Monk Maz Koshia&quot;,&quot;location&quot;:&quot;Eldin Mountains&quot;,&quot;index&quot;:3,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Champion Mipha&#39;s Song&quot;,&quot;npc&quot;:&quot;Monk Maz Koshia&quot;,&quot;location&quot;:&quot;Ja&#39;Abu Ridge&quot;,&quot;index&quot;:4,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Champion Revali&#39;s Song&quot;,&quot;npc&quot;:&quot;Monk Maz Koshia&quot;,&quot;location&quot;:&quot;Strock Lake&quot;,&quot;index&quot;:5,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;Follow the Sheikah Slate&quot;,&quot;npc&quot;:&quot;???&quot;,&quot;location&quot;:&quot;Great Plateau&quot;,&quot;index&quot;:6},{&quot;name&quot;:&quot;The Isolated Plateau&quot;,&quot;npc&quot;:&quot;Old Man&quot;,&quot;location&quot;:&quot;Great Plateau&quot;,&quot;index&quot;:7},{&quot;name&quot;:&quot;Seek Out Impa&quot;,&quot;npc&quot;:&quot;King Rhoam&quot;,&quot;location&quot;:&quot;Great Plateau&quot;,&quot;index&quot;:8},{&quot;name&quot;:&quot;The Hero&#39;s Sword&quot;,&quot;npc&quot;:&quot;The Great Deku Tree&quot;,&quot;location&quot;:&quot;Korok Forest&quot;,&quot;index&quot;:9},{&quot;name&quot;:&quot;Free the Divine Beasts&quot;,&quot;npc&quot;:&quot;Impa&quot;,&quot;location&quot;:&quot;Kakariko Village&quot;,&quot;index&quot;:10},{&quot;name&quot;:&quot;Locked Mementos&quot;,&quot;npc&quot;:&quot;Impa&quot;,&quot;location&quot;:&quot;Kakariko Village&quot;,&quot;index&quot;:11},{&quot;name&quot;:&quot;Divine Beast Vah Medoh&quot;,&quot;npc&quot;:&quot;Kaneli&quot;,&quot;location&quot;:&quot;Rito Village&quot;,&quot;index&quot;:12},{&quot;name&quot;:&quot;Divine Beast Vah Rudania&quot;,&quot;npc&quot;:&quot;Bludo&quot;,&quot;location&quot;:&quot;Goron City&quot;,&quot;index&quot;:13},{&quot;name&quot;:&quot;Reach Zora&#39;s Domain&quot;,&quot;npc&quot;:&quot;Sidon&quot;,&quot;location&quot;:&quot;Inogo Bridge&quot;,&quot;index&quot;:14},{&quot;name&quot;:&quot;Divine Beast Vah Ruta&quot;,&quot;npc&quot;:&quot;King Dorephan&quot;,&quot;location&quot;:&quot;Zora&#39;s Domain&quot;,&quot;index&quot;:15},{&quot;name&quot;:&quot;Forbidden City Entry&quot;,&quot;npc&quot;:&quot;Benja&quot;,&quot;location&quot;:&quot;Gerudo Town&quot;,&quot;index&quot;:16},{&quot;name&quot;:&quot;Divine Beast Vah Naboris&quot;,&quot;npc&quot;:&quot;Riju&quot;,&quot;location&quot;:&quot;Gerudo Town&quot;,&quot;index&quot;:17},{&quot;name&quot;:&quot;Captured Memories&quot;,&quot;npc&quot;:&quot;Impa&quot;,&quot;location&quot;:&quot;Kakariko Village&quot;,&quot;index&quot;:18},{&quot;name&quot;:&quot;Find the Fairy Fountain&quot;,&quot;npc&quot;:&quot;Pikango&quot;,&quot;location&quot;:&quot;Kakariko Village&quot;,&quot;index&quot;:19}],
+							get filteredQuests() {
+								return questFilter(this.quests, this.search, this.sorting);
+							}
+						}"
+					x-for="quest in filteredQuests"
+					:key="quest.index"
+				>
+					<li
+						:id="'main-' + quest.index"
+						x-data="{ completed: $persist(false).as('main-' + quest.index) }"
+						class="main"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation }"
+						@click="completed = !completed"
+						x-show="(showCompleted || !completed) && (showDLC || !quest.dlc)"
+						x-transition
+						role="button"
+					>
+						<img src="/img/quest-main.svg" alt="" />
+						<div class="top"></div>
+						<div class="bottom"></div>
+						<hgroup>
+							<h3
+								x-text="quest.nameCensored ? quest.nameCensored : quest.name"
+							></h3>
+							<span
+								class="main"
+								x-text="quest.nameCensored ? quest.name : quest.location"
+							></span>
+						</hgroup>
+					</li>
+				</template>
+			</ul>
+		</template>
+		
+		<template x-if="isActiveTab('side')">
+			<ul role="tabpanel" :class="{ 'compact': compactMode }">
+				<template
+					x-data="{ 
+							quests: [{&quot;name&quot;:&quot;EX Ancient Horse Rumors&quot;,&quot;npc&quot;:&quot;Super Rumor Mill V3&quot;,&quot;location&quot;:&quot;Highland Stable&quot;,&quot;index&quot;:0,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Royal Guard Rumors&quot;,&quot;npc&quot;:&quot;Super Rumor Mill V4&quot;,&quot;location&quot;:&quot;Riverside Stable&quot;,&quot;index&quot;:1,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Treasure: Merchant Hood&quot;,&quot;npc&quot;:&quot;Misko&#39;s EX Journal 2&quot;,&quot;location&quot;:&quot;Deya Village Ruins&quot;,&quot;index&quot;:2,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Treasure: Garb of Winds&quot;,&quot;npc&quot;:&quot;Misko&#39;s EX Journal 2&quot;,&quot;location&quot;:&quot;Deya Village Ruins&quot;,&quot;index&quot;:3,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Treasure: Usurper King&quot;,&quot;npc&quot;:&quot;Misko&#39;s EX Journal 2&quot;,&quot;location&quot;:&quot;Deya Village Ruins&quot;,&quot;index&quot;:4,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Treasure: Dark Armor&quot;,&quot;npc&quot;:&quot;Misko&#39;s EX Journal 2&quot;,&quot;location&quot;:&quot;Deya Village Ruins&quot;,&quot;index&quot;:5,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Strange Mask Rumors&quot;,&quot;npc&quot;:&quot;Super Rumor Mill V1&quot;,&quot;location&quot;:&quot;Woodland Stable&quot;,&quot;index&quot;:6,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Teleportation Rumors!&quot;,&quot;npc&quot;:&quot;Super Rumor Mill V2&quot;,&quot;location&quot;:&quot;South Akkala Stable&quot;,&quot;index&quot;:7,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Treasure: Ancient Mask&quot;,&quot;npc&quot;:&quot;Misko&#39;s EX Journal&quot;,&quot;location&quot;:&quot;Outpost Ruins&quot;,&quot;index&quot;:8,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Treasure: Fairy Clothes&quot;,&quot;npc&quot;:&quot;Misko&#39;s EX Journal&quot;,&quot;location&quot;:&quot;Outpost Ruins&quot;,&quot;index&quot;:9,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Treasure: Twilight Relic&quot;,&quot;npc&quot;:&quot;Misko&#39;s EX Journal&quot;,&quot;location&quot;:&quot;Outpost Ruins&quot;,&quot;index&quot;:10,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Treasure: Phantasma&quot;,&quot;npc&quot;:&quot;Misko&#39;s EX Journal&quot;,&quot;location&quot;:&quot;Outpost Ruins&quot;,&quot;index&quot;:11,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;EX Trial of the Sword&quot;,&quot;npc&quot;:&quot;???&quot;,&quot;location&quot;:&quot;Korok Forest&quot;,&quot;index&quot;:12,&quot;dlc&quot;:true},{&quot;name&quot;:&quot;Robbie&#39;s Research&quot;,&quot;npc&quot;:&quot;Purah&quot;,&quot;location&quot;:&quot;Hateno Ancient Tech Lab&quot;,&quot;index&quot;:13},{&quot;name&quot;:&quot;From the Ground Up&quot;,&quot;npc&quot;:&quot;Hudson&quot;,&quot;location&quot;:&quot;Hateno Village&quot;,&quot;index&quot;:14},{&quot;name&quot;:&quot;A Parent&#39;s Love&quot;,&quot;npc&quot;:&quot;Ruli&quot;,&quot;location&quot;:&quot;Tarrey Town&quot;,&quot;index&quot;:15},{&quot;name&quot;:&quot;Hobbies of the Rich&quot;,&quot;npc&quot;:&quot;Hagie&quot;,&quot;location&quot;:&quot;Tarrey Town&quot;,&quot;index&quot;:16},{&quot;name&quot;:&quot;A Shady Customer&quot;,&quot;npc&quot;:&quot;Hoz&quot;,&quot;location&quot;:&quot;East Akkala Stable&quot;,&quot;index&quot;:17},{&quot;name&quot;:&quot;Little Sister&#39;s Big Request&quot;,&quot;npc&quot;:&quot;Jana&quot;,&quot;location&quot;:&quot;South Akkala Stable&quot;,&quot;index&quot;:18},{&quot;name&quot;:&quot;Hylian Homeowner&quot;,&quot;npc&quot;:&quot;Bolson&quot;,&quot;location&quot;:&quot;Hateno Village&quot;,&quot;index&quot;:19},{&quot;name&quot;:&quot;The Statue&#39;s Bargain&quot;,&quot;npc&quot;:&quot;Horned Statue&quot;,&quot;location&quot;:&quot;Hateno Village&quot;,&quot;index&quot;:20},{&quot;name&quot;:&quot;A Gift for My Beloved&quot;,&quot;npc&quot;:&quot;Manny&quot;,&quot;location&quot;:&quot;Hateno Village&quot;,&quot;index&quot;:21},{&quot;name&quot;:&quot;The Weapon Connoisseur&quot;,&quot;npc&quot;:&quot;Nebb&quot;,&quot;location&quot;:&quot;Hateno Village&quot;,&quot;index&quot;:22},{&quot;name&quot;:&quot;The Sheep Rustlers&quot;,&quot;npc&quot;:&quot;Koyin&quot;,&quot;location&quot;:&quot;Hateno Village&quot;,&quot;index&quot;:23},{&quot;name&quot;:&quot;Sunshroom Sensing&quot;,&quot;npc&quot;:&quot;Symin&quot;,&quot;location&quot;:&quot;Hateno Ancient Tech Lab&quot;,&quot;index&quot;:24},{&quot;name&quot;:&quot;Slated for Upgrades&quot;,&quot;npc&quot;:&quot;Purah&quot;,&quot;location&quot;:&quot;Hateno Ancient Tech Lab&quot;,&quot;index&quot;:25},{&quot;name&quot;:&quot;Sunken Treasure&quot;,&quot;npc&quot;:&quot;Rozel&quot;,&quot;location&quot;:&quot;Lurelin Village&quot;,&quot;index&quot;:26},{&quot;name&quot;:&quot;What&#39;s for Dinner?&quot;,&quot;npc&quot;:&quot;Kiana&quot;,&quot;location&quot;:&quot;Lurelin Village&quot;,&quot;index&quot;:27},{&quot;name&quot;:&quot;Take Back the Sea&quot;,&quot;npc&quot;:&quot;Sebasto&quot;,&quot;location&quot;:&quot;Lurelin Village&quot;,&quot;index&quot;:28},{&quot;name&quot;:&quot;Koko&#39;s Kitchen&quot;,&quot;npc&quot;:&quot;Koko&quot;,&quot;location&quot;:&quot;Kakariko Village&quot;,&quot;index&quot;:29},{&quot;name&quot;:&quot;Cooking with Koko&quot;,&quot;npc&quot;:&quot;Koko&quot;,&quot;location&quot;:&quot;Kakariko Village&quot;,&quot;index&quot;:30},{&quot;name&quot;:&quot;Koko Cuisine&quot;,&quot;npc&quot;:&quot;Koko&quot;,&quot;location&quot;:&quot;Kakariko Village&quot;,&quot;index&quot;:31},{&quot;name&quot;:&quot;Koko&#39;s Specialty&quot;,&quot;npc&quot;:&quot;Koko&quot;,&quot;location&quot;:&quot;Kakariko Village&quot;,&quot;index&quot;:32},{&quot;name&quot;:&quot;Playtime with Cottla&quot;,&quot;npc&quot;:&quot;Cottla&quot;,&quot;location&quot;:&quot;Kakariko Village&quot;,&quot;index&quot;:33},{&quot;name&quot;:&quot;By Firefly&#39;s Light&quot;,&quot;npc&quot;:&quot;Lasli&quot;,&quot;location&quot;:&quot;Kakariko Village&quot;,&quot;index&quot;:34},{&quot;name&quot;:&quot;Flown the Coop&quot;,&quot;npc&quot;:&quot;Cado&quot;,&quot;location&quot;:&quot;Kakariko Village&quot;,&quot;index&quot;:35},{&quot;name&quot;:&quot;The Priceless Maracas&quot;,&quot;npc&quot;:&quot;Hestu&quot;,&quot;location&quot;:&quot;West Necluda&quot;,&quot;index&quot;:36},{&quot;name&quot;:&quot;Arrows of Burning Heat&quot;,&quot;npc&quot;:&quot;Rola&quot;,&quot;location&quot;:&quot;Kakariko Village&quot;,&quot;index&quot;:37},{&quot;name&quot;:&quot;Stalhorse: Pictured!&quot;,&quot;npc&quot;:&quot;Juannelle&quot;,&quot;location&quot;:&quot;Snowfield Stable&quot;,&quot;index&quot;:38},{&quot;name&quot;:&quot;Curry for What Ails You&quot;,&quot;npc&quot;:&quot;Lester&quot;,&quot;location&quot;:&quot;Rito Stable&quot;,&quot;index&quot;:39},{&quot;name&quot;:&quot;Find Kheel&quot;,&quot;npc&quot;:&quot;Amali&quot;,&quot;location&quot;:&quot;Rito Village&quot;,&quot;index&quot;:40},{&quot;name&quot;:&quot;Face the Frost Talus&quot;,&quot;npc&quot;:&quot;Gesane&quot;,&quot;location&quot;:&quot;Rito Village&quot;,&quot;index&quot;:41},{&quot;name&quot;:&quot;The Apple of My Eye&quot;,&quot;npc&quot;:&quot;Juney&quot;,&quot;location&quot;:&quot;Rito Village&quot;,&quot;index&quot;:42},{&quot;name&quot;:&quot;The Spark of Romance&quot;,&quot;npc&quot;:&quot;Jogo&quot;,&quot;location&quot;:&quot;Rito Village&quot;,&quot;index&quot;:43},{&quot;name&quot;:&quot;The Jewel Trade&quot;,&quot;npc&quot;:&quot;Ramella&quot;,&quot;location&quot;:&quot;Goron City&quot;,&quot;index&quot;:44},{&quot;name&quot;:&quot;Death Mountain&#39;s Secret&quot;,&quot;npc&quot;:&quot;Dugby&quot;,&quot;location&quot;:&quot;Goron Hot Springs&quot;,&quot;index&quot;:45},{&quot;name&quot;:&quot;The Road to Respect&quot;,&quot;npc&quot;:&quot;Fugo&quot;,&quot;location&quot;:&quot;Goron City&quot;,&quot;index&quot;:46},{&quot;name&quot;:&quot;Fireproof Lizard Roundup&quot;,&quot;npc&quot;:&quot;Kima&quot;,&quot;location&quot;:&quot;Southern Mine&quot;,&quot;index&quot;:47},{&quot;name&quot;:&quot;Balloon Flight&quot;,&quot;npc&quot;:&quot;Shamae&quot;,&quot;location&quot;:&quot;Woodland Stable&quot;,&quot;index&quot;:48},{&quot;name&quot;:&quot;The Thunder Helm&quot;,&quot;npc&quot;:&quot;Riju&quot;,&quot;location&quot;:&quot;Gerudo Town&quot;,&quot;index&quot;:49},{&quot;name&quot;:&quot;Destroy Ganon&quot;,&quot;npc&quot;:&quot;King Rhoam&quot;,&quot;location&quot;:&quot;Great Plateau&quot;,&quot;index&quot;:50},{&quot;name&quot;:&quot;The Search for Barta&quot;,&quot;npc&quot;:&quot;Liana&quot;,&quot;location&quot;:&quot;Gerudo Town&quot;,&quot;index&quot;:51},{&quot;name&quot;:&quot;Medicinal Molduga&quot;,&quot;npc&quot;:&quot;Malena&quot;,&quot;location&quot;:&quot;Gerudo Town&quot;,&quot;index&quot;:52},{&quot;name&quot;:&quot;The Eighth Heroine&quot;,&quot;npc&quot;:&quot;Bozai&quot;,&quot;location&quot;:&quot;Gerudo Desert&quot;,&quot;index&quot;:53},{&quot;name&quot;:&quot;The Mystery Polluter&quot;,&quot;npc&quot;:&quot;Dalia&quot;,&quot;location&quot;:&quot;Gerudo Town&quot;,&quot;index&quot;:54},{&quot;name&quot;:&quot;The Secret Club&#39;s Secret&quot;,&quot;npc&quot;:&quot;Greta&quot;,&quot;location&quot;:&quot;Gerudo Town&quot;,&quot;index&quot;:55},{&quot;name&quot;:&quot;Tools of the Trade&quot;,&quot;npc&quot;:&quot;Isha&quot;,&quot;location&quot;:&quot;Gerudo Town&quot;,&quot;index&quot;:56},{&quot;name&quot;:&quot;The Forgotten Sword&quot;,&quot;npc&quot;:&quot;Bozai&quot;,&quot;location&quot;:&quot;Gerudo Desert&quot;,&quot;index&quot;:57},{&quot;name&quot;:&quot;Missing in Action&quot;,&quot;npc&quot;:&quot;Sesami&quot;,&quot;location&quot;:&quot;Gerudo Canyon Stable&quot;,&quot;index&quot;:58},{&quot;name&quot;:&quot;Rushroom Rush!&quot;,&quot;npc&quot;:&quot;Pirou&quot;,&quot;location&quot;:&quot;Gerudo Canyon Stable&quot;,&quot;index&quot;:59},{&quot;name&quot;:&quot;Good-Sized Horse&quot;,&quot;npc&quot;:&quot;Zyle&quot;,&quot;location&quot;:&quot;Gerudo Canyon&quot;,&quot;index&quot;:60},{&quot;name&quot;:&quot;An Ice Guy&quot;,&quot;npc&quot;:&quot;Guy&quot;,&quot;location&quot;:&quot;Kara Kara Bazaar&quot;,&quot;index&quot;:61},{&quot;name&quot;:&quot;A Freezing Rod&quot;,&quot;npc&quot;:&quot;Kula&quot;,&quot;location&quot;:&quot;Great Hyrule Forest&quot;,&quot;index&quot;:62},{&quot;name&quot;:&quot;The Korok Trials&quot;,&quot;npc&quot;:&quot;Chio&quot;,&quot;location&quot;:&quot;Great Hyrule Forest&quot;,&quot;index&quot;:63},{&quot;name&quot;:&quot;Riddles of Hyrule&quot;,&quot;npc&quot;:&quot;Walton&quot;,&quot;location&quot;:&quot;Great Hyrule Forest&quot;,&quot;index&quot;:64},{&quot;name&quot;:&quot;Legendary Rabbit Trial&quot;,&quot;npc&quot;:&quot;Peeks&quot;,&quot;location&quot;:&quot;Great Hyrule Forest&quot;,&quot;index&quot;:65},{&quot;name&quot;:&quot;Special Delivery&quot;,&quot;npc&quot;:&quot;Finley&quot;,&quot;location&quot;:&quot;Bank of Wishes&quot;,&quot;index&quot;:66},{&quot;name&quot;:&quot;Lynel Safari&quot;,&quot;npc&quot;:&quot;Laflat&quot;,&quot;location&quot;:&quot;Zora&#39;s Domain&quot;,&quot;index&quot;:67},{&quot;name&quot;:&quot;The Giant of Ralis Pond&quot;,&quot;npc&quot;:&quot;Torfeau&quot;,&quot;location&quot;:&quot;Zora&#39;s Domain&quot;,&quot;index&quot;:68},{&quot;name&quot;:&quot;Frog Catching&quot;,&quot;npc&quot;:&quot;Tumbo&quot;,&quot;location&quot;:&quot;Zora&#39;s Domain&quot;,&quot;index&quot;:69},{&quot;name&quot;:&quot;Zora Stone Monuments&quot;,&quot;npc&quot;:&quot;Jiahto&quot;,&quot;location&quot;:&quot;Zora&#39;s Domain&quot;,&quot;index&quot;:70},{&quot;name&quot;:&quot;Diving is Beauty!&quot;,&quot;npc&quot;:&quot;Gruve&quot;,&quot;location&quot;:&quot;Zora&#39;s Domain&quot;,&quot;index&quot;:71},{&quot;name&quot;:&quot;Luminous Stone Gathering&quot;,&quot;npc&quot;:&quot;Ledo&quot;,&quot;location&quot;:&quot;Zora&#39;s Domain&quot;,&quot;index&quot;:72},{&quot;name&quot;:&quot;A Wife Washed Away&quot;,&quot;npc&quot;:&quot;Fronk&quot;,&quot;location&quot;:&quot;Zora&#39;s Domain&quot;,&quot;index&quot;:73},{&quot;name&quot;:&quot;A Gift from the Monks&quot;,&quot;npc&quot;:&quot;Monk&quot;,&quot;location&quot;:&quot;Ancient Shrine&quot;,&quot;index&quot;:74},{&quot;name&quot;:&quot;The Hero&#39;s Cache&quot;,&quot;npc&quot;:&quot;Kass&quot;,&quot;location&quot;:&quot;Kitano Bay&quot;,&quot;index&quot;:75},{&quot;name&quot;:&quot;Misko, the Great Bandit&quot;,&quot;npc&quot;:&quot;Domidak&quot;,&quot;location&quot;:&quot;Dueling Peaks Stable&quot;,&quot;index&quot;:76},{&quot;name&quot;:&quot;Wild Horses&quot;,&quot;npc&quot;:&quot;Rensa&quot;,&quot;location&quot;:&quot;Dueling Peaks Stable&quot;,&quot;index&quot;:77},{&quot;name&quot;:&quot;A Gift of Nightshade&quot;,&quot;npc&quot;:&quot;Wabbin&quot;,&quot;location&quot;:&quot;Faron&quot;,&quot;index&quot;:78},{&quot;name&quot;:&quot;Hunt for the Giant Horse&quot;,&quot;npc&quot;:&quot;Straia&quot;,&quot;location&quot;:&quot;Mounted Archery Camp&quot;,&quot;index&quot;:79},{&quot;name&quot;:&quot;The Horseback Hoodlums&quot;,&quot;npc&quot;:&quot;Perosa&quot;,&quot;location&quot;:&quot;Highland Stable&quot;,&quot;index&quot;:80},{&quot;name&quot;:&quot;Thunder Magnet&quot;,&quot;npc&quot;:&quot;Cima&quot;,&quot;location&quot;:&quot;Lakeside Stable&quot;,&quot;index&quot;:81},{&quot;name&quot;:&quot;A Gift for the Great Fairy&quot;,&quot;npc&quot;:&quot;Toren&quot;,&quot;location&quot;:&quot;Tabantha Bridge Stable&quot;,&quot;index&quot;:82},{&quot;name&quot;:&quot;Destroy Ganon&quot;,&quot;npc&quot;:&quot;King Rhoam&quot;,&quot;location&quot;:&quot;Great Plateau&quot;,&quot;index&quot;:83},{&quot;name&quot;:&quot;Leviathan Bones&quot;,&quot;npc&quot;:&quot;Akrah&quot;,&quot;location&quot;:&quot;Serenne Stable&quot;,&quot;index&quot;:84},{&quot;name&quot;:&quot;The Royal Guard&#39;s Gear&quot;,&quot;npc&quot;:&quot;Parcy&quot;,&quot;location&quot;:&quot;Riverside Stable&quot;,&quot;index&quot;:85},{&quot;name&quot;:&quot;A Royal Recipe&quot;,&quot;npc&quot;:&quot;Gotter&quot;,&quot;location&quot;:&quot;Riverside Stable&quot;,&quot;index&quot;:86},{&quot;name&quot;:&quot;Riverbed Reward&quot;,&quot;npc&quot;:&quot;Izra&quot;,&quot;location&quot;:&quot;Wetland Stable&quot;,&quot;index&quot;:87},{&quot;name&quot;:&quot;My Hero&quot;,&quot;npc&quot;:&quot;Aliza&quot;,&quot;location&quot;:&quot;Outskirt Stable&quot;,&quot;index&quot;:88},{&quot;name&quot;:&quot;A Rare Find&quot;,&quot;npc&quot;:&quot;Trott&quot;,&quot;location&quot;:&quot;Outskirt Stable&quot;,&quot;index&quot;:89},{&quot;name&quot;:&quot;The Royal White Stallion&quot;,&quot;npc&quot;:&quot;Toffa&quot;,&quot;location&quot;:&quot;Outskirt Stable&quot;,&quot;index&quot;:90},{&quot;name&quot;:&quot;[Xenoblade Chronicles 2]&quot;,&quot;npc&quot;:&quot;&quot;,&quot;location&quot;:&quot;&quot;,&quot;index&quot;:91}],
+							get filteredQuests() {
+								return questFilter(this.quests, this.search, this.sorting);
+							}
+						}"
+					x-for="quest in filteredQuests"
+					:key="quest.index"
+				>
+					<li
+						:id="'side-' + quest.index"
+						x-data="{ completed: $persist(false).as('side-' + quest.index) }"
+						class="side"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation }"
+						@click="completed = !completed"
+						x-show="(showCompleted || !completed) && (showDLC || !quest.dlc)"
+						x-transition
+						role="button"
+					>
+						<img src="/img/quest-side.svg" alt="" />
+						<div class="top"></div>
+						<div class="bottom"></div>
+						<hgroup>
+							<h3
+								x-text="quest.nameCensored ? quest.nameCensored : quest.name"
+							></h3>
+							<span
+								class="side"
+								x-text="quest.nameCensored ? quest.name : quest.location"
+							></span>
+						</hgroup>
+					</li>
+				</template>
+			</ul>
+		</template>
+		
+		<template x-if="isActiveTab('shrine')">
+			<ul role="tabpanel" :class="{ 'compact': compactMode }">
+				<template
+					x-data="{ 
+							quests: [{&quot;name&quot;:&quot;The Skull&#39;s Eye&quot;,&quot;npc&quot;:&quot;Jerrin&quot;,&quot;location&quot;:&quot;Akkala Ancient Tech Lab&quot;,&quot;index&quot;:0},{&quot;name&quot;:&quot;Into the Vortex&quot;,&quot;npc&quot;:&quot;Stone Tablet&quot;,&quot;location&quot;:&quot;Rist Peninsula&quot;,&quot;index&quot;:1},{&quot;name&quot;:&quot;Trial of the Labyrinth&quot;,&quot;npc&quot;:&quot;???&quot;,&quot;location&quot;:&quot;Lomei Labyrinth Island&quot;,&quot;index&quot;:2},{&quot;name&quot;:&quot;The Spring of Power&quot;,&quot;npc&quot;:&quot;Nobo&quot;,&quot;location&quot;:&quot;East Akkala Stable&quot;,&quot;index&quot;:3},{&quot;name&quot;:&quot;The Gut Check Challenge&quot;,&quot;npc&quot;:&quot;Bayge&quot;,&quot;location&quot;:&quot;Gut Check Rock&quot;,&quot;index&quot;:4},{&quot;name&quot;:&quot;A Brother&#39;s Roast&quot;,&quot;npc&quot;:&quot;Bladon&quot;,&quot;location&quot;:&quot;Goron City&quot;,&quot;index&quot;:5},{&quot;name&quot;:&quot;A Landscape of a Stable&quot;,&quot;npc&quot;:&quot;Mayro&quot;,&quot;location&quot;:&quot;Foothill Stable&quot;,&quot;index&quot;:6},{&quot;name&quot;:&quot;The Perfect Drink&quot;,&quot;npc&quot;:&quot;Pokki&quot;,&quot;location&quot;:&quot;East Barrens&quot;,&quot;index&quot;:7},{&quot;name&quot;:&quot;Test of Will&quot;,&quot;npc&quot;:&quot;Bayge&quot;,&quot;location&quot;:&quot;Mount Nabooru&quot;,&quot;index&quot;:8},{&quot;name&quot;:&quot;Sign of the Shadow&quot;,&quot;npc&quot;:&quot;Kass&quot;,&quot;location&quot;:&quot;Gerudo Tower&quot;,&quot;index&quot;:9},{&quot;name&quot;:&quot;The Silent Swordswomen&quot;,&quot;npc&quot;:&quot;Laine&quot;,&quot;location&quot;:&quot;Gerudo Town&quot;,&quot;index&quot;:10},{&quot;name&quot;:&quot;The Desert Labyrinth&quot;,&quot;npc&quot;:&quot;???&quot;,&quot;location&quot;:&quot;South Lomei Labyrinth&quot;,&quot;index&quot;:11},{&quot;name&quot;:&quot;The Seven Heroines&quot;,&quot;npc&quot;:&quot;Rotana&quot;,&quot;location&quot;:&quot;Gerudo Town&quot;,&quot;index&quot;:12},{&quot;name&quot;:&quot;The Eye of the Sandstorm&quot;,&quot;npc&quot;:&quot;Nobiro&quot;,&quot;location&quot;:&quot;Kara Kara Bazaar&quot;,&quot;index&quot;:13},{&quot;name&quot;:&quot;Secret of the Snowy Peaks&quot;,&quot;npc&quot;:&quot;Mountain Peak Log&quot;,&quot;location&quot;:&quot;Mount Granajh&quot;,&quot;index&quot;:14},{&quot;name&quot;:&quot;The Undefeated Champ&quot;,&quot;npc&quot;:&quot;Tali&quot;,&quot;location&quot;:&quot;Sand-Seal Rally&quot;,&quot;index&quot;:15},{&quot;name&quot;:&quot;Watch Out for the Flowers&quot;,&quot;npc&quot;:&quot;Magda&quot;,&quot;location&quot;:&quot;Hylia River&quot;,&quot;index&quot;:16},{&quot;name&quot;:&quot;The Three Giant Brothers&quot;,&quot;npc&quot;:&quot;Stone Tablet&quot;,&quot;location&quot;:&quot;Mount Taran&quot;,&quot;index&quot;:17},{&quot;name&quot;:&quot;Secret of the Cedars&quot;,&quot;npc&quot;:&quot;Clavia&quot;,&quot;location&quot;:&quot;Hateno Village&quot;,&quot;index&quot;:18},{&quot;name&quot;:&quot;The Cursed Statue&quot;,&quot;npc&quot;:&quot;Calip&quot;,&quot;location&quot;:&quot;Fort Hateno&quot;,&quot;index&quot;:19},{&quot;name&quot;:&quot;A Fragmented Monument&quot;,&quot;npc&quot;:&quot;Garini&quot;,&quot;location&quot;:&quot;Palmorae Ruins&quot;,&quot;index&quot;:20},{&quot;name&quot;:&quot;The Stolen Heirloom&quot;,&quot;npc&quot;:&quot;Paya&quot;,&quot;location&quot;:&quot;Kakariko Village&quot;,&quot;index&quot;:21},{&quot;name&quot;:&quot;Guardian Slideshow&quot;,&quot;npc&quot;:&quot;Loone&quot;,&quot;location&quot;:&quot;Puffer Beach&quot;,&quot;index&quot;:22},{&quot;name&quot;:&quot;A Song of Storms&quot;,&quot;npc&quot;:&quot;Kass&quot;,&quot;location&quot;:&quot;Calora Lake&quot;,&quot;index&quot;:23},{&quot;name&quot;:&quot;The Serpent&#39;s Jaws&quot;,&quot;npc&quot;:&quot;Kass&quot;,&quot;location&quot;:&quot;Pagos Woods&quot;,&quot;index&quot;:24},{&quot;name&quot;:&quot;Stranded on Eventide&quot;,&quot;npc&quot;:&quot;???&quot;,&quot;location&quot;:&quot;Eventide Island&quot;,&quot;index&quot;:25},{&quot;name&quot;:&quot;The Bird in the Mountains&quot;,&quot;npc&quot;:&quot;Molli&quot;,&quot;location&quot;:&quot;Rito Village&quot;,&quot;index&quot;:26},{&quot;name&quot;:&quot;Recital at Warbler&#39;s Nest&quot;,&quot;npc&quot;:&quot;Kheel&quot;,&quot;location&quot;:&quot;Rito Village&quot;,&quot;index&quot;:27},{&quot;name&quot;:&quot;The Ancient Rito Song&quot;,&quot;npc&quot;:&quot;Bedoli&quot;,&quot;location&quot;:&quot;Rito Village&quot;,&quot;index&quot;:28},{&quot;name&quot;:&quot;Trial on the Cliff&quot;,&quot;npc&quot;:&quot;???&quot;,&quot;location&quot;:&quot;North Lomei Labyrinth&quot;,&quot;index&quot;:29},{&quot;name&quot;:&quot;The Spring of Wisdom&quot;,&quot;npc&quot;:&quot;Medda&quot;,&quot;location&quot;:&quot;Hateno Village&quot;,&quot;index&quot;:30},{&quot;name&quot;:&quot;The Ceremonial Song&quot;,&quot;npc&quot;:&quot;Laruta&quot;,&quot;location&quot;:&quot;Zora&#39;s Domain&quot;,&quot;index&quot;:31},{&quot;name&quot;:&quot;The Crowned Beast&quot;,&quot;npc&quot;:&quot;Kass&quot;,&quot;location&quot;:&quot;Rabia Plain&quot;,&quot;index&quot;:32},{&quot;name&quot;:&quot;Master of the Wind&quot;,&quot;npc&quot;:&quot;Kass&quot;,&quot;location&quot;:&quot;Horon Lagoon&quot;,&quot;index&quot;:33},{&quot;name&quot;:&quot;The Lost Pilgrimage&quot;,&quot;npc&quot;:&quot;Tasho&quot;,&quot;location&quot;:&quot;Korok Forest&quot;,&quot;index&quot;:34},{&quot;name&quot;:&quot;The Two Rings&quot;,&quot;npc&quot;:&quot;Kass&quot;,&quot;location&quot;:&quot;West Hyrule Plains&quot;,&quot;index&quot;:35},{&quot;name&quot;:&quot;Shrouded Shrine&quot;,&quot;npc&quot;:&quot;???&quot;,&quot;location&quot;:&quot;Thyphlo Ruins&quot;,&quot;index&quot;:36},{&quot;name&quot;:&quot;Under a Red Moon&quot;,&quot;npc&quot;:&quot;Kass&quot;,&quot;location&quot;:&quot;Washa&#39;s Bluff&quot;,&quot;index&quot;:37},{&quot;name&quot;:&quot;Cliffside Etchings&quot;,&quot;npc&quot;:&quot;Geggle&quot;,&quot;location&quot;:&quot;Tabantha Bridge Stable&quot;,&quot;index&quot;:38},{&quot;name&quot;:&quot;Trial of Second Sight&quot;,&quot;npc&quot;:&quot;Zooki&quot;,&quot;location&quot;:&quot;Korok Forest&quot;,&quot;index&quot;:39},{&quot;name&quot;:&quot;The Test of Wood&quot;,&quot;npc&quot;:&quot;Damia&quot;,&quot;location&quot;:&quot;Korok Forest&quot;,&quot;index&quot;:40},{&quot;name&quot;:&quot;Trial of Thunder&quot;,&quot;npc&quot;:&quot;???&quot;,&quot;location&quot;:&quot;Thundra Plateau&quot;,&quot;index&quot;:41}],
+							get filteredQuests() {
+								return questFilter(this.quests, this.search, this.sorting);
+							}
+						}"
+					x-for="quest in filteredQuests"
+					:key="quest.index"
+				>
+					<li
+						:id="'shrine-' + quest.index"
+						x-data="{ completed: $persist(false).as('shrine-' + quest.index) }"
+						class="shrine"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation }"
+						@click="completed = !completed"
+						x-show="(showCompleted || !completed) && (showDLC || !quest.dlc)"
+						x-transition
+						role="button"
+					>
+						<img src="/img/quest-shrine.svg" alt="" />
+						<div class="top"></div>
+						<div class="bottom"></div>
+						<hgroup>
+							<h3
+								x-text="quest.nameCensored ? quest.nameCensored : quest.name"
+							></h3>
+							<span
+								class="shrine"
+								x-text="quest.nameCensored ? quest.name : quest.location"
+							></span>
+						</hgroup>
+					</li>
+				</template>
+			</ul>
+		</template>
+		
+		<template x-if="isActiveTab('memory')">
+			<ul role="tabpanel" :class="{ 'compact': compactMode }">
+				<template
+					x-data="{ 
+							quests: [{&quot;nameCensored&quot;:&quot;EX Recovered Memory #1&quot;,&quot;name&quot;:&quot;Champion Revali&#39;s Song&quot;,&quot;index&quot;:0,&quot;dlc&quot;:true},{&quot;nameCensored&quot;:&quot;EX Recovered Memory #2&quot;,&quot;name&quot;:&quot;Champion Daruk&#39;s Song&quot;,&quot;index&quot;:1,&quot;dlc&quot;:true},{&quot;nameCensored&quot;:&quot;EX Recovered Memory #3&quot;,&quot;name&quot;:&quot;Champion Mipha&#39;s Song&quot;,&quot;index&quot;:2,&quot;dlc&quot;:true},{&quot;nameCensored&quot;:&quot;EX Recovered Memory #4&quot;,&quot;name&quot;:&quot;Champion Urbosa&#39;s Song&quot;,&quot;index&quot;:3,&quot;dlc&quot;:true},{&quot;nameCensored&quot;:&quot;EX Recovered Memory #5&quot;,&quot;name&quot;:&quot;The Champions&#39; Ballad&quot;,&quot;index&quot;:4,&quot;dlc&quot;:true},{&quot;nameCensored&quot;:&quot;Recovered Memory #1&quot;,&quot;name&quot;:&quot;Subdued Ceremony&quot;,&quot;index&quot;:5},{&quot;nameCensored&quot;:&quot;Recovered Memory #2&quot;,&quot;name&quot;:&quot;Revali&#39;s Flap&quot;,&quot;index&quot;:6},{&quot;nameCensored&quot;:&quot;Recovered Memory #3&quot;,&quot;name&quot;:&quot;Resolve and Grief&quot;,&quot;index&quot;:7},{&quot;nameCensored&quot;:&quot;Recovered Memory #4&quot;,&quot;name&quot;:&quot;Daruk&#39;s Mettle&quot;,&quot;index&quot;:8},{&quot;nameCensored&quot;:&quot;Recovered Memory #5&quot;,&quot;name&quot;:&quot;Zelda&#39;s Resentment&quot;,&quot;index&quot;:9},{&quot;nameCensored&quot;:&quot;Recovered Memory #6&quot;,&quot;name&quot;:&quot;Urbosa&#39;s Hand&quot;,&quot;index&quot;:10},{&quot;nameCensored&quot;:&quot;Recovered Memory #7&quot;,&quot;name&quot;:&quot;Blades of the Yiga&quot;,&quot;index&quot;:11},{&quot;nameCensored&quot;:&quot;Recovered Memory #8&quot;,&quot;name&quot;:&quot;A Premonition&quot;,&quot;index&quot;:12},{&quot;nameCensored&quot;:&quot;Recovered Memory #9&quot;,&quot;name&quot;:&quot;Silent Princess&quot;,&quot;index&quot;:13},{&quot;nameCensored&quot;:&quot;Recovered Memory #10&quot;,&quot;name&quot;:&quot;Mipha&#39;s Touch&quot;,&quot;index&quot;:14},{&quot;nameCensored&quot;:&quot;Recovered Memory #11&quot;,&quot;name&quot;:&quot;Shelter from the Storm&quot;,&quot;index&quot;:15},{&quot;nameCensored&quot;:&quot;Recovered Memory #12&quot;,&quot;name&quot;:&quot;Father and Daughter&quot;,&quot;index&quot;:16},{&quot;nameCensored&quot;:&quot;Recovered Memory #13&quot;,&quot;name&quot;:&quot;Slumbering Power&quot;,&quot;index&quot;:17},{&quot;nameCensored&quot;:&quot;Recovered Memory #14&quot;,&quot;name&quot;:&quot;To Mount Lanayru&quot;,&quot;index&quot;:18},{&quot;nameCensored&quot;:&quot;Recovered Memory #15&quot;,&quot;name&quot;:&quot;Return of Calamity Ganon&quot;,&quot;index&quot;:19},{&quot;nameCensored&quot;:&quot;Recovered Memory #16&quot;,&quot;name&quot;:&quot;Despair&quot;,&quot;index&quot;:20},{&quot;nameCensored&quot;:&quot;Recovered Memory #17&quot;,&quot;name&quot;:&quot;Zelda&#39;s Awakening&quot;,&quot;index&quot;:21},{&quot;nameCensored&quot;:&quot;Recovered Memory #18&quot;,&quot;name&quot;:&quot;The Master Sword&quot;,&quot;index&quot;:22}],
+							get filteredQuests() {
+								return questFilter(this.quests, this.search, this.sorting);
+							}
+						}"
+					x-for="quest in filteredQuests"
+					:key="quest.index"
+				>
+					<li
+						:id="'memory-' + quest.index"
+						x-data="{ completed: $persist(false).as('memory-' + quest.index) }"
+						class="memory"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation }"
+						@click="completed = !completed"
+						x-show="(showCompleted || !completed) && (showDLC || !quest.dlc)"
+						x-transition
+						role="button"
+					>
+						<img src="/img/quest-memory.svg" alt="" />
+						<div class="top"></div>
+						<div class="bottom"></div>
+						<hgroup>
+							<h3
+								x-text="quest.nameCensored ? quest.nameCensored : quest.name"
+							></h3>
+							<span
+								class="memory"
+								x-text="quest.nameCensored ? quest.name : quest.location"
+							></span>
+						</hgroup>
+					</li>
+				</template>
+			</ul>
+		</template>
+		
+	</section>
+</section>
+
+		</main>
+
+		<footer>
+			<span>Page by Nyveon. (Eric K)</span>
+			<span>credits to go here, currently in the readme</span>
+		</footer>
+	</body>
+</html>

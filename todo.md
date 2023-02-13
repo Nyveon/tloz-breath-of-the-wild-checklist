@@ -71,10 +71,10 @@ Quest screen:
   - [x] Sort by asc/desc/none radio
   - [ ] Send completed to end toggle
   - [x] Hide complete toggle
-  - [ ] Hide location names toggle
-  - [ ] Show quest giver toggle?
-  - [ ] Compact mode toggle
-  - [ ] Censor Memory subtitles toggle
+  - [x] Hide location names toggle
+  - [ ] Future idea: Show quest giver toggle?
+  - [x] Compact mode toggle
+  - [x] Censor Memory subtitles toggle
   - [x] Hide DLC Quests toggle
   - [ ] Include subtitle in search toggle
 

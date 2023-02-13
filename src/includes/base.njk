@@ -29,20 +29,22 @@
 
 	<body>
 		<header>
-			<h1>The Legend of Zelda: Breath of the Wild Checklist</h1>
+			<h1><a href="/">The Legend of Zelda: Breath of the Wild Checklist</a></h1>
 
 			<nav>
 				<ul>
 					{% for page in ['Quests', 'Compendium', 'Completion', 'Settings'] %}
 					<li>
-						<a href="/{{ page | lower }}" role="button">{{ page }}</a>
+						<a href="/{{ page | lower }}">{{ page }}</a>
 					</li>
 					{% endfor %}
 				</ul>
 			</nav>
 		</header>
 
-		{{ content | safe }}
+		<main>
+			{{ content | safe }}
+		</main>
 
 		<footer>
 			<span>Page by Nyveon. (Eric K)</span>

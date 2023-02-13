@@ -7,10 +7,8 @@ fieldset {
 	border: none;
 	margin-inline: $large;
 
-	label {
-		img {
-			width: $large;
-			height: $large;
-		}
+	label img {
+		width: $large;
+		height: $large;
 	}
 }

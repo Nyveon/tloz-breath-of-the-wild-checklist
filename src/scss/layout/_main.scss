@@ -16,7 +16,7 @@ main {
 			@include flex(column, space-around, normal);
 		}
 
-		.tabs {
+		[role="tablist"] {
 			@include flex(row, space-around, normal);
 			flex-wrap: wrap;
 			list-style: none;
@@ -33,9 +33,13 @@ main {
 
 				transition: filter 0.2s ease-in-out;
 				filter: brightness(30%);
-				&.active, &:hover {
+				&:hover {
 					filter: brightness(100%);
 				}
+			}
+
+			[aria-selected="true"] .title {
+				filter: brightness(100%);
 			}
 		}
 	}

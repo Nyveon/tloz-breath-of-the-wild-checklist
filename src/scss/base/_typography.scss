@@ -17,12 +17,25 @@
 	font-display: swap;
 }
 
+@font-face {
+	font-family: "Sheikah";
+	src: url(/fonts/Sheikah.ttf) format('truetype');
+	font-display: swap;
+}
+
+.sheikah {
+	font-family: "Sheikah" !important;
+}
+
 html {
 	font-family: 'Calamity Sans', sans-serif;
 	color: $color-text;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2 {
 	font-family: 'Hylia Serif', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }

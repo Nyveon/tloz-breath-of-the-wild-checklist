@@ -1,0 +1,1096 @@
+[
+	{
+		"type": "main",
+		"name": "Main Quests",
+		"icon": "/img/quest-main.svg",
+		"background": "/img/illustration-main.svg",
+		"quests": [
+			{
+				"name": "Destroy Ganon",
+				"npc": "King Rhoam",
+				"location": "Great Plateau",
+				"index": 0
+			},
+			{
+				"name": "EX The Champions' Ballad",
+				"npc": "Zelda",
+				"location": "Shrine of Resurrection",
+				"index": 1,
+				"dlc": true
+			},
+			{
+				"name": "EX Champion Urbosa's Song",
+				"npc": "Monk Maz Koshia",
+				"location": "East Gerudo Mesa",
+				"index": 2,
+				"dlc": true
+			},
+			{
+				"name": "EX Champion Daruk's Song",
+				"npc": "Monk Maz Koshia",
+				"location": "Eldin Mountains",
+				"index": 3,
+				"dlc": true
+			},
+			{
+				"name": "EX Champion Mipha's Song",
+				"npc": "Monk Maz Koshia",
+				"location": "Ja'Abu Ridge",
+				"index": 4,
+				"dlc": true
+			},
+			{
+				"name": "EX Champion Revali's Song",
+				"npc": "Monk Maz Koshia",
+				"location": "Strock Lake",
+				"index": 5,
+				"dlc": true
+			},
+			{
+				"name": "Follow the Sheikah Slate",
+				"npc": "???",
+				"location": "Great Plateau",
+				"index": 6
+			},
+			{
+				"name": "The Isolated Plateau",
+				"npc": "Old Man",
+				"location": "Great Plateau",
+				"index": 7
+			},
+			{
+				"name": "Seek Out Impa",
+				"npc": "King Rhoam",
+				"location": "Great Plateau",
+				"index": 8
+			},
+			{
+				"name": "The Hero's Sword",
+				"npc": "The Great Deku Tree",
+				"location": "Korok Forest",
+				"index": 9
+			},
+			{
+				"name": "Free the Divine Beasts",
+				"npc": "Impa",
+				"location": "Kakariko Village",
+				"index": 10
+			},
+			{
+				"name": "Locked Mementos",
+				"npc": "Impa",
+				"location": "Kakariko Village",
+				"index": 11
+			},
+			{
+				"name": "Divine Beast Vah Medoh",
+				"npc": "Kaneli",
+				"location": "Rito Village",
+				"index": 12
+			},
+			{
+				"name": "Divine Beast Vah Rudania",
+				"npc": "Bludo",
+				"location": "Goron City",
+				"index": 13
+			},
+			{
+				"name": "Reach Zora's Domain",
+				"npc": "Sidon",
+				"location": "Inogo Bridge",
+				"index": 14
+			},
+			{
+				"name": "Divine Beast Vah Ruta",
+				"npc": "King Dorephan",
+				"location": "Zora's Domain",
+				"index": 15
+			},
+			{
+				"name": "Forbidden City Entry",
+				"npc": "Benja",
+				"location": "Gerudo Town",
+				"index": 16
+			},
+			{
+				"name": "Divine Beast Vah Naboris",
+				"npc": "Riju",
+				"location": "Gerudo Town",
+				"index": 17
+			},
+			{
+				"name": "Captured Memories",
+				"npc": "Impa",
+				"location": "Kakariko Village",
+				"index": 18
+			},
+			{
+				"name": "Find the Fairy Fountain",
+				"npc": "Pikango",
+				"location": "Kakariko Village",
+				"index": 19
+			}
+		]
+	},
+	{
+		"type": "side",
+		"name": "Side Quests",
+		"icon": "/img/quest-side.svg",
+		"background": "/img/illustration-side.svg",
+		"quests": [
+			{
+				"name": "EX Ancient Horse Rumors",
+				"npc": "Super Rumor Mill V3",
+				"location": "Highland Stable",
+				"index": 0,
+				"dlc": true
+			},
+			{
+				"name": "EX Royal Guard Rumors",
+				"npc": "Super Rumor Mill V4",
+				"location": "Riverside Stable",
+				"index": 1,
+				"dlc": true
+			},
+			{
+				"name": "EX Treasure: Merchant Hood",
+				"npc": "Misko's EX Journal 2",
+				"location": "Deya Village Ruins",
+				"index": 2,
+				"dlc": true
+			},
+			{
+				"name": "EX Treasure: Garb of Winds",
+				"npc": "Misko's EX Journal 2",
+				"location": "Deya Village Ruins",
+				"index": 3,
+				"dlc": true
+			},
+			{
+				"name": "EX Treasure: Usurper King",
+				"npc": "Misko's EX Journal 2",
+				"location": "Deya Village Ruins",
+				"index": 4,
+				"dlc": true
+			},
+			{
+				"name": "EX Treasure: Dark Armor",
+				"npc": "Misko's EX Journal 2",
+				"location": "Deya Village Ruins",
+				"index": 5,
+				"dlc": true
+			},
+			{
+				"name": "EX Strange Mask Rumors",
+				"npc": "Super Rumor Mill V1",
+				"location": "Woodland Stable",
+				"index": 6,
+				"dlc": true
+			},
+			{
+				"name": "EX Teleportation Rumors!",
+				"npc": "Super Rumor Mill V2",
+				"location": "South Akkala Stable",
+				"index": 7,
+				"dlc": true
+			},
+			{
+				"name": "EX Treasure: Ancient Mask",
+				"npc": "Misko's EX Journal",
+				"location": "Outpost Ruins",
+				"index": 8,
+				"dlc": true
+			},
+			{
+				"name": "EX Treasure: Fairy Clothes",
+				"npc": "Misko's EX Journal",
+				"location": "Outpost Ruins",
+				"index": 9,
+				"dlc": true
+			},
+			{
+				"name": "EX Treasure: Twilight Relic",
+				"npc": "Misko's EX Journal",
+				"location": "Outpost Ruins",
+				"index": 10,
+				"dlc": true
+			},
+			{
+				"name": "EX Treasure: Phantasma",
+				"npc": "Misko's EX Journal",
+				"location": "Outpost Ruins",
+				"index": 11,
+				"dlc": true
+			},
+			{
+				"name": "EX Trial of the Sword",
+				"npc": "???",
+				"location": "Korok Forest",
+				"index": 12,
+				"dlc": true
+			},
+			{
+				"name": "Robbie's Research",
+				"npc": "Purah",
+				"location": "Hateno Ancient Tech Lab",
+				"index": 13
+			},
+			{
+				"name": "From the Ground Up",
+				"npc": "Hudson",
+				"location": "Hateno Village",
+				"index": 14
+			},
+			{
+				"name": "A Parent's Love",
+				"npc": "Ruli",
+				"location": "Tarrey Town",
+				"index": 15
+			},
+			{
+				"name": "Hobbies of the Rich",
+				"npc": "Hagie",
+				"location": "Tarrey Town",
+				"index": 16
+			},
+			{
+				"name": "A Shady Customer",
+				"npc": "Hoz",
+				"location": "East Akkala Stable",
+				"index": 17
+			},
+			{
+				"name": "Little Sister's Big Request",
+				"npc": "Jana",
+				"location": "South Akkala Stable",
+				"index": 18
+			},
+			{
+				"name": "Hylian Homeowner",
+				"npc": "Bolson",
+				"location": "Hateno Village",
+				"index": 19
+			},
+			{
+				"name": "The Statue's Bargain",
+				"npc": "Horned Statue",
+				"location": "Hateno Village",
+				"index": 20
+			},
+			{
+				"name": "A Gift for My Beloved",
+				"npc": "Manny",
+				"location": "Hateno Village",
+				"index": 21
+			},
+			{
+				"name": "The Weapon Connoisseur",
+				"npc": "Nebb",
+				"location": "Hateno Village",
+				"index": 22
+			},
+			{
+				"name": "The Sheep Rustlers",
+				"npc": "Koyin",
+				"location": "Hateno Village",
+				"index": 23
+			},
+			{
+				"name": "Sunshroom Sensing",
+				"npc": "Symin",
+				"location": "Hateno Ancient Tech Lab",
+				"index": 24
+			},
+			{
+				"name": "Slated for Upgrades",
+				"npc": "Purah",
+				"location": "Hateno Ancient Tech Lab",
+				"index": 25
+			},
+			{
+				"name": "Sunken Treasure",
+				"npc": "Rozel",
+				"location": "Lurelin Village",
+				"index": 26
+			},
+			{
+				"name": "What's for Dinner?",
+				"npc": "Kiana",
+				"location": "Lurelin Village",
+				"index": 27
+			},
+			{
+				"name": "Take Back the Sea",
+				"npc": "Sebasto",
+				"location": "Lurelin Village",
+				"index": 28
+			},
+			{
+				"name": "Koko's Kitchen",
+				"npc": "Koko",
+				"location": "Kakariko Village",
+				"index": 29
+			},
+			{
+				"name": "Cooking with Koko",
+				"npc": "Koko",
+				"location": "Kakariko Village",
+				"index": 30
+			},
+			{
+				"name": "Koko Cuisine",
+				"npc": "Koko",
+				"location": "Kakariko Village",
+				"index": 31
+			},
+			{
+				"name": "Koko's Specialty",
+				"npc": "Koko",
+				"location": "Kakariko Village",
+				"index": 32
+			},
+			{
+				"name": "Playtime with Cottla",
+				"npc": "Cottla",
+				"location": "Kakariko Village",
+				"index": 33
+			},
+			{
+				"name": "By Firefly's Light",
+				"npc": "Lasli",
+				"location": "Kakariko Village",
+				"index": 34
+			},
+			{
+				"name": "Flown the Coop",
+				"npc": "Cado",
+				"location": "Kakariko Village",
+				"index": 35
+			},
+			{
+				"name": "The Priceless Maracas",
+				"npc": "Hestu",
+				"location": "West Necluda",
+				"index": 36
+			},
+			{
+				"name": "Arrows of Burning Heat",
+				"npc": "Rola",
+				"location": "Kakariko Village",
+				"index": 37
+			},
+			{
+				"name": "Stalhorse: Pictured!",
+				"npc": "Juannelle",
+				"location": "Snowfield Stable",
+				"index": 38
+			},
+			{
+				"name": "Curry for What Ails You",
+				"npc": "Lester",
+				"location": "Rito Stable",
+				"index": 39
+			},
+			{
+				"name": "Find Kheel",
+				"npc": "Amali",
+				"location": "Rito Village",
+				"index": 40
+			},
+			{
+				"name": "Face the Frost Talus",
+				"npc": "Gesane",
+				"location": "Rito Village",
+				"index": 41
+			},
+			{
+				"name": "The Apple of My Eye",
+				"npc": "Juney",
+				"location": "Rito Village",
+				"index": 42
+			},
+			{
+				"name": "The Spark of Romance",
+				"npc": "Jogo",
+				"location": "Rito Village",
+				"index": 43
+			},
+			{
+				"name": "The Jewel Trade",
+				"npc": "Ramella",
+				"location": "Goron City",
+				"index": 44
+			},
+			{
+				"name": "Death Mountain's Secret",
+				"npc": "Dugby",
+				"location": "Goron Hot Springs",
+				"index": 45
+			},
+			{
+				"name": "The Road to Respect",
+				"npc": "Fugo",
+				"location": "Goron City",
+				"index": 46
+			},
+			{
+				"name": "Fireproof Lizard Roundup",
+				"npc": "Kima",
+				"location": "Southern Mine",
+				"index": 47
+			},
+			{
+				"name": "Balloon Flight",
+				"npc": "Shamae",
+				"location": "Woodland Stable",
+				"index": 48
+			},
+			{
+				"name": "The Thunder Helm",
+				"npc": "Riju",
+				"location": "Gerudo Town",
+				"index": 49
+			},
+			{
+				"name": "Destroy Ganon",
+				"npc": "King Rhoam",
+				"location": "Great Plateau",
+				"index": 50
+			},
+			{
+				"name": "The Search for Barta",
+				"npc": "Liana",
+				"location": "Gerudo Town",
+				"index": 51
+			},
+			{
+				"name": "Medicinal Molduga",
+				"npc": "Malena",
+				"location": "Gerudo Town",
+				"index": 52
+			},
+			{
+				"name": "The Eighth Heroine",
+				"npc": "Bozai",
+				"location": "Gerudo Desert",
+				"index": 53
+			},
+			{
+				"name": "The Mystery Polluter",
+				"npc": "Dalia",
+				"location": "Gerudo Town",
+				"index": 54
+			},
+			{
+				"name": "The Secret Club's Secret",
+				"npc": "Greta",
+				"location": "Gerudo Town",
+				"index": 55
+			},
+			{
+				"name": "Tools of the Trade",
+				"npc": "Isha",
+				"location": "Gerudo Town",
+				"index": 56
+			},
+			{
+				"name": "The Forgotten Sword",
+				"npc": "Bozai",
+				"location": "Gerudo Desert",
+				"index": 57
+			},
+			{
+				"name": "Missing in Action",
+				"npc": "Sesami",
+				"location": "Gerudo Canyon Stable",
+				"index": 58
+			},
+			{
+				"name": "Rushroom Rush!",
+				"npc": "Pirou",
+				"location": "Gerudo Canyon Stable",
+				"index": 59
+			},
+			{
+				"name": "Good-Sized Horse",
+				"npc": "Zyle",
+				"location": "Gerudo Canyon",
+				"index": 60
+			},
+			{
+				"name": "An Ice Guy",
+				"npc": "Guy",
+				"location": "Kara Kara Bazaar",
+				"index": 61
+			},
+			{
+				"name": "A Freezing Rod",
+				"npc": "Kula",
+				"location": "Great Hyrule Forest",
+				"index": 62
+			},
+			{
+				"name": "The Korok Trials",
+				"npc": "Chio",
+				"location": "Great Hyrule Forest",
+				"index": 63
+			},
+			{
+				"name": "Riddles of Hyrule",
+				"npc": "Walton",
+				"location": "Great Hyrule Forest",
+				"index": 64
+			},
+			{
+				"name": "Legendary Rabbit Trial",
+				"npc": "Peeks",
+				"location": "Great Hyrule Forest",
+				"index": 65
+			},
+			{
+				"name": "Special Delivery",
+				"npc": "Finley",
+				"location": "Bank of Wishes",
+				"index": 66
+			},
+			{
+				"name": "Lynel Safari",
+				"npc": "Laflat",
+				"location": "Zora's Domain",
+				"index": 67
+			},
+			{
+				"name": "The Giant of Ralis Pond",
+				"npc": "Torfeau",
+				"location": "Zora's Domain",
+				"index": 68
+			},
+			{
+				"name": "Frog Catching",
+				"npc": "Tumbo",
+				"location": "Zora's Domain",
+				"index": 69
+			},
+			{
+				"name": "Zora Stone Monuments",
+				"npc": "Jiahto",
+				"location": "Zora's Domain",
+				"index": 70
+			},
+			{
+				"name": "Diving is Beauty!",
+				"npc": "Gruve",
+				"location": "Zora's Domain",
+				"index": 71
+			},
+			{
+				"name": "Luminous Stone Gathering",
+				"npc": "Ledo",
+				"location": "Zora's Domain",
+				"index": 72
+			},
+			{
+				"name": "A Wife Washed Away",
+				"npc": "Fronk",
+				"location": "Zora's Domain",
+				"index": 73
+			},
+			{
+				"name": "A Gift from the Monks",
+				"npc": "Monk",
+				"location": "Ancient Shrine",
+				"index": 74
+			},
+			{
+				"name": "The Hero's Cache",
+				"npc": "Kass",
+				"location": "Kitano Bay",
+				"index": 75
+			},
+			{
+				"name": "Misko, the Great Bandit",
+				"npc": "Domidak",
+				"location": "Dueling Peaks Stable",
+				"index": 76
+			},
+			{
+				"name": "Wild Horses",
+				"npc": "Rensa",
+				"location": "Dueling Peaks Stable",
+				"index": 77
+			},
+			{
+				"name": "A Gift of Nightshade",
+				"npc": "Wabbin",
+				"location": "Faron",
+				"index": 78
+			},
+			{
+				"name": "Hunt for the Giant Horse",
+				"npc": "Straia",
+				"location": "Mounted Archery Camp",
+				"index": 79
+			},
+			{
+				"name": "The Horseback Hoodlums",
+				"npc": "Perosa",
+				"location": "Highland Stable",
+				"index": 80
+			},
+			{
+				"name": "Thunder Magnet",
+				"npc": "Cima",
+				"location": "Lakeside Stable",
+				"index": 81
+			},
+			{
+				"name": "A Gift for the Great Fairy",
+				"npc": "Toren",
+				"location": "Tabantha Bridge Stable",
+				"index": 82
+			},
+			{
+				"name": "Destroy Ganon",
+				"npc": "King Rhoam",
+				"location": "Great Plateau",
+				"index": 83
+			},
+			{
+				"name": "Leviathan Bones",
+				"npc": "Akrah",
+				"location": "Serenne Stable",
+				"index": 84
+			},
+			{
+				"name": "The Royal Guard's Gear",
+				"npc": "Parcy",
+				"location": "Riverside Stable",
+				"index": 85
+			},
+			{
+				"name": "A Royal Recipe",
+				"npc": "Gotter",
+				"location": "Riverside Stable",
+				"index": 86
+			},
+			{
+				"name": "Riverbed Reward",
+				"npc": "Izra",
+				"location": "Wetland Stable",
+				"index": 87
+			},
+			{
+				"name": "My Hero",
+				"npc": "Aliza",
+				"location": "Outskirt Stable",
+				"index": 88
+			},
+			{
+				"name": "A Rare Find",
+				"npc": "Trott",
+				"location": "Outskirt Stable",
+				"index": 89
+			},
+			{
+				"name": "The Royal White Stallion",
+				"npc": "Toffa",
+				"location": "Outskirt Stable",
+				"index": 90
+			},
+			{
+				"name": "[Xenoblade Chronicles 2]",
+				"npc": "",
+				"location": "",
+				"index": 91
+			}
+		]
+	},
+	{
+		"type": "shrine",
+		"name": "Shrine Quests",
+		"icon": "/img/quest-shrine.svg",
+		"background": "/img/illustration-shrine.svg",
+		"quests": [
+			{
+				"name": "The Skull's Eye",
+				"npc": "Jerrin",
+				"location": "Akkala Ancient Tech Lab",
+				"index": 0
+			},
+			{
+				"name": "Into the Vortex",
+				"npc": "Stone Tablet",
+				"location": "Rist Peninsula",
+				"index": 1
+			},
+			{
+				"name": "Trial of the Labyrinth",
+				"npc": "???",
+				"location": "Lomei Labyrinth Island",
+				"index": 2
+			},
+			{
+				"name": "The Spring of Power",
+				"npc": "Nobo",
+				"location": "East Akkala Stable",
+				"index": 3
+			},
+			{
+				"name": "The Gut Check Challenge",
+				"npc": "Bayge",
+				"location": "Gut Check Rock",
+				"index": 4
+			},
+			{
+				"name": "A Brother's Roast",
+				"npc": "Bladon",
+				"location": "Goron City",
+				"index": 5
+			},
+			{
+				"name": "A Landscape of a Stable",
+				"npc": "Mayro",
+				"location": "Foothill Stable",
+				"index": 6
+			},
+			{
+				"name": "The Perfect Drink",
+				"npc": "Pokki",
+				"location": "East Barrens",
+				"index": 7
+			},
+			{
+				"name": "Test of Will",
+				"npc": "Bayge",
+				"location": "Mount Nabooru",
+				"index": 8
+			},
+			{
+				"name": "Sign of the Shadow",
+				"npc": "Kass",
+				"location": "Gerudo Tower",
+				"index": 9
+			},
+			{
+				"name": "The Silent Swordswomen",
+				"npc": "Laine",
+				"location": "Gerudo Town",
+				"index": 10
+			},
+			{
+				"name": "The Desert Labyrinth",
+				"npc": "???",
+				"location": "South Lomei Labyrinth",
+				"index": 11
+			},
+			{
+				"name": "The Seven Heroines",
+				"npc": "Rotana",
+				"location": "Gerudo Town",
+				"index": 12
+			},
+			{
+				"name": "The Eye of the Sandstorm",
+				"npc": "Nobiro",
+				"location": "Kara Kara Bazaar",
+				"index": 13
+			},
+			{
+				"name": "Secret of the Snowy Peaks",
+				"npc": "Mountain Peak Log",
+				"location": "Mount Granajh",
+				"index": 14
+			},
+			{
+				"name": "The Undefeated Champ",
+				"npc": "Tali",
+				"location": "Sand-Seal Rally",
+				"index": 15
+			},
+			{
+				"name": "Watch Out for the Flowers",
+				"npc": "Magda",
+				"location": "Hylia River",
+				"index": 16
+			},
+			{
+				"name": "The Three Giant Brothers",
+				"npc": "Stone Tablet",
+				"location": "Mount Taran",
+				"index": 17
+			},
+			{
+				"name": "Secret of the Cedars",
+				"npc": "Clavia",
+				"location": "Hateno Village",
+				"index": 18
+			},
+			{
+				"name": "The Cursed Statue",
+				"npc": "Calip",
+				"location": "Fort Hateno",
+				"index": 19
+			},
+			{
+				"name": "A Fragmented Monument",
+				"npc": "Garini",
+				"location": "Palmorae Ruins",
+				"index": 20
+			},
+			{
+				"name": "The Stolen Heirloom",
+				"npc": "Paya",
+				"location": "Kakariko Village",
+				"index": 21
+			},
+			{
+				"name": "Guardian Slideshow",
+				"npc": "Loone",
+				"location": "Puffer Beach",
+				"index": 22
+			},
+			{
+				"name": "A Song of Storms",
+				"npc": "Kass",
+				"location": "Calora Lake",
+				"index": 23
+			},
+			{
+				"name": "The Serpent's Jaws",
+				"npc": "Kass",
+				"location": "Pagos Woods",
+				"index": 24
+			},
+			{
+				"name": "Stranded on Eventide",
+				"npc": "???",
+				"location": "Eventide Island",
+				"index": 25
+			},
+			{
+				"name": "The Bird in the Mountains",
+				"npc": "Molli",
+				"location": "Rito Village",
+				"index": 26
+			},
+			{
+				"name": "Recital at Warbler's Nest",
+				"npc": "Kheel",
+				"location": "Rito Village",
+				"index": 27
+			},
+			{
+				"name": "The Ancient Rito Song",
+				"npc": "Bedoli",
+				"location": "Rito Village",
+				"index": 28
+			},
+			{
+				"name": "Trial on the Cliff",
+				"npc": "???",
+				"location": "North Lomei Labyrinth",
+				"index": 29
+			},
+			{
+				"name": "The Spring of Wisdom",
+				"npc": "Medda",
+				"location": "Hateno Village",
+				"index": 30
+			},
+			{
+				"name": "The Ceremonial Song",
+				"npc": "Laruta",
+				"location": "Zora's Domain",
+				"index": 31
+			},
+			{
+				"name": "The Crowned Beast",
+				"npc": "Kass",
+				"location": "Rabia Plain",
+				"index": 32
+			},
+			{
+				"name": "Master of the Wind",
+				"npc": "Kass",
+				"location": "Horon Lagoon",
+				"index": 33
+			},
+			{
+				"name": "The Lost Pilgrimage",
+				"npc": "Tasho",
+				"location": "Korok Forest",
+				"index": 34
+			},
+			{
+				"name": "The Two Rings",
+				"npc": "Kass",
+				"location": "West Hyrule Plains",
+				"index": 35
+			},
+			{
+				"name": "Shrouded Shrine",
+				"npc": "???",
+				"location": "Thyphlo Ruins",
+				"index": 36
+			},
+			{
+				"name": "Under a Red Moon",
+				"npc": "Kass",
+				"location": "Washa's Bluff",
+				"index": 37
+			},
+			{
+				"name": "Cliffside Etchings",
+				"npc": "Geggle",
+				"location": "Tabantha Bridge Stable",
+				"index": 38
+			},
+			{
+				"name": "Trial of Second Sight",
+				"npc": "Zooki",
+				"location": "Korok Forest",
+				"index": 39
+			},
+			{
+				"name": "The Test of Wood",
+				"npc": "Damia",
+				"location": "Korok Forest",
+				"index": 40
+			},
+			{
+				"name": "Trial of Thunder",
+				"npc": "???",
+				"location": "Thundra Plateau",
+				"index": 41
+			}
+		]
+	},
+	{
+		"type": "memory",
+		"name": "Memories",
+		"icon": "/img/quest-memory.svg",
+		"background": "/img/illustration-memory.svg",
+		"quests": [
+			{
+				"nameCensored": "EX Recovered Memory #1",
+				"name": "Champion Revali's Song",
+				"index": 0,
+				"dlc": true
+			},
+			{
+				"nameCensored": "EX Recovered Memory #2",
+				"name": "Champion Daruk's Song",
+				"index": 1,
+				"dlc": true
+			},
+			{
+				"nameCensored": "EX Recovered Memory #3",
+				"name": "Champion Mipha's Song",
+				"index": 2,
+				"dlc": true
+			},
+			{
+				"nameCensored": "EX Recovered Memory #4",
+				"name": "Champion Urbosa's Song",
+				"index": 3,
+				"dlc": true
+			},
+			{
+				"nameCensored": "EX Recovered Memory #5",
+				"name": "The Champions' Ballad",
+				"index": 4,
+				"dlc": true
+			},
+			{
+				"nameCensored": "Recovered Memory #1",
+				"name": "Subdued Ceremony",
+				"index": 5
+			},
+			{
+				"nameCensored": "Recovered Memory #2",
+				"name": "Revali's Flap",
+				"index": 6
+			},
+			{
+				"nameCensored": "Recovered Memory #3",
+				"name": "Resolve and Grief",
+				"index": 7
+			},
+			{
+				"nameCensored": "Recovered Memory #4",
+				"name": "Daruk's Mettle",
+				"index": 8
+			},
+			{
+				"nameCensored": "Recovered Memory #5",
+				"name": "Zelda's Resentment",
+				"index": 9
+			},
+			{
+				"nameCensored": "Recovered Memory #6",
+				"name": "Urbosa's Hand",
+				"index": 10
+			},
+			{
+				"nameCensored": "Recovered Memory #7",
+				"name": "Blades of the Yiga",
+				"index": 11
+			},
+			{
+				"nameCensored": "Recovered Memory #8",
+				"name": "A Premonition",
+				"index": 12
+			},
+			{
+				"nameCensored": "Recovered Memory #9",
+				"name": "Silent Princess",
+				"index": 13
+			},
+			{
+				"nameCensored": "Recovered Memory #10",
+				"name": "Mipha's Touch",
+				"index": 14
+			},
+			{
+				"nameCensored": "Recovered Memory #11",
+				"name": "Shelter from the Storm",
+				"index": 15
+			},
+			{
+				"nameCensored": "Recovered Memory #12",
+				"name": "Father and Daughter",
+				"index": 16
+			},
+			{
+				"nameCensored": "Recovered Memory #13",
+				"name": "Slumbering Power",
+				"index": 17
+			},
+			{
+				"nameCensored": "Recovered Memory #14",
+				"name": "To Mount Lanayru",
+				"index": 18
+			},
+			{
+				"nameCensored": "Recovered Memory #15",
+				"name": "Return of Calamity Ganon",
+				"index": 19
+			},
+			{
+				"nameCensored": "Recovered Memory #16",
+				"name": "Despair",
+				"index": 20
+			},
+			{
+				"nameCensored": "Recovered Memory #17",
+				"name": "Zelda's Awakening",
+				"index": 21
+			},
+			{
+				"nameCensored": "Recovered Memory #18",
+				"name": "The Master Sword",
+				"index": 22
+			}
+		]
+	}
+]

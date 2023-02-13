@@ -1,7 +1,9 @@
 header {
-	border-bottom: $border-thickness solid $color-border;
 	width: 100%;
 	padding-top: $small;
+
 	text-align: center;
+
 	background-color: $color-frame;
+	border-bottom: $border-thickness solid $color-border;
 }

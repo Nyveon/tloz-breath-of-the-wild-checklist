@@ -1,0 +1,126 @@
+---
+layout: base.njk
+title: "BOTW: Quests"
+---
+
+<section
+	class="quests"
+	x-data="{
+		search: '',
+		sorting: $persist('none'),
+		activeTab: $persist('main'),
+		showCompleted: $persist(true),
+		showDLC: $persist(true),
+		compactMode: $persist(false),
+		spoilerLocation: $persist(true),
+
+		isActiveTab(id) {
+			return this.activeTab === id;
+		},
+	}"
+>
+	<section class="filterbar" role="toolbar" aria-label="Quest filters">
+		<fieldset class="search" role="search">
+			<input
+				name="search"
+				x-model="search"
+				type="search"
+				placeholder="Search for a quest..."
+			/>
+		</fieldset>
+
+		<fieldset class="radio">
+			{% for key, name in { 'asc': 'Ascending', 'desc': 'Descending', 'none':
+			'Index' } %}
+			<label for="sort-{{ key }}" title="Sort by {{ name }}">
+				<input
+					type="radio"
+					value="{{ key }}"
+					x-model="sorting"
+					name="sort"
+					id="sort-{{ key }}"
+				/>
+				<img src="/img/{{ key }}.svg" alt="Sort by {{ name }}" />
+			</label>
+			{% endfor %}
+		</fieldset>
+
+		<fieldset class="checkbox">
+			{% for key, text in { 'showCompleted': 'Show completed quests', 'showDLC':
+			'Show DLC quests', 'compactMode': 'Compact mode', 'spoilerLocation':
+			'Censor location' } %}
+			<label for="{{ key }}" title="{{ text }}">
+				<input
+					type="checkbox"
+					x-model="{{ key }}"
+					name="{{ key }}"
+					id="{{ key }}"
+				/>
+				<span>{{ text }}</span>
+			</label>
+			{% endfor %}
+		</fieldset>
+	</section>
+
+	<section class="content" aria-label="Quests">
+		<ul role="tablist">
+			{% for category in questData %}
+			<li role="tab" :aria-selected="isActiveTab('{{ category.type }}')">
+				<img src="{{ category.background }}" class="background" alt="" />
+				<a
+					href="#"
+					id="{{ category.type }}"
+					class="title {{ category.type }}"
+					@click="activeTab = '{{ category.type }}'"
+				>
+					<img src="{{ category.icon }}" alt="{{ category.name }}" />
+					<h2>{{ category.name }}</h2>
+				</a>
+			</li>
+			{% endfor %}
+		</ul>
+
+		{% for category in questData %}
+		<template x-if="isActiveTab('{{ category.type }}')">
+			<ul role="tabpanel" :class="{ 'compact': compactMode }">
+				<template
+					x-data="{ 
+							quests: {{ category.quests | dump }},
+							get filteredQuests() {
+								return questFilter(this.quests, this.search, this.sorting);
+							}
+						}"
+					x-for="quest in filteredQuests"
+					:key="quest.index"
+				>
+					<li
+						:id="'{{ category.type }}-' + quest.index"
+						x-data="{ completed: $persist(false).as('{{
+							category.type
+						}}-' + quest.index) }"
+						class="{{ category.type }}"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation }"
+						@click="completed = !completed"
+						x-show="(showCompleted || !completed) && (showDLC || !quest.dlc)"
+						x-transition
+						role="button"
+					>
+						<img src="{{ category.icon }}" alt="" />
+						<div class="top"></div>
+						<div class="bottom"></div>
+						<hgroup>
+							<h3
+								x-text="quest.nameCensored ? quest.nameCensored : quest.name"
+							></h3>
+							<span
+								class="{{ category.type }}"
+								x-text="quest.nameCensored ? quest.name : quest.location"
+							></span>
+						</hgroup>
+					</li>
+				</template>
+			</ul>
+		</template>
+		{% endfor %}
+	</section>
+</section>

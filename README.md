@@ -19,7 +19,7 @@ Inspired by [The Legend of Zelda: Breath of the Wild Cheat Sheet](https://iversc
 
 - Hylia Serif <https://artsyomni.com/hyliaserif>
 - Calamity Sans <https://www.reddit.com/r/zelda/comments/5txuba/breath_of_the_wild_ui_font/>
-- SHEIKAH FONT: <https://www.deviantart.com/calicostonewolf/art/Breath-of-the-Wild-Stylized-Sheikah-Fonts-672234458>
+- Sheikah font: <https://www.deviantart.com/proendreeper/art/Sheikah-Font-Full-Numbers-Letters-Symbols-1-2-659273276>
 
 ### Icons
 
