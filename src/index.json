@@ -16,31 +16,36 @@
                     "name": "EX The Champions' Ballad",
                     "npc": "Zelda",
                     "location": "Shrine of Resurrection",
-                    "index": 1
+                    "index": 1,
+					"dlc": true
                 },
                 {
                     "name": "EX Champion Urbosa's Song",
                     "npc": "Monk Maz Koshia",
                     "location": "East Gerudo Mesa",
-                    "index": 2
+                    "index": 2,
+					"dlc": true
                 },
                 {
                     "name": "EX Champion Daruk's Song",
                     "npc": "Monk Maz Koshia",
                     "location": "Eldin Mountains",
-                    "index": 3
+                    "index": 3,
+					"dlc": true
                 },
                 {
                     "name": "EX Champion Mipha's Song",
                     "npc": "Monk Maz Koshia",
                     "location": "Ja'Abu Ridge",
-                    "index": 4
+                    "index": 4,
+					"dlc": true
                 },
                 {
                     "name": "EX Champion Revali's Song",
                     "npc": "Monk Maz Koshia",
                     "location": "Strock Lake",
-                    "index": 5
+                    "index": 5,
+					"dlc": true
                 },
                 {
                     "name": "Follow the Sheikah Slate",
@@ -138,79 +143,92 @@
                     "name": "EX Ancient Horse Rumors",
                     "npc": "Super Rumor Mill V3",
                     "location": "Highland Stable",
-                    "index": 0
+                    "index": 0,
+					"dlc": true
                 },
                 {
                     "name": "EX Royal Guard Rumors",
                     "npc": "Super Rumor Mill V4",
                     "location": "Riverside Stable",
-                    "index": 1
+                    "index": 1,
+					"dlc": true
                 },
                 {
                     "name": "EX Treasure: Merchant Hood",
                     "npc": "Misko's EX Journal 2",
                     "location": "Deya Village Ruins",
-                    "index": 2
+                    "index": 2,
+					"dlc": true
                 },
                 {
                     "name": "EX Treasure: Garb of Winds",
                     "npc": "Misko's EX Journal 2",
                     "location": "Deya Village Ruins",
-                    "index": 3
+                    "index": 3,
+					"dlc": true
                 },
                 {
                     "name": "EX Treasure: Usurper King",
                     "npc": "Misko's EX Journal 2",
                     "location": "Deya Village Ruins",
-                    "index": 4
+                    "index": 4,
+					"dlc": true
                 },
                 {
                     "name": "EX Treasure: Dark Armor",
                     "npc": "Misko's EX Journal 2",
                     "location": "Deya Village Ruins",
-                    "index": 5
+                    "index": 5,
+					"dlc": true
                 },
                 {
                     "name": "EX Strange Mask Rumors",
                     "npc": "Super Rumor Mill V1",
                     "location": "Woodland Stable",
-                    "index": 6
+                    "index": 6,
+					"dlc": true
                 },
                 {
                     "name": "EX Teleportation Rumors!",
                     "npc": "Super Rumor Mill V2",
                     "location": "South Akkala Stable",
-                    "index": 7
+                    "index": 7,
+					"dlc": true
                 },
                 {
                     "name": "EX Treasure: Ancient Mask",
                     "npc": "Misko's EX Journal",
                     "location": "Outpost Ruins",
-                    "index": 8
+                    "index": 8,
+					"dlc": true
                 },
                 {
                     "name": "EX Treasure: Fairy Clothes",
                     "npc": "Misko's EX Journal",
                     "location": "Outpost Ruins",
-                    "index": 9
+                    "index": 9,
+					"dlc": true
                 },
                 {
                     "name": "EX Treasure: Twilight Relic",
                     "npc": "Misko's EX Journal",
                     "location": "Outpost Ruins",
-                    "index": 10
+                    "index": 10,
+					"dlc": true
                 },
                 {
                     "name": "EX Treasure: Phantasma",
                     "npc": "Misko's EX Journal",
                     "location": "Outpost Ruins",
-                    "index": 11
+                    "index": 11,
+					"dlc": true
                 },
                 {
                     "name": "EX Trial of the Sword",
                     "npc": "???",
                     "location": "Korok Forest",
-                    "index": 12
+                    "index": 12,
+					"dlc": true
                 },
                 {
                     "name": "Robbie's Research",
@@ -679,7 +697,13 @@
                     "npc": "Toffa",
                     "location": "Outskirt Stable",
                     "index": 90
-                }
+                },
+				{
+					"name": "[Xenoblade Chronicles 2]",
+					"npc": "",
+					"location": "",
+					"index": 91
+				}
             ]
         },
         {
@@ -951,27 +975,32 @@
                 {
                     "nameCensored": "EX Recovered Memory #1",
                     "name": "Champion Revali's Song",
-                    "index": 0
+                    "index": 0,
+					"dlc": true
                 },
                 {
                     "nameCensored": "EX Recovered Memory #2",
                     "name": "Champion Daruk's Song",
-                    "index": 1
+                    "index": 1,
+					"dlc": true
                 },
                 {
                     "nameCensored": "EX Recovered Memory #3",
                     "name": "Champion Mipha's Song",
-                    "index": 2
+                    "index": 2,
+					"dlc": true
                 },
                 {
                     "nameCensored": "EX Recovered Memory #4",
                     "name": "Champion Urbosa's Song",
-                    "index": 3
+                    "index": 3,
+					"dlc": true
                 },
                 {
                     "nameCensored": "EX Recovered Memory #5",
                     "name": "The Champions' Ballad",
-                    "index": 4
+                    "index": 4,
+					"dlc": true
                 },
                 {
                     "nameCensored": "Recovered Memory #1",

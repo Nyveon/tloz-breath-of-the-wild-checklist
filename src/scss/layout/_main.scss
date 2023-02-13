@@ -1,12 +1,17 @@
 main {
-	margin-inline: auto;
-	min-height: 100vh;
-	padding: $medium;
+	padding: $large;
+	width: 100%;
+	flex: 1;
+
+	@media screen and (max-width: $breakpoint-mobile) {
+		padding-inline: $very-small;
+	}
+
+	@media screen and (min-width: $breakpoint-mobile) and (max-width: $breakpoint-tablet) {
+		padding-inline: $small;
+	}
 
 	section {
-		width: 90%;
-		margin-inline: auto;
-
 		.content {
 			@include flex(column, space-around, normal);
 		}

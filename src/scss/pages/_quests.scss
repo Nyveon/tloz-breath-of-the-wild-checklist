@@ -1,13 +1,17 @@
 .quests {
 	ul.quest-list {
 		list-style: none;
-		padding: $large;
 		margin: 0;
+		padding: 0;
 
 		display: grid;
 		grid-template-columns: repeat(auto-fill, $quest-card-width);
 		grid-gap: 0 $very-small;
 		justify-content: space-evenly;
+
+		&.compact {
+			grid-template-columns: repeat(auto-fill, $quest-card-width-small);
+		}
 	}
 
 	.tabs {

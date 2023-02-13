@@ -10,6 +10,9 @@ title: "BOTW: Quests"
 			search: '',
 			sorting: $persist('none'),
 			activeTab: $persist('main'),
+			showCompleted: $persist(true),
+			showDLC: $persist(true),
+			compactMode: $persist(false),
 
 			isActiveTab(id) {
 				return this.activeTab === id;
@@ -41,6 +44,21 @@ title: "BOTW: Quests"
 				</label>
 				{% endfor %}
 			</fieldset>
+
+			<fieldset class="checkbox">
+				{% for key, text in { 'showCompleted': 'Show completed quests',
+				'showDLC': 'Show DLC quests', 'compactMode': 'Compact mode' } %}
+				<label for="{{ key }}" title="{{ text }}">
+					<input
+						type="checkbox"
+						x-model="{{ key }}"
+						name="{{ key }}"
+						id="{{ key }}"
+					/>
+					<span>{{ text }}</span>
+				</label>
+				{% endfor %}
+			</fieldset>
 		</section>
 
 		<section class="content">
@@ -62,7 +80,8 @@ title: "BOTW: Quests"
 				{% endfor %}
 			</ul>
 
-			<ul class="quest-list">
+			<ul class="quest-list"
+				:class="{ 'compact': compactMode }">
 				{% for category in categories %}
 				<template
 					x-data="{ 
@@ -76,12 +95,17 @@ title: "BOTW: Quests"
 				>
 					<li
 						:id="'{{ category.type }}-' + quest.index"
-						x-data="{ completed: $persist(false).as('{{ category.type }}-' + quest.index) }"
+						x-data="{ completed: $persist(false).as('{{
+							category.type
+						}}-' + quest.index) }"
 						class="{{ category.type }}"
-						:class="{ 'completed': completed }"
+						:class="{ 'completed': completed, 'compact': compactMode }"
 						@click="completed = !completed"
-						x-show="isActiveTab('{{ category.type }}')"
+						x-show="isActiveTab('{{
+							category.type
+						}}') && (showCompleted || !completed) && (showDLC || !quest.dlc)"
 						x-transition:enter
+						role="button"
 					>
 						<img src="{{ category.icon }}" alt="" />
 						<hgroup>

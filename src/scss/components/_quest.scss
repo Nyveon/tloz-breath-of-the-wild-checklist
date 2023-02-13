@@ -5,9 +5,12 @@
 
 	background-color: $color-transparent-dark;
 	@include botw-border;
+	opacity: 0.9;
 
 	position: relative;
 	@include flex(row, flex-start, center);
+
+	cursor: pointer;
 
 	img {
 		$icon-size: $quest-card-height * 0.85;
@@ -74,7 +77,30 @@
 	}
 
 	&.completed {
-		opacity: 0.5;
+		hgroup {
+			:not(span) {
+				filter: brightness(0.25);
+			}
+		}
+
+		img {
+			filter: brightness(0.25);
+		}
+	}
+
+	&.compact {
+		//@include flex(column, flex-start, center);
+		width: $quest-card-width-small;
+		height: $quest-card-height-small;
+
+		hgroup {
+			margin: 0;
+			font-size: $small;
+		}
+
+		img {
+			display: none;
+		}
 	}
 }
 

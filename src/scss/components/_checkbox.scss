@@ -1,0 +1,45 @@
+.checkbox {
+	label {
+		@include flex(row, flex-start, center);
+		cursor: pointer;
+	}
+
+	input {
+		display: grid;
+		place-content: center;
+		width: $medium;
+		height: $medium;
+		transform: rotate(45deg);
+		margin: 0;
+
+		-webkit-appearance: none;
+		appearance: none;
+
+		font: inherit;
+		color: currentColor;
+
+		border: 0.15em solid currentColor;
+		border-radius: 0.15em;
+
+		cursor: pointer;
+
+		&::before {
+			content: "";
+			width: $very-small;
+			height: $very-small;
+			transform: scale(0);
+			transition: 120ms transform ease-in-out;
+			box-shadow: inset 1em 1em $color-highlight;
+		}
+
+		&:checked {
+			&::before {
+				transform: scale(1);
+			}
+		}
+	}
+
+	span {
+		margin-left: 0.5em;
+	}
+}

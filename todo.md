@@ -48,8 +48,8 @@ Quest screen:
 
 ## General
 
-- [ ] Saving
-- [ ] Save bacckups (to json string)
+- [x] Saving
+- [ ] Save backups (to json string)
 - [ ] Save import (from json string)
 - [ ] Lighthouse optimize
   
@@ -64,22 +64,22 @@ Quest screen:
   - [x] Memory Data
   - [x] Tab switcher
   - [x] Tab backgrounds
-  - [ ] Persistent tab selection
+  - [x] Persistent tab selection
 
 - Filter
   - [x] Search by name text input
   - [x] Sort by asc/desc/none radio
   - [ ] Send completed to end toggle
-  - [ ] Hide complete toggle
+  - [x] Hide complete toggle
   - [ ] Hide location names toggle
-  - [ ] Show quest giver toggle
+  - [ ] Show quest giver toggle?
   - [ ] Compact mode toggle
   - [ ] Censor Memory subtitles toggle
-  - [ ] Hide DLC Quests toggle
+  - [x] Hide DLC Quests toggle
   - [ ] Include subtitle in search toggle
 
 - Completion
-  - [ ] Click to finish
+  - [x] Click to finish
   - [ ] Particle effects when marking as done
   - [ ] Swoosh animation when marking as done (shine ltr)
   - [ ] Persistent finished/unfinished quest
