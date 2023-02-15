@@ -9,7 +9,7 @@ module.exports = function(eleventyConfig) {
 			input: "src",
 			data: "data",
 			includes: "includes",
-			output: "public",
+			output: "docs",
 		},
 	};
 }; 
