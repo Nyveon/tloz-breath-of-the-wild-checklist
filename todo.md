@@ -69,19 +69,23 @@ Quest screen:
 - Filter
   - [x] Search by name text input
   - [x] Sort by asc/desc/none radio
-  - [ ] Send completed to end toggle
+  - [x] Send completed to end toggle
   - [x] Hide complete toggle
   - [x] Hide location names toggle
-  - [ ] Future idea: Show quest giver toggle?
   - [x] Compact mode toggle
   - [x] Censor Memory subtitles toggle
   - [x] Hide DLC Quests toggle
-  - [ ] Include subtitle in search toggle
 
 - Completion
   - [x] Click to finish
+  - [x] Persistent finished/unfinished quest
+
+- Future improvements
+  - [ ] Show quest giver toggle
+  - [ ] Include subtitle in search toggle
   - [ ] Particle effects when marking as done
   - [ ] Swoosh animation when marking as done (shine ltr)
-  - [ ] Persistent finished/unfinished quest
 
 ## Welcome/Credits page
+
+## Compendium
