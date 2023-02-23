@@ -260,7 +260,7 @@
 						:id="'main-' + quest.index"
 						x-data="{ completed: $persist(false).as('main-' + quest.index) }"
 						class="main"
-						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation }"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation, 'checkbox-mode': checkboxMode }"
 						@click="
 							completed = !completed;
 							quest.completed = completed;
@@ -310,7 +310,7 @@
 						:id="'side-' + quest.index"
 						x-data="{ completed: $persist(false).as('side-' + quest.index) }"
 						class="side"
-						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation }"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation, 'checkbox-mode': checkboxMode }"
 						@click="
 							completed = !completed;
 							quest.completed = completed;
@@ -360,7 +360,7 @@
 						:id="'shrine-' + quest.index"
 						x-data="{ completed: $persist(false).as('shrine-' + quest.index) }"
 						class="shrine"
-						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation }"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation, 'checkbox-mode': checkboxMode }"
 						@click="
 							completed = !completed;
 							quest.completed = completed;
@@ -410,7 +410,7 @@
 						:id="'memory-' + quest.index"
 						x-data="{ completed: $persist(false).as('memory-' + quest.index) }"
 						class="memory"
-						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation }"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation, 'checkbox-mode': checkboxMode }"
 						@click="
 							completed = !completed;
 							quest.completed = completed;

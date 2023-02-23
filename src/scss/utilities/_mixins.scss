@@ -1,9 +1,37 @@
-// Borders, outlines and glows
+//#region -- Layout and positioning utilities
+@mixin flex($direction, $justify, $align) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+@mixin flex-wrap($direction, $justify, $align) {
+	@include flex($direction, $justify, $align);
+	flex-wrap: wrap;
+}
+
+@mixin absolute($top, $right, $bottom, $left) {
+	position: absolute;
+	inset: $top $right $bottom $left;
+}
+
+@mixin fixed($top, $right, $bottom, $left) {
+	position: fixed;
+	inset: $top $right $bottom $left;
+}
+
+@mixin size($width, $height) {
+	width: $width;
+	height: $height;
+}
+//#endregion
+
+//#region -- Borders, outlines and glows
 @mixin corner-triangle($horizontal, $vertical) {
+	@include size(0, 0);
 	content: "";
 	position: absolute;
-	width: 0;
-	height: 0;
 
 	@if $horizontal {
 		left: 0;
@@ -24,15 +52,15 @@
 
 @mixin botw-border {
 	border: {
-		color: $color-border;
 		style: solid;
+		color: $color-border;
 		width: 1px;
 		radius: 2px;
 	}
 
 	outline: {
-		color: $color-transparent-dark;
 		style: solid;
+		color: $color-transparent-dark;
 		width: 2px;
 	}
 }
@@ -44,11 +72,4 @@
 @mixin glow-text($color) {
 	text-shadow: 0 0 0.5em $color;
 }
-
-// Layout utilities
-@mixin flex($direction, $justify, $align) {
-	display: flex;
-	flex-direction: $direction;
-	justify-content: $justify;
-	align-items: $align;
-}
+//#endregion

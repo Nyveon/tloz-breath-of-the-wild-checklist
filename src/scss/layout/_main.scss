@@ -1,6 +1,6 @@
 main {
+	@include size(100%, auto);
 	padding: $large;
-	width: 100%;
 	flex: 1;
 
 	@media screen and (max-width: $breakpoint-mobile) {
@@ -17,22 +17,20 @@ main {
 		}
 
 		[role="tablist"] {
-			@include flex(row, space-around, normal);
-			flex-wrap: wrap;
+			@include flex-wrap(row, space-around, normal);
 			list-style: none;
 			padding: 0;
 
 			.title {
 				@include flex(row, space-around, center);
+				filter: brightness(30%);
+				transition: filter 0.2s ease-in-out;
 
 				img {
-					width: $very-large;
-					height: $very-large;
+					@include size($very-large, $very-large);
 					margin-inline: $medium;
 				}
 
-				transition: filter 0.2s ease-in-out;
-				filter: brightness(30%);
 				&:hover {
 					filter: brightness(100%);
 				}

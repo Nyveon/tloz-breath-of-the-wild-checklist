@@ -1,12 +1,11 @@
 body {
+	@include flex(column, flex-start, center);
+
 	background-color: $color-background;
 	min-height: 100vh;
-
-	@include flex(column, flex-start, center);
 
 	a {
 		text-decoration: none;
 		color: inherit;
 	}
 }
-

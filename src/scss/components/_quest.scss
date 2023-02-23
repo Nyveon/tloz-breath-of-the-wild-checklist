@@ -1,28 +1,28 @@
 [role="tabpanel"] li {
-	width: $quest-card-width;
-	height: $quest-card-height;
+	//#region -- Layout, sizing and typography
+	@include size($quest-card-width, $quest-card-height);
 	padding-inline: $very-small;
 
-	background-color: $color-transparent-dark;
 	@include botw-border;
+	background-color: $color-transparent-dark;
 	opacity: 0.9;
 
+	@include flex(row, flex-start, center);
 	position: relative;
 	overflow: hidden;
-	@include flex(row, flex-start, center);
 
 	cursor: pointer;
 
 	img {
 		$icon-size: $quest-card-height * 0.85;
-		width: $icon-size;
-		height: $icon-size;
+		@include size($icon-size, $icon-size);
 	}
 
 	hgroup {
 		margin-left: $very-small;
 		text-align: left;
 		font-weight: bold;
+		user-select: none;
 
 		h3 {
 			line-height: 1.2em;
@@ -42,7 +42,9 @@
 	&:not(:last-child) {
 		margin-bottom: $very-small;
 	}
+	//#endregion
 
+	//#region -- Hover triangles and outline
 	&:hover {
 		border-color: $color-primary;
 		box-shadow: inset 0 0 10px 1px $color-white-glow,
@@ -64,29 +66,44 @@
 			@include corner-triangle(true, false);
 		}
 	}
+	//#endregion
 
+	//#region -- Completed effect
 	&.completed {
-		hgroup, img {
-			filter: brightness(0.25);
+		&:not(.checkbox-mode) {
+			hgroup,
+			img {
+				filter: brightness(0.25);
+			}
+		}
+
+		&.checkbox-mode h3 {
+			text-decoration: line-through;
+			text-decoration-thickness: 0.2em;
 		}
 	}
 
+	&.spoiler:not(.completed) span {
+		display: none;
+	}
+	//#endregion
+
+	//#region -- Checkbox mode
 	input[type="checkbox"] {
 		margin-inline: $very-small;
 		scale: 1.5;
 	}
 
 	@each $type, $color in $colors-quest {
-		&.#{$type} {
-			input[type="checkbox"] {
-				--check-color: #{$color};
-			}
+		&.#{$type} input[type="checkbox"] {
+			--check-color: #{$color};
 		}
 	}
+	//#endregion
 
+	//#region -- Compact mode
 	&.compact {
-		width: $quest-card-width-small;
-		height: $quest-card-height-small;
+		@include size($quest-card-width-small, $quest-card-height-small);
 
 		hgroup {
 			margin: 0;
@@ -102,19 +119,15 @@
 			scale: 1;
 		}
 	}
+	//#endregion
 
-	&.spoiler:not(.completed) span {
-		display: none !important;
-	}
-	
+	//#region -- Shine swoosh animation
 	$shine-width: 4em;
+
 	&::before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: -$shine-width;
-		width: $shine-width * 2.77;
-		height: 100%;
+		@include absolute(0, 0, 0, -$shine-width);
+		@include size($shine-width * 2.77, 100%);
+		content: "";
 		transform: translateX(-100%) rotate(45deg);
 		background-color: white;
 		transition: 0s ease-in-out;
@@ -124,4 +137,5 @@
 		transform: translateX($quest-card-width + $shine-width) rotate(45deg);
 		transition: 0.35s ease-in-out;
 	}
+	//#endregion
 }

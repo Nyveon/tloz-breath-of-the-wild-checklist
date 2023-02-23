@@ -1,6 +1,5 @@
 .filterbar {
-	@include flex(row, center, center);
-	flex-wrap: wrap;
+	@include flex-wrap(row, center, center);
 }
 
 fieldset {
@@ -8,7 +7,6 @@ fieldset {
 	margin-inline: $large;
 
 	label img {
-		width: $large;
-		height: $large;
+		@include size($large, $large);
 	}
 }

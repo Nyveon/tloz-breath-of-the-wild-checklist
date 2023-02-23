@@ -1,6 +1,5 @@
 .search input {
-	height: $large + $small;
-	width: 20em;
+	@include size(20em, $large + $small);
 	padding-left: $large;
 	padding-block: $medium;
 
@@ -9,13 +8,12 @@
 	outline: 1px solid $color-border;
 
 	color: $color-text;
-	
-	background-color: $color-frame;
-	background-image: url('/img/search.svg');
-    background-size: $medium $medium;
-	background-position: 0.5em center;
-    background-repeat: no-repeat;
 
+	background-color: $color-frame;
+	background-image: url("/img/search.svg");
+	background-size: $medium $medium;
+	background-position: 0.5em center;
+	background-repeat: no-repeat;
 
 	&:focus {
 		outline-color: $color-primary;

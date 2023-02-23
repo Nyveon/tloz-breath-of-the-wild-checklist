@@ -1,8 +1,7 @@
 footer {
-	min-height: 10vh;
-	width: 100%;
+	@include size(100%, 10vh);
 	@include flex(row, center, center);
-	
+
 	background-color: $color-frame;
 	border-top: $border-thickness solid $color-border;
 }

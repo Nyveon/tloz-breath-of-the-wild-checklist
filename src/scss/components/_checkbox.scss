@@ -10,10 +10,9 @@
 }
 
 input[type="checkbox"] {
+	@include size($medium, $medium);
 	display: grid;
 	place-content: center;
-	width: $medium;
-	height: $medium;
 	transform: rotate(45deg);
 	margin: 0;
 
@@ -22,18 +21,16 @@ input[type="checkbox"] {
 
 	font: inherit;
 	color: currentColor;
+	--check-color: #{$color-highlight};
 
 	border: 0.15em solid currentColor;
 	border-radius: 0.15em;
 
 	cursor: pointer;
 
-	--check-color: #{$color-highlight};
-
 	&::before {
 		content: "";
-		width: $very-small;
-		height: $very-small;
+		@include size($very-small, $very-small);
 		transform: scale(0);
 		transition: 120ms transform ease-in-out;
 		box-shadow: inset 1em 1em var(--check-color);

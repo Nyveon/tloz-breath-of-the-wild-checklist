@@ -102,7 +102,7 @@ title: "BOTW: Quests"
 							category.type
 						}}-' + quest.index) }"
 						class="{{ category.type }}"
-						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation }"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation, 'checkbox-mode': checkboxMode }"
 						@click="
 							completed = !completed;
 							quest.completed = completed;

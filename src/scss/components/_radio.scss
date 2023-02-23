@@ -1,16 +1,16 @@
 .radio {
 	display: inline-block;
+	cursor: pointer;
 
 	input {
+		@include size($medium, $medium);
+
 		-webkit-appearance: none;
 		appearance: none;
 		color: currentColor;
 
-		width: $medium;
-		height: $medium;
 		border: 0.15em solid currentColor;
 		border-radius: 50%;
-
 		margin: 0;
 
 		cursor: pointer;
@@ -26,8 +26,6 @@
 	}
 
 	label {
-		cursor: pointer;
-
 		&:hover {
 			@include glow-text($color-white-glow);
 		}
