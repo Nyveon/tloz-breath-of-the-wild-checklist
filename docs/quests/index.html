@@ -67,6 +67,7 @@
 		compactMode: $persist(false),
 		spoilerLocation: $persist(true),
 		completedLast: $persist(false),
+		checkboxMode: $persist(false),
 
 		isActiveTab(id) {
 			return this.activeTab === id;
@@ -142,16 +143,6 @@
 				<span>Show DLC quests</span>
 			</label>
 			
-			<label for="compactMode" title="Compact mode">
-				<input
-					type="checkbox"
-					x-model="compactMode"
-					name="compactMode"
-					id="compactMode"
-				/>
-				<span>Compact mode</span>
-			</label>
-			
 			<label for="spoilerLocation" title="Censor location">
 				<input
 					type="checkbox"
@@ -162,6 +153,16 @@
 				<span>Censor location</span>
 			</label>
 			
+			<label for="compactMode" title="Compact mode">
+				<input
+					type="checkbox"
+					x-model="compactMode"
+					name="compactMode"
+					id="compactMode"
+				/>
+				<span>Compact mode</span>
+			</label>
+			
 			<label for="completedLast" title="Send completed to end">
 				<input
 					type="checkbox"
@@ -170,6 +171,16 @@
 					id="completedLast"
 				/>
 				<span>Send completed to end</span>
+			</label>
+			
+			<label for="checkboxMode" title="Checkboxes">
+				<input
+					type="checkbox"
+					x-model="checkboxMode"
+					name="checkboxMode"
+					id="checkboxMode"
+				/>
+				<span>Checkboxes</span>
 			</label>
 			
 		</fieldset>
@@ -261,7 +272,12 @@
 							$nextTick(() => {quest.completed = completed});
 						"
 					>
-						<img src="/img/quest-main.svg" alt="" />
+						<template x-if="checkboxMode">
+							<input type="checkbox" x-model="completed" @click.stop />
+						</template>
+						<template x-if="!checkboxMode">
+							<img src="/img/quest-main.svg" alt="" />
+						</template>
 						<div class="top"></div>
 						<div class="bottom"></div>
 						<hgroup>
@@ -306,7 +322,12 @@
 							$nextTick(() => {quest.completed = completed});
 						"
 					>
-						<img src="/img/quest-side.svg" alt="" />
+						<template x-if="checkboxMode">
+							<input type="checkbox" x-model="completed" @click.stop />
+						</template>
+						<template x-if="!checkboxMode">
+							<img src="/img/quest-side.svg" alt="" />
+						</template>
 						<div class="top"></div>
 						<div class="bottom"></div>
 						<hgroup>
@@ -351,7 +372,12 @@
 							$nextTick(() => {quest.completed = completed});
 						"
 					>
-						<img src="/img/quest-shrine.svg" alt="" />
+						<template x-if="checkboxMode">
+							<input type="checkbox" x-model="completed" @click.stop />
+						</template>
+						<template x-if="!checkboxMode">
+							<img src="/img/quest-shrine.svg" alt="" />
+						</template>
 						<div class="top"></div>
 						<div class="bottom"></div>
 						<hgroup>
@@ -396,7 +422,12 @@
 							$nextTick(() => {quest.completed = completed});
 						"
 					>
-						<img src="/img/quest-memory.svg" alt="" />
+						<template x-if="checkboxMode">
+							<input type="checkbox" x-model="completed" @click.stop />
+						</template>
+						<template x-if="!checkboxMode">
+							<img src="/img/quest-memory.svg" alt="" />
+						</template>
 						<div class="top"></div>
 						<div class="bottom"></div>
 						<hgroup>

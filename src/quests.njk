@@ -14,6 +14,7 @@ title: "BOTW: Quests"
 		compactMode: $persist(false),
 		spoilerLocation: $persist(true),
 		completedLast: $persist(false),
+		checkboxMode: $persist(false),
 
 		isActiveTab(id) {
 			return this.activeTab === id;
@@ -48,8 +49,9 @@ title: "BOTW: Quests"
 
 		<fieldset class="checkbox">
 			{% for key, text in { 'showCompleted': 'Show completed quests', 'showDLC':
-			'Show DLC quests', 'compactMode': 'Compact mode', 'spoilerLocation':
-			'Censor location', 'completedLast': 'Send completed to end'} %}
+			'Show DLC quests', 'spoilerLocation': 'Censor location', 'compactMode':
+			'Compact mode', 'completedLast': 'Send completed to end', 'checkboxMode':
+			'Checkboxes'} %}
 			<label for="{{ key }}" title="{{ text }}">
 				<input
 					type="checkbox"
@@ -112,7 +114,12 @@ title: "BOTW: Quests"
 							$nextTick(() => {quest.completed = completed});
 						"
 					>
-						<img src="{{ category.icon }}" alt="" />
+						<template x-if="checkboxMode">
+							<input type="checkbox" x-model="completed" @click.stop />
+						</template>
+						<template x-if="!checkboxMode">
+							<img src="{{ category.icon }}" alt="" />
+						</template>
 						<div class="top"></div>
 						<div class="bottom"></div>
 						<hgroup>

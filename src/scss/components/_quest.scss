@@ -8,6 +8,7 @@
 	opacity: 0.9;
 
 	position: relative;
+	overflow: hidden;
 	@include flex(row, flex-start, center);
 
 	cursor: pointer;
@@ -70,6 +71,19 @@
 		}
 	}
 
+	input[type="checkbox"] {
+		margin-inline: $very-small;
+		scale: 1.5;
+	}
+
+	@each $type, $color in $colors-quest {
+		&.#{$type} {
+			input[type="checkbox"] {
+				--check-color: #{$color};
+			}
+		}
+	}
+
 	&.compact {
 		width: $quest-card-width-small;
 		height: $quest-card-height-small;
@@ -82,10 +96,32 @@
 		img {
 			display: none;
 		}
+
+		input[type="checkbox"] {
+			margin-inline: 0 $very-small;
+			scale: 1;
+		}
 	}
 
 	&.spoiler:not(.completed) span {
 		display: none !important;
 	}
-}
+	
+	$shine-width: 4em;
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: -$shine-width;
+		width: $shine-width * 2.77;
+		height: 100%;
+		transform: translateX(-100%) rotate(45deg);
+		background-color: white;
+		transition: 0s ease-in-out;
+	}
 
+	&.completed::before {
+		transform: translateX($quest-card-width + $shine-width) rotate(45deg);
+		transition: 0.35s ease-in-out;
+	}
+}

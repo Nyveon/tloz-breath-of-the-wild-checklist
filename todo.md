@@ -66,7 +66,7 @@ Quest screen:
   - [x] Tab backgrounds
   - [x] Persistent tab selection
 
-- Filter
+- Config/Filter
   - [x] Search by name text input
   - [x] Sort by asc/desc/none radio
   - [x] Send completed to end toggle
@@ -75,16 +75,20 @@ Quest screen:
   - [x] Compact mode toggle
   - [x] Censor Memory subtitles toggle
   - [x] Hide DLC Quests toggle
+  - [ ] Organize options into dropdown
+  - [ ] Checkbox mode (replaces icon)
 
 - Completion
   - [x] Click to finish
   - [x] Persistent finished/unfinished quest
+  - [ ] Show quest completion counters per type
+  - [ ] Show total completion percentage/bar
 
 - Future improvements
   - [ ] Show quest giver toggle
   - [ ] Include subtitle in search toggle
   - [ ] Particle effects when marking as done
-  - [ ] Swoosh animation when marking as done (shine ltr)
+  - [x] Swoosh animation when marking as done (shine ltr)
 
 ## Welcome/Credits page
 
