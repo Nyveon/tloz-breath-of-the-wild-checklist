@@ -92,3 +92,7 @@ Quest screen:
 ## Welcome/Credits page
 
 ## Compendium
+
+## Summary page
+
+- [ ] Stats summary with image export option/share to social media (birlliant idea for getting exposure for the project!!)
