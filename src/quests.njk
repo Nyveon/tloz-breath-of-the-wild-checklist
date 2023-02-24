@@ -37,7 +37,24 @@ title: "BOTW: Quests"
 				{% endfor %}
 			],
 			{% endfor %}
-		}
+		},
+
+		{% for category in questData %}
+		get {{ category.type }}Completion() {
+			return completedQuests(this.allQuests['{{ category.type }}'], this.showDLC);
+		},
+		{% endfor %}
+
+		get totalCompletion() {
+			let completed = 0;
+			let total = 0;
+			{% for category in questData %}
+			completed += this.{{ category.type }}Completion.completed;
+			total += this.{{ category.type }}Completion.total;
+			{% endfor %}
+			const percentage = Math.round(completed / total * 100); 
+			return { completed, total, percentage };
+		},
 	}"
 >
 	<section class="topbar">
@@ -69,9 +86,9 @@ title: "BOTW: Quests"
 		</div>
 
 		<fieldset class="bar-element checkbox">
-			{% for key, text in { 'showCompleted': 'Show completed', 'showDLC': 'Show
-			DLC', 'showLocation': 'Show location', 'compactMode': 'Compact mode',
-			'completedLast': 'Completed to end', 'checkboxMode': 'Checkboxes'} %}
+			{% for key, text in { 'showCompleted': 'Show completed', 'showDLC':
+			'Include DLC', 'showLocation': 'Show location', 'compactMode': 'Compact
+			mode', 'completedLast': 'Completed last', 'checkboxMode': 'Checkboxes'} %}
 			<label for="{{ key }}" title="{{ text }}">
 				<input
 					type="checkbox"
@@ -84,21 +101,13 @@ title: "BOTW: Quests"
 			{% endfor %}
 		</fieldset>
 
-		<div
-			class="bar-element"
-			x-data="{
-			get completed() {
-				return completedQuests(allQuests, showDLC);
-			},
-			get total() {
-				return totalQuests(allQuests, showDLC);
-			}
-		}"
-		>
-			<div>[-----------]</div>
+		<div class="bar-element completion">
+			<b>Completion:</b>
 			<div>
-				Total: <span x-text="completed"></span> / <span x-text="total"></span>
+				<span x-text="totalCompletion.completed"></span> /
+				<span x-text="totalCompletion.total"></span>
 			</div>
+			<div><span x-text="totalCompletion.percentage"></span>%</div>
 		</div>
 	</section>
 
@@ -116,6 +125,10 @@ title: "BOTW: Quests"
 				>
 					<img src="{{ category.icon }}" alt="{{ category.name }}" />
 					<h2>{{ category.name }}</h2>
+					<div style="margin-left: 1em">
+						<span x-text="{{ category.type }}Completion.completed"></span> /
+						<span x-text="{{ category.type }}Completion.total"></span>
+					</div>
 				</a>
 			</li>
 			{% endfor %}
@@ -134,42 +147,38 @@ title: "BOTW: Quests"
 					x-for="quest in filteredQuests"
 					:key="quest.index"
 				>
-					<template
+					<li
+						:id="'{{ category.type }}-' + quest.index"
+						class="{{ category.type }}"
+						:class="{ 'completed': quest.completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
+						@click="
+							quest.completed = !quest.completed;
+						"
+						x-show="(showCompleted || !quest.completed) && (showDLC || !quest.dlc)"
+						x-transition
+						role="button"
 						x-data="{ 
 							completed: allQuests['{{ category.type }}'][quest.index]
 						}"
-						x-if="isActiveTab('{{ category.type }}')"
 					>
-						<li
-							:id="'{{ category.type }}-' + quest.index"
-							class="{{ category.type }}"
-							:class="{ 'completed': quest.completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
-							@click="
-								quest.completed = !quest.completed;
-							"
-							x-show="(showCompleted || !quest.completed) && (showDLC || !quest.dlc)"
-							x-transition
-							role="button"
-						>
-							<template x-if="checkboxMode">
-								<input type="checkbox" x-model="quest.completed" @click.stop />
-							</template>
-							<template x-if="!checkboxMode">
-								<img src="{{ category.icon }}" alt="" />
-							</template>
-							<div class="top"></div>
-							<div class="bottom"></div>
-							<hgroup>
-								<h3
-									x-text="quest.nameCensored ? quest.nameCensored : quest.name"
-								></h3>
-								<span
-									class="{{ category.type }}"
-									x-text="quest.nameCensored ? quest.name : quest.location"
-								></span>
-							</hgroup>
-						</li>
-					</template>
+						<template x-if="checkboxMode">
+							<input type="checkbox" x-model="quest.completed" @click.stop />
+						</template>
+						<template x-if="!checkboxMode">
+							<img src="{{ category.icon }}" alt="" />
+						</template>
+						<div class="top"></div>
+						<div class="bottom"></div>
+						<hgroup>
+							<h3
+								x-text="quest.nameCensored ? quest.nameCensored : quest.name"
+							></h3>
+							<span
+								class="{{ category.type }}"
+								x-text="quest.nameCensored ? quest.name : quest.location"
+							></span>
+						</hgroup>
+					</li>
 				</template>
 			</ul>
 		</div>
