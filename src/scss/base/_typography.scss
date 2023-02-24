@@ -1,25 +1,25 @@
 @font-face {
-	font-family: 'Hylia Serif';
-	src: url(/fonts/HyliaSerifBeta-Regular.otf) format('opentype');
+	font-family: "Hylia Serif";
+	src: url(/fonts/HyliaSerifBeta-Regular.otf) format("opentype");
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Calamity Sans';
-	src: url(/fonts/Calamity-Regular.otf) format('opentype');
+	font-family: "Calamity Sans";
+	src: url(/fonts/Calamity-Regular.otf) format("opentype");
 	font-display: swap;
 }
 
 @font-face {
-	font-family: 'Calamity Sans';
+	font-family: "Calamity Sans";
 	font-weight: bold;
-	src: url(/fonts/Calamity-Bold.otf) format('opentype');
+	src: url(/fonts/Calamity-Bold.otf) format("opentype");
 	font-display: swap;
 }
 
 @font-face {
 	font-family: "Sheikah";
-	src: url(/fonts/Sheikah.ttf) format('truetype');
+	src: url(/fonts/Sheikah.ttf) format("truetype");
 	font-display: swap;
 }
 
@@ -28,14 +28,20 @@
 }
 
 html {
-	font-family: 'Calamity Sans', sans-serif;
+	font-family: "Calamity Sans", sans-serif;
 	color: $color-text;
 }
 
-h1, h2 {
-	font-family: 'Hylia Serif', serif;
+h1,
+h2 {
+	font-family: "Hylia Serif", serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	margin: 0;
 }

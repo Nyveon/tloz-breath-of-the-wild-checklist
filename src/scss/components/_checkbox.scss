@@ -1,18 +1,26 @@
 .checkbox {
+	width: 100%;
+	max-width: $setting-width * 4;
+
+	display: grid;
+	grid-template-columns: repeat(auto-fill, $setting-width);
+	justify-content: space-around;
+	grid-gap: $very-small 0;
+
 	label {
-		@include flex(row, flex-start, center);
 		cursor: pointer;
 	}
 
 	span {
-		margin-left: 0.5em;
+		margin-left: $very-small;
 	}
 }
 
 input[type="checkbox"] {
 	@include size($medium, $medium);
-	display: grid;
-	place-content: center;
+	position: relative;
+	display: inline-block;
+
 	transform: rotate(45deg);
 	margin: 0;
 
@@ -29,8 +37,10 @@ input[type="checkbox"] {
 	cursor: pointer;
 
 	&::before {
+		$check-size: $very-small;
+		@include size($check-size, $check-size);
+		@include absolute(calc($check-size / 4), auto, auto, calc($check-size / 4));
 		content: "";
-		@include size($very-small, $very-small);
 		transform: scale(0);
 		transition: 120ms transform ease-in-out;
 		box-shadow: inset 1em 1em var(--check-color);

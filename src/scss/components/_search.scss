@@ -1,5 +1,5 @@
 .search input {
-	@include size(20em, $large + $small);
+	@include size($search-width - $small, $large + $small);
 	padding-left: $large;
 	padding-block: $medium;
 

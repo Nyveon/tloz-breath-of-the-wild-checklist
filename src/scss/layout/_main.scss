@@ -14,6 +14,22 @@ main {
 	section {
 		.content {
 			@include flex(column, space-around, normal);
+			border: 2px solid $color-border;
+			border-image: linear-gradient(
+					to right,
+					transparent,
+					$color-border,
+					transparent
+				)
+				1;
+			background: linear-gradient(
+				to right,
+				rgba(255, 255, 255, 0),
+				rgba(255, 255, 255, 0.01),
+				rgba(255, 255, 255, 0)
+			);
+			padding-bottom: $large;
+			margin-block: $medium;
 		}
 
 		[role="tablist"] {

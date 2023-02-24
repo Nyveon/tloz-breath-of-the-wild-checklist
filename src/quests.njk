@@ -12,7 +12,7 @@ title: "BOTW: Quests"
 		showCompleted: $persist(true),
 		showDLC: $persist(true),
 		compactMode: $persist(false),
-		spoilerLocation: $persist(true),
+		showLocation: $persist(true),
 		completedLast: $persist(false),
 		checkboxMode: $persist(false),
 
@@ -21,37 +21,38 @@ title: "BOTW: Quests"
 		},
 	}"
 >
-	<section class="filterbar" role="toolbar" aria-label="Quest filters">
-		<fieldset class="search" role="search">
-			<input
-				name="search"
-				x-model="search"
-				type="search"
-				placeholder="Search for a quest..."
-			/>
-		</fieldset>
-
-		<fieldset class="radio">
-			{% for key, name in { 'asc': 'Ascending', 'desc': 'Descending', 'none':
-			'Index' } %}
-			<label for="sort-{{ key }}" title="Sort by {{ name }}">
+	<section class="topbar">
+		<div class="bar-element" role="toolbar" aria-label="Quest filters & search">
+			<fieldset class="search" role="search">
 				<input
-					type="radio"
-					value="{{ key }}"
-					x-model="sorting"
-					name="sort"
-					id="sort-{{ key }}"
+					name="search"
+					x-model="search"
+					type="search"
+					placeholder="Search for a quest..."
 				/>
-				<img src="/img/{{ key }}.svg" alt="Sort by {{ name }}" />
-			</label>
-			{% endfor %}
-		</fieldset>
+			</fieldset>
 
-		<fieldset class="checkbox">
-			{% for key, text in { 'showCompleted': 'Show completed quests', 'showDLC':
-			'Show DLC quests', 'spoilerLocation': 'Censor location', 'compactMode':
-			'Compact mode', 'completedLast': 'Send completed to end', 'checkboxMode':
-			'Checkboxes'} %}
+			<fieldset class="radio">
+				{% for key, name in { 'asc': 'Ascending', 'desc': 'Descending', 'none':
+				'Index' } %}
+				<label for="sort-{{ key }}" title="Sort by {{ name }}">
+					<input
+						type="radio"
+						value="{{ key }}"
+						x-model="sorting"
+						name="sort"
+						id="sort-{{ key }}"
+					/>
+					<img src="/img/{{ key }}.svg" alt="Sort by {{ name }}" />
+				</label>
+				{% endfor %}
+			</fieldset>
+		</div>
+
+		<fieldset class="bar-element checkbox">
+			{% for key, text in { 'showCompleted': 'Show completed', 'showDLC': 'Show
+			DLC', 'showLocation': 'Show location', 'compactMode': 'Compact mode',
+			'completedLast': 'Completed to end', 'checkboxMode': 'Checkboxes'} %}
 			<label for="{{ key }}" title="{{ text }}">
 				<input
 					type="checkbox"
@@ -63,6 +64,11 @@ title: "BOTW: Quests"
 			</label>
 			{% endfor %}
 		</fieldset>
+
+		<div class="bar-element">
+			<div>[-----------]</div>
+			<div>Total: 41/47</div>
+		</div>
 	</section>
 
 	<section class="content" aria-label="Quests">
@@ -102,7 +108,7 @@ title: "BOTW: Quests"
 							category.type
 						}}-' + quest.index) }"
 						class="{{ category.type }}"
-						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation, 'checkbox-mode': checkboxMode }"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
 						@click="
 							completed = !completed;
 							quest.completed = completed;

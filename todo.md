@@ -55,7 +55,7 @@ Quest screen:
   
 ## Quests
 
-- [ ] Make responsive
+- [x] Make responsive (check this again lateR)
 
 - Tabs
   - [x] Main Data
@@ -75,8 +75,7 @@ Quest screen:
   - [x] Compact mode toggle
   - [x] Censor Memory subtitles toggle
   - [x] Hide DLC Quests toggle
-  - [ ] Organize options into dropdown
-  - [ ] Checkbox mode (replaces icon)
+  - [x] Checkbox mode (replaces icon)
 
 - Completion
   - [x] Click to finish

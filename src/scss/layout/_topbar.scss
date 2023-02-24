@@ -1,0 +1,44 @@
+.topbar {
+	display: grid;
+	grid-template-columns: $search-width 1fr calc($search-width / 2);
+	white-space: nowrap;
+	align-items: center;
+
+	.bar-element:nth-child(1) {
+		justify-self: start;
+	}
+
+	.bar-element:nth-child(2) {
+		justify-self: center;
+	}
+
+	.bar-element:nth-child(3) {
+		justify-self: end;
+	}
+
+	@media screen and (max-width: $breakpoint-tablet) {
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(3, auto);
+		grid-gap: $very-small;
+
+		.bar-element {
+			justify-self: center !important;
+		}
+	}
+}
+
+[role="toolbar"] {
+	@include flex-wrap(column, flex-start, flex-start);
+}
+
+fieldset {
+	border: none;
+
+	label img {
+		@include size($large, $large);
+	}
+
+	@media screen and (max-width: $breakpoint-tablet) {
+		margin-inline: auto;
+	}
+}

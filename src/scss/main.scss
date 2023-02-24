@@ -1,20 +1,20 @@
-@import 'utilities/colors';
-@import 'utilities/sizes';
-@import 'utilities/mixins';
+@import "utilities/colors";
+@import "utilities/sizes";
+@import "utilities/mixins";
 
-@import 'base/sanitize';
-@import 'base/typography';
+@import "base/sanitize";
+@import "base/typography";
 
-@import 'layout/body';
-@import 'layout/header';
-@import 'layout/navigation';
-@import 'layout/filterbar';
-@import 'layout/main';
-@import 'layout/footer';
+@import "layout/body";
+@import "layout/header";
+@import "layout/navigation";
+@import "layout/topbar";
+@import "layout/main";
+@import "layout/footer";
 
-@import 'pages/quests';
+@import "pages/quests";
 
-@import 'components/radio';
-@import 'components/search';
-@import 'components/quest';
-@import 'components/checkbox';
+@import "components/radio";
+@import "components/search";
+@import "components/quest";
+@import "components/checkbox";

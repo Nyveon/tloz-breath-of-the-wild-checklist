@@ -101,26 +101,6 @@
 	}
 	//#endregion
 
-	//#region -- Compact mode
-	&.compact {
-		@include size($quest-card-width-small, $quest-card-height-small);
-
-		hgroup {
-			margin: 0;
-			font-size: 0.8em;
-		}
-
-		img {
-			display: none;
-		}
-
-		input[type="checkbox"] {
-			margin-inline: 0 $very-small;
-			scale: 1;
-		}
-	}
-	//#endregion
-
 	//#region -- Shine swoosh animation
 	$shine-width: 4em;
 
@@ -136,6 +116,33 @@
 	&.completed::before {
 		transform: translateX($quest-card-width + $shine-width) rotate(45deg);
 		transition: 0.35s ease-in-out;
+	}
+	//#endregion
+
+	//#region -- Responsiveness & Compact Mode
+	&.compact {
+		@include size($quest-card-width-small, $quest-card-height-small);
+
+		hgroup {
+			margin: 0;
+			font-size: 0.85em;
+		}
+
+		img {
+			display: none;
+		}
+
+		input[type="checkbox"] {
+			margin-inline: 0 $very-small;
+			scale: 1;
+		}
+	}
+
+	@media screen and (max-width: $breakpoint-mobile) {
+		&:not(.compact) {
+			scale: 0.9;
+			margin-bottom: 0;
+		}
 	}
 	//#endregion
 }

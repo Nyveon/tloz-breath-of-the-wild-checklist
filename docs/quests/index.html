@@ -65,7 +65,7 @@
 		showCompleted: $persist(true),
 		showDLC: $persist(true),
 		compactMode: $persist(false),
-		spoilerLocation: $persist(true),
+		showLocation: $persist(true),
 		completedLast: $persist(false),
 		checkboxMode: $persist(false),
 
@@ -74,83 +74,87 @@
 		},
 	}"
 >
-	<section class="filterbar" role="toolbar" aria-label="Quest filters">
-		<fieldset class="search" role="search">
-			<input
-				name="search"
-				x-model="search"
-				type="search"
-				placeholder="Search for a quest..."
-			/>
-		</fieldset>
+	<section class="topbar">
+		<div class="bar-element" role="toolbar" aria-label="Quest filters & search">
+			<fieldset class="search" role="search">
+				<input
+					name="search"
+					x-model="search"
+					type="search"
+					placeholder="Search for a quest..."
+				/>
+			</fieldset>
 
-		<fieldset class="radio">
-			
-			<label for="sort-asc" title="Sort by Ascending">
-				<input
-					type="radio"
-					value="asc"
-					x-model="sorting"
-					name="sort"
-					id="sort-asc"
-				/>
-				<img src="/img/asc.svg" alt="Sort by Ascending" />
-			</label>
-			
-			<label for="sort-desc" title="Sort by Descending">
-				<input
-					type="radio"
-					value="desc"
-					x-model="sorting"
-					name="sort"
-					id="sort-desc"
-				/>
-				<img src="/img/desc.svg" alt="Sort by Descending" />
-			</label>
-			
-			<label for="sort-none" title="Sort by Index">
-				<input
-					type="radio"
-					value="none"
-					x-model="sorting"
-					name="sort"
-					id="sort-none"
-				/>
-				<img src="/img/none.svg" alt="Sort by Index" />
-			</label>
-			
-		</fieldset>
+			<fieldset class="radio">
+				
+				<label for="sort-asc" title="Sort by Ascending">
+					<input
+						type="radio"
+						value="asc"
+						x-model="sorting"
+						name="sort"
+						id="sort-asc"
+					/>
+					<img src="/img/asc.svg" alt="Sort by Ascending" />
+				</label>
+				
+				<label for="sort-desc" title="Sort by Descending">
+					<input
+						type="radio"
+						value="desc"
+						x-model="sorting"
+						name="sort"
+						id="sort-desc"
+					/>
+					<img src="/img/desc.svg" alt="Sort by Descending" />
+				</label>
+				
+				<label for="sort-none" title="Sort by Index">
+					<input
+						type="radio"
+						value="none"
+						x-model="sorting"
+						name="sort"
+						id="sort-none"
+					/>
+					<img src="/img/none.svg" alt="Sort by Index" />
+				</label>
+				
+			</fieldset>
+		</div>
 
-		<fieldset class="checkbox">
+		<fieldset class="bar-element checkbox">
 			
-			<label for="showCompleted" title="Show completed quests">
+			<label for="showCompleted" title="Show completed">
 				<input
 					type="checkbox"
 					x-model="showCompleted"
 					name="showCompleted"
 					id="showCompleted"
 				/>
-				<span>Show completed quests</span>
+				<span>Show completed</span>
 			</label>
 			
-			<label for="showDLC" title="Show DLC quests">
+			<label for="showDLC" title="Show
+			DLC">
 				<input
 					type="checkbox"
 					x-model="showDLC"
 					name="showDLC"
 					id="showDLC"
 				/>
-				<span>Show DLC quests</span>
+				<span>Show
+			DLC</span>
 			</label>
 			
-			<label for="spoilerLocation" title="Censor location">
+			<label for="showLocation" title="Show location">
 				<input
 					type="checkbox"
-					x-model="spoilerLocation"
-					name="spoilerLocation"
-					id="spoilerLocation"
+					x-model="showLocation"
+					name="showLocation"
+					id="showLocation"
 				/>
-				<span>Censor location</span>
+				<span>Show location</span>
 			</label>
 			
 			<label for="compactMode" title="Compact mode">
@@ -163,14 +167,14 @@
 				<span>Compact mode</span>
 			</label>
 			
-			<label for="completedLast" title="Send completed to end">
+			<label for="completedLast" title="Completed to end">
 				<input
 					type="checkbox"
 					x-model="completedLast"
 					name="completedLast"
 					id="completedLast"
 				/>
-				<span>Send completed to end</span>
+				<span>Completed to end</span>
 			</label>
 			
 			<label for="checkboxMode" title="Checkboxes">
@@ -184,6 +188,11 @@
 			</label>
 			
 		</fieldset>
+
+		<div class="bar-element">
+			<div>[-----------]</div>
+			<div>Total: 41/47</div>
+		</div>
 	</section>
 
 	<section class="content" aria-label="Quests">
@@ -260,7 +269,7 @@
 						:id="'main-' + quest.index"
 						x-data="{ completed: $persist(false).as('main-' + quest.index) }"
 						class="main"
-						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation, 'checkbox-mode': checkboxMode }"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
 						@click="
 							completed = !completed;
 							quest.completed = completed;
@@ -310,7 +319,7 @@
 						:id="'side-' + quest.index"
 						x-data="{ completed: $persist(false).as('side-' + quest.index) }"
 						class="side"
-						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation, 'checkbox-mode': checkboxMode }"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
 						@click="
 							completed = !completed;
 							quest.completed = completed;
@@ -360,7 +369,7 @@
 						:id="'shrine-' + quest.index"
 						x-data="{ completed: $persist(false).as('shrine-' + quest.index) }"
 						class="shrine"
-						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation, 'checkbox-mode': checkboxMode }"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
 						@click="
 							completed = !completed;
 							quest.completed = completed;
@@ -410,7 +419,7 @@
 						:id="'memory-' + quest.index"
 						x-data="{ completed: $persist(false).as('memory-' + quest.index) }"
 						class="memory"
-						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': spoilerLocation, 'checkbox-mode': checkboxMode }"
+						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
 						@click="
 							completed = !completed;
 							quest.completed = completed;

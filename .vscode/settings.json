@@ -7,4 +7,5 @@
         }
 	],
 	"svn.ignoreMissingSvnWarning": true,
+	"editor.formatOnSave": true,
 }
