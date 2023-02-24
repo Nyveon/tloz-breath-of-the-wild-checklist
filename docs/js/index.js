@@ -17,3 +17,27 @@ function questFilter(quests, search, sorting, completedLast) {
 		return filteredQuests;
 	}
 }
+
+function completedQuests(allQuests, includeDLC) {
+	let count = 0;
+	for (const category in allQuests) {
+		for (const quest of allQuests[category]) {
+			if (quest.completed && (includeDLC || !quest.dlc)) {
+				count++;
+			}
+		}
+	}
+	return count;
+}
+
+function totalQuests(allQuests, includeDLC) {
+	let count = 0;
+	for (const category in allQuests) {
+		for (const quest of allQuests[category]) {
+			if (includeDLC || !quest.dlc) {
+				count++;
+			}
+		}
+	}
+	return count;
+}

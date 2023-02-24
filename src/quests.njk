@@ -19,6 +19,25 @@ title: "BOTW: Quests"
 		isActiveTab(id) {
 			return this.activeTab === id;
 		},
+
+		allQuests: {
+			{% for category in questData %}
+			{{ category.type }}: [
+				{% for quest in category.quests %}
+				{
+					index: {{ quest.index }},
+					name: &quot;{{ quest.name | escape }}&quot;,
+					nameCensored: &quot;{{ quest.nameCensored | escape }}&quot;,
+					location: &quot;{{ quest.location | escape }}&quot;,
+					completed: $persist(false).as('{{ category.type }}-{{ quest.index }}'),
+					{% if quest.dlc %}
+					dlc: {{ quest.dlc }},
+					{% endif %}
+				},
+				{% endfor %}
+			],
+			{% endfor %}
+		}
 	}"
 >
 	<section class="topbar">
@@ -65,9 +84,21 @@ title: "BOTW: Quests"
 			{% endfor %}
 		</fieldset>
 
-		<div class="bar-element">
+		<div
+			class="bar-element"
+			x-data="{
+			get completed() {
+				return completedQuests(allQuests, showDLC);
+			},
+			get total() {
+				return totalQuests(allQuests, showDLC);
+			}
+		}"
+		>
 			<div>[-----------]</div>
-			<div>Total: 41/47</div>
+			<div>
+				Total: <span x-text="completed"></span> / <span x-text="total"></span>
+			</div>
 		</div>
 	</section>
 
@@ -81,6 +112,7 @@ title: "BOTW: Quests"
 					id="{{ category.type }}"
 					class="title {{ category.type }}"
 					@click="activeTab = '{{ category.type }}'"
+					@click.prevent
 				>
 					<img src="{{ category.icon }}" alt="{{ category.name }}" />
 					<h2>{{ category.name }}</h2>
@@ -90,11 +122,11 @@ title: "BOTW: Quests"
 		</ul>
 
 		{% for category in questData %}
-		<template x-if="isActiveTab('{{ category.type }}')">
+		<div x-show="isActiveTab('{{ category.type }}')">
 			<ul role="tabpanel" :class="{ 'compact': compactMode }">
 				<template
 					x-data="{ 
-							quests: {{ category.quests | dump }},
+							quests: allQuests['{{ category.type }}'],
 							get filteredQuests() {
 								return questFilter(this.quests, this.search, this.sorting, this.completedLast);
 							}
@@ -102,45 +134,45 @@ title: "BOTW: Quests"
 					x-for="quest in filteredQuests"
 					:key="quest.index"
 				>
-					<li
-						:id="'{{ category.type }}-' + quest.index"
-						x-data="{ completed: $persist(false).as('{{
-							category.type
-						}}-' + quest.index) }"
-						class="{{ category.type }}"
-						:class="{ 'completed': completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
-						@click="
-							completed = !completed;
-							quest.completed = completed;
-						"
-						x-show="(showCompleted || !completed) && (showDLC || !quest.dlc)"
-						x-transition
-						role="button"
-						x-init="
-							$nextTick(() => {quest.completed = completed});
-						"
+					<template
+						x-data="{ 
+							completed: allQuests['{{ category.type }}'][quest.index]
+						}"
+						x-if="isActiveTab('{{ category.type }}')"
 					>
-						<template x-if="checkboxMode">
-							<input type="checkbox" x-model="completed" @click.stop />
-						</template>
-						<template x-if="!checkboxMode">
-							<img src="{{ category.icon }}" alt="" />
-						</template>
-						<div class="top"></div>
-						<div class="bottom"></div>
-						<hgroup>
-							<h3
-								x-text="quest.nameCensored ? quest.nameCensored : quest.name"
-							></h3>
-							<span
-								class="{{ category.type }}"
-								x-text="quest.nameCensored ? quest.name : quest.location"
-							></span>
-						</hgroup>
-					</li>
+						<li
+							:id="'{{ category.type }}-' + quest.index"
+							class="{{ category.type }}"
+							:class="{ 'completed': quest.completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
+							@click="
+								quest.completed = !quest.completed;
+							"
+							x-show="(showCompleted || !quest.completed) && (showDLC || !quest.dlc)"
+							x-transition
+							role="button"
+						>
+							<template x-if="checkboxMode">
+								<input type="checkbox" x-model="quest.completed" @click.stop />
+							</template>
+							<template x-if="!checkboxMode">
+								<img src="{{ category.icon }}" alt="" />
+							</template>
+							<div class="top"></div>
+							<div class="bottom"></div>
+							<hgroup>
+								<h3
+									x-text="quest.nameCensored ? quest.nameCensored : quest.name"
+								></h3>
+								<span
+									class="{{ category.type }}"
+									x-text="quest.nameCensored ? quest.name : quest.location"
+								></span>
+							</hgroup>
+						</li>
+					</template>
 				</template>
 			</ul>
-		</template>
+		</div>
 		{% endfor %}
 	</section>
 </section>
