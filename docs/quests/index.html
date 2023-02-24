@@ -1730,7 +1730,45 @@
 				
 			],
 			
-		}
+		},
+
+		
+		get mainCompletion() {
+			return completedQuests(this.allQuests['main'], this.showDLC);
+		},
+		
+		get sideCompletion() {
+			return completedQuests(this.allQuests['side'], this.showDLC);
+		},
+		
+		get shrineCompletion() {
+			return completedQuests(this.allQuests['shrine'], this.showDLC);
+		},
+		
+		get memoryCompletion() {
+			return completedQuests(this.allQuests['memory'], this.showDLC);
+		},
+		
+
+		get totalCompletion() {
+			let completed = 0;
+			let total = 0;
+			
+			completed += this.mainCompletion.completed;
+			total += this.mainCompletion.total;
+			
+			completed += this.sideCompletion.completed;
+			total += this.sideCompletion.total;
+			
+			completed += this.shrineCompletion.completed;
+			total += this.shrineCompletion.total;
+			
+			completed += this.memoryCompletion.completed;
+			total += this.memoryCompletion.total;
+			
+			const percentage = Math.round(completed / total * 100); 
+			return { completed, total, percentage };
+		},
 	}"
 >
 	<section class="topbar">
@@ -1794,16 +1832,14 @@
 				<span>Show completed</span>
 			</label>
 			
-			<label for="showDLC" title="Show
-			DLC">
+			<label for="showDLC" title="Include DLC">
 				<input
 					type="checkbox"
 					x-model="showDLC"
 					name="showDLC"
 					id="showDLC"
 				/>
-				<span>Show
-			DLC</span>
+				<span>Include DLC</span>
 			</label>
 			
 			<label for="showLocation" title="Show location">
@@ -1816,24 +1852,26 @@
 				<span>Show location</span>
 			</label>
 			
-			<label for="compactMode" title="Compact mode">
+			<label for="compactMode" title="Compact
+			mode">
 				<input
 					type="checkbox"
 					x-model="compactMode"
 					name="compactMode"
 					id="compactMode"
 				/>
-				<span>Compact mode</span>
+				<span>Compact
+			mode</span>
 			</label>
 			
-			<label for="completedLast" title="Completed to end">
+			<label for="completedLast" title="Completed last">
 				<input
 					type="checkbox"
 					x-model="completedLast"
 					name="completedLast"
 					id="completedLast"
 				/>
-				<span>Completed to end</span>
+				<span>Completed last</span>
 			</label>
 			
 			<label for="checkboxMode" title="Checkboxes">
@@ -1848,21 +1886,13 @@
 			
 		</fieldset>
 
-		<div
-			class="bar-element"
-			x-data="{
-			get completed() {
-				return completedQuests(allQuests, showDLC);
-			},
-			get total() {
-				return totalQuests(allQuests, showDLC);
-			}
-		}"
-		>
-			<div>[-----------]</div>
+		<div class="bar-element completion">
+			<b>Completion:</b>
 			<div>
-				Total: <span x-text="completed"></span> / <span x-text="total"></span>
+				<span x-text="totalCompletion.completed"></span> /
+				<span x-text="totalCompletion.total"></span>
 			</div>
+			<div><span x-text="totalCompletion.percentage"></span>%</div>
 		</div>
 	</section>
 
@@ -1880,6 +1910,10 @@
 				>
 					<img src="/img/quest-main.svg" alt="Main Quests" />
 					<h2>Main Quests</h2>
+					<div style="margin-left: 1em">
+						<span x-text="mainCompletion.completed"></span> /
+						<span x-text="mainCompletion.total"></span>
+					</div>
 				</a>
 			</li>
 			
@@ -1894,6 +1928,10 @@
 				>
 					<img src="/img/quest-side.svg" alt="Side Quests" />
 					<h2>Side Quests</h2>
+					<div style="margin-left: 1em">
+						<span x-text="sideCompletion.completed"></span> /
+						<span x-text="sideCompletion.total"></span>
+					</div>
 				</a>
 			</li>
 			
@@ -1908,6 +1946,10 @@
 				>
 					<img src="/img/quest-shrine.svg" alt="Shrine Quests" />
 					<h2>Shrine Quests</h2>
+					<div style="margin-left: 1em">
+						<span x-text="shrineCompletion.completed"></span> /
+						<span x-text="shrineCompletion.total"></span>
+					</div>
 				</a>
 			</li>
 			
@@ -1922,6 +1964,10 @@
 				>
 					<img src="/img/quest-memory.svg" alt="Memories" />
 					<h2>Memories</h2>
+					<div style="margin-left: 1em">
+						<span x-text="memoryCompletion.completed"></span> /
+						<span x-text="memoryCompletion.total"></span>
+					</div>
 				</a>
 			</li>
 			
@@ -1940,42 +1986,38 @@
 					x-for="quest in filteredQuests"
 					:key="quest.index"
 				>
-					<template
+					<li
+						:id="'main-' + quest.index"
+						class="main"
+						:class="{ 'completed': quest.completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
+						@click="
+							quest.completed = !quest.completed;
+						"
+						x-show="(showCompleted || !quest.completed) && (showDLC || !quest.dlc)"
+						x-transition
+						role="button"
 						x-data="{ 
 							completed: allQuests['main'][quest.index]
 						}"
-						x-if="isActiveTab('main')"
 					>
-						<li
-							:id="'main-' + quest.index"
-							class="main"
-							:class="{ 'completed': quest.completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
-							@click="
-								quest.completed = !quest.completed;
-							"
-							x-show="(showCompleted || !quest.completed) && (showDLC || !quest.dlc)"
-							x-transition
-							role="button"
-						>
-							<template x-if="checkboxMode">
-								<input type="checkbox" x-model="quest.completed" @click.stop />
-							</template>
-							<template x-if="!checkboxMode">
-								<img src="/img/quest-main.svg" alt="" />
-							</template>
-							<div class="top"></div>
-							<div class="bottom"></div>
-							<hgroup>
-								<h3
-									x-text="quest.nameCensored ? quest.nameCensored : quest.name"
-								></h3>
-								<span
-									class="main"
-									x-text="quest.nameCensored ? quest.name : quest.location"
-								></span>
-							</hgroup>
-						</li>
-					</template>
+						<template x-if="checkboxMode">
+							<input type="checkbox" x-model="quest.completed" @click.stop />
+						</template>
+						<template x-if="!checkboxMode">
+							<img src="/img/quest-main.svg" alt="" />
+						</template>
+						<div class="top"></div>
+						<div class="bottom"></div>
+						<hgroup>
+							<h3
+								x-text="quest.nameCensored ? quest.nameCensored : quest.name"
+							></h3>
+							<span
+								class="main"
+								x-text="quest.nameCensored ? quest.name : quest.location"
+							></span>
+						</hgroup>
+					</li>
 				</template>
 			</ul>
 		</div>
@@ -1992,42 +2034,38 @@
 					x-for="quest in filteredQuests"
 					:key="quest.index"
 				>
-					<template
+					<li
+						:id="'side-' + quest.index"
+						class="side"
+						:class="{ 'completed': quest.completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
+						@click="
+							quest.completed = !quest.completed;
+						"
+						x-show="(showCompleted || !quest.completed) && (showDLC || !quest.dlc)"
+						x-transition
+						role="button"
 						x-data="{ 
 							completed: allQuests['side'][quest.index]
 						}"
-						x-if="isActiveTab('side')"
 					>
-						<li
-							:id="'side-' + quest.index"
-							class="side"
-							:class="{ 'completed': quest.completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
-							@click="
-								quest.completed = !quest.completed;
-							"
-							x-show="(showCompleted || !quest.completed) && (showDLC || !quest.dlc)"
-							x-transition
-							role="button"
-						>
-							<template x-if="checkboxMode">
-								<input type="checkbox" x-model="quest.completed" @click.stop />
-							</template>
-							<template x-if="!checkboxMode">
-								<img src="/img/quest-side.svg" alt="" />
-							</template>
-							<div class="top"></div>
-							<div class="bottom"></div>
-							<hgroup>
-								<h3
-									x-text="quest.nameCensored ? quest.nameCensored : quest.name"
-								></h3>
-								<span
-									class="side"
-									x-text="quest.nameCensored ? quest.name : quest.location"
-								></span>
-							</hgroup>
-						</li>
-					</template>
+						<template x-if="checkboxMode">
+							<input type="checkbox" x-model="quest.completed" @click.stop />
+						</template>
+						<template x-if="!checkboxMode">
+							<img src="/img/quest-side.svg" alt="" />
+						</template>
+						<div class="top"></div>
+						<div class="bottom"></div>
+						<hgroup>
+							<h3
+								x-text="quest.nameCensored ? quest.nameCensored : quest.name"
+							></h3>
+							<span
+								class="side"
+								x-text="quest.nameCensored ? quest.name : quest.location"
+							></span>
+						</hgroup>
+					</li>
 				</template>
 			</ul>
 		</div>
@@ -2044,42 +2082,38 @@
 					x-for="quest in filteredQuests"
 					:key="quest.index"
 				>
-					<template
+					<li
+						:id="'shrine-' + quest.index"
+						class="shrine"
+						:class="{ 'completed': quest.completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
+						@click="
+							quest.completed = !quest.completed;
+						"
+						x-show="(showCompleted || !quest.completed) && (showDLC || !quest.dlc)"
+						x-transition
+						role="button"
 						x-data="{ 
 							completed: allQuests['shrine'][quest.index]
 						}"
-						x-if="isActiveTab('shrine')"
 					>
-						<li
-							:id="'shrine-' + quest.index"
-							class="shrine"
-							:class="{ 'completed': quest.completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
-							@click="
-								quest.completed = !quest.completed;
-							"
-							x-show="(showCompleted || !quest.completed) && (showDLC || !quest.dlc)"
-							x-transition
-							role="button"
-						>
-							<template x-if="checkboxMode">
-								<input type="checkbox" x-model="quest.completed" @click.stop />
-							</template>
-							<template x-if="!checkboxMode">
-								<img src="/img/quest-shrine.svg" alt="" />
-							</template>
-							<div class="top"></div>
-							<div class="bottom"></div>
-							<hgroup>
-								<h3
-									x-text="quest.nameCensored ? quest.nameCensored : quest.name"
-								></h3>
-								<span
-									class="shrine"
-									x-text="quest.nameCensored ? quest.name : quest.location"
-								></span>
-							</hgroup>
-						</li>
-					</template>
+						<template x-if="checkboxMode">
+							<input type="checkbox" x-model="quest.completed" @click.stop />
+						</template>
+						<template x-if="!checkboxMode">
+							<img src="/img/quest-shrine.svg" alt="" />
+						</template>
+						<div class="top"></div>
+						<div class="bottom"></div>
+						<hgroup>
+							<h3
+								x-text="quest.nameCensored ? quest.nameCensored : quest.name"
+							></h3>
+							<span
+								class="shrine"
+								x-text="quest.nameCensored ? quest.name : quest.location"
+							></span>
+						</hgroup>
+					</li>
 				</template>
 			</ul>
 		</div>
@@ -2096,42 +2130,38 @@
 					x-for="quest in filteredQuests"
 					:key="quest.index"
 				>
-					<template
+					<li
+						:id="'memory-' + quest.index"
+						class="memory"
+						:class="{ 'completed': quest.completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
+						@click="
+							quest.completed = !quest.completed;
+						"
+						x-show="(showCompleted || !quest.completed) && (showDLC || !quest.dlc)"
+						x-transition
+						role="button"
 						x-data="{ 
 							completed: allQuests['memory'][quest.index]
 						}"
-						x-if="isActiveTab('memory')"
 					>
-						<li
-							:id="'memory-' + quest.index"
-							class="memory"
-							:class="{ 'completed': quest.completed, 'compact': compactMode, 'spoiler': !showLocation, 'checkbox-mode': checkboxMode }"
-							@click="
-								quest.completed = !quest.completed;
-							"
-							x-show="(showCompleted || !quest.completed) && (showDLC || !quest.dlc)"
-							x-transition
-							role="button"
-						>
-							<template x-if="checkboxMode">
-								<input type="checkbox" x-model="quest.completed" @click.stop />
-							</template>
-							<template x-if="!checkboxMode">
-								<img src="/img/quest-memory.svg" alt="" />
-							</template>
-							<div class="top"></div>
-							<div class="bottom"></div>
-							<hgroup>
-								<h3
-									x-text="quest.nameCensored ? quest.nameCensored : quest.name"
-								></h3>
-								<span
-									class="memory"
-									x-text="quest.nameCensored ? quest.name : quest.location"
-								></span>
-							</hgroup>
-						</li>
-					</template>
+						<template x-if="checkboxMode">
+							<input type="checkbox" x-model="quest.completed" @click.stop />
+						</template>
+						<template x-if="!checkboxMode">
+							<img src="/img/quest-memory.svg" alt="" />
+						</template>
+						<div class="top"></div>
+						<div class="bottom"></div>
+						<hgroup>
+							<h3
+								x-text="quest.nameCensored ? quest.nameCensored : quest.name"
+							></h3>
+							<span
+								class="memory"
+								x-text="quest.nameCensored ? quest.name : quest.location"
+							></span>
+						</hgroup>
+					</li>
 				</template>
 			</ul>
 		</div>

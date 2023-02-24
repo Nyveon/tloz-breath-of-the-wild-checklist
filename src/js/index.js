@@ -18,26 +18,22 @@ function questFilter(quests, search, sorting, completedLast) {
 	}
 }
 
-function completedQuests(allQuests, includeDLC) {
-	let count = 0;
-	for (const category in allQuests) {
-		for (const quest of allQuests[category]) {
-			if (quest.completed && (includeDLC || !quest.dlc)) {
-				count++;
-			}
-		}
-	}
-	return count;
-}
+function completedQuests(quests, includeDLC) {
+	let completed = 0;
+	let total = 0;
 
-function totalQuests(allQuests, includeDLC) {
-	let count = 0;
-	for (const category in allQuests) {
-		for (const quest of allQuests[category]) {
-			if (includeDLC || !quest.dlc) {
-				count++;
-			}
+	for (const quest of quests) {
+		if (!includeDLC && quest.dlc) {
+			continue;
+		}
+
+		total++;
+		if (quest.completed) {
+			completed++;
 		}
 	}
-	return count;
+
+	const percentage = Math.round((completed / total) * 100);
+
+	return { completed, total, percentage };
 }
