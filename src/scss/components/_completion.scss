@@ -2,3 +2,57 @@
 	position: relative;
 	text-align: center;
 }
+
+.radial {
+	$size: 6em;
+	$cutout: 55%;
+	$cutoutAA: 0.75%;
+	$conicAA: 0.75deg;
+
+	@include size($size, $size);
+
+	position: relative;
+
+	&::before {
+		content: "";
+		@include absolute(0, 0, 0, 0);
+		@include size(100%, 100%);
+
+		border-radius: 50%;
+
+		background-image: conic-gradient(
+			$color-highlight calc(3.6deg * var(--percent) - $conicAA),
+			$color-frame calc(3.6deg * var(--percent) + $conicAA)
+		);
+
+		mask-image: radial-gradient(
+			circle,
+			rgba(0, 0, 0, 0) calc($cutout - $cutoutAA),
+			black calc($cutout + $cutoutAA)
+		);
+	}
+
+	&.completed {
+		@include glow-text($color-highlight);
+
+		&::before {
+			background-image: conic-gradient(
+				$color-completed 360deg,
+				$color-completed 360deg
+			);
+		}
+	}
+
+	span {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -80%);
+		font-weight: bold;
+
+		&:nth-child(2) {
+			transform: translate(-50%, -20%) scale(0.8);
+			font-weight: normal;
+		}
+	}
+}

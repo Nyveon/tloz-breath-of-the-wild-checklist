@@ -103,11 +103,20 @@ title: "BOTW: Quests"
 
 		<div class="bar-element completion">
 			<b>Completion:</b>
-			<div>
-				<span x-text="totalCompletion.completed"></span> /
-				<span x-text="totalCompletion.total"></span>
+			<div
+				class="radial"
+				:style="
+					{'--percent': totalCompletion.percentage}
+				"
+				:class="{
+					'completed': totalCompletion.percentage === 100,
+				}"
+			>
+				<span x-text="totalCompletion.percentage + '%'"></span>
+				<span
+					x-text="totalCompletion.completed + '/' + totalCompletion.total"
+				></span>
 			</div>
-			<div><span x-text="totalCompletion.percentage"></span>%</div>
 		</div>
 	</section>
 

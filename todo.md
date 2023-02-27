@@ -82,8 +82,10 @@ Quest screen:
   - [x] Persistent finished/unfinished quest
   - [x] Show quest completion counters per type
   - [x] Show total completion percentage
-  - [ ] Circular progress bar for total
+  - [x] Circular progress bar for total
+  - [ ] Special effect for total completion when 100%
   - [ ] Proper placement for quest category completion
+  - [ ] Special effect for quest category completion when 100%
 
 - Future improvements
   - [ ] Show quest giver toggle
