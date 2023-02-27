@@ -1,58 +1,90 @@
 .completion {
 	position: relative;
 	text-align: center;
-}
 
-.radial {
-	$size: 6em;
-	$cutout: 55%;
-	$cutoutAA: 0.75%;
-	$conicAA: 0.75deg;
+	&.text {
+		margin-left: $small;
 
-	@include size($size, $size);
+		&.completed {
+			$check-size: $medium;
+			padding-left: $check-size;
 
-	position: relative;
+			position: relative;
+			color: var(--quest-color);
 
-	&::before {
-		content: "";
-		@include absolute(0, 0, 0, 0);
-		@include size(100%, 100%);
+			&::after {
+				content: "✓";
+				@include size($check-size, $check-size);
+				@include absolute(0, 0, 0, 0);
+				font-size: $check-size;
+				font-weight: bold;
+				line-height: $check-size;
+				text-align: center;
+			}
 
-		border-radius: 50%;
-
-		background-image: conic-gradient(
-			$color-highlight calc(3.6deg * var(--percent) - $conicAA),
-			$color-frame calc(3.6deg * var(--percent) + $conicAA)
-		);
-
-		mask-image: radial-gradient(
-			circle,
-			rgba(0, 0, 0, 0) calc($cutout - $cutoutAA),
-			black calc($cutout + $cutoutAA)
-		);
-	}
-
-	&.completed {
-		@include glow-text($color-highlight);
-
-		&::before {
-			background-image: conic-gradient(
-				$color-completed 360deg,
-				$color-completed 360deg
-			);
+			&::before {
+				content: "";
+				@include size($check-size, $check-size);
+				@include absolute(0, 0, 0, 0);
+				border: 1px solid $color-border;
+				border-radius: 50%;
+				background-color: $color-frame;
+				transform: translateY(25%) translateX(-10%);
+			}
 		}
 	}
 
-	span {
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -80%);
-		font-weight: bold;
+	.radial {
+		$size: 6em;
+		$cutout: 55%;
+		$cutoutAA: 0.75%;
+		$conicAA: 0.75deg;
 
-		&:nth-child(2) {
-			transform: translate(-50%, -20%) scale(0.8);
-			font-weight: normal;
+		@include size($size, $size);
+
+		position: relative;
+
+		&::before {
+			content: "";
+			@include absolute(0, 0, 0, 0);
+			@include size(100%, 100%);
+
+			border-radius: 50%;
+
+			background-image: conic-gradient(
+				$color-highlight calc(3.6deg * var(--percent) - $conicAA),
+				$color-frame calc(3.6deg * var(--percent) + $conicAA)
+			);
+
+			mask-image: radial-gradient(
+				circle,
+				rgba(0, 0, 0, 0) calc($cutout - $cutoutAA),
+				black calc($cutout + $cutoutAA)
+			);
+		}
+
+		&.completed {
+			@include glow-text($color-glow);
+
+			&::before {
+				background-image: conic-gradient(
+					$color-completed 360deg,
+					$color-completed 360deg
+				);
+			}
+		}
+
+		span {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -85%);
+			font-weight: bold;
+
+			&:nth-child(2) {
+				transform: translate(-50%, -5%) scale(0.8);
+				font-weight: normal;
+			}
 		}
 	}
 }

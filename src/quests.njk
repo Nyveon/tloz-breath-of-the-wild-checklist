@@ -52,12 +52,19 @@ title: "BOTW: Quests"
 			completed += this.{{ category.type }}Completion.completed;
 			total += this.{{ category.type }}Completion.total;
 			{% endfor %}
-			const percentage = Math.round(completed / total * 100); 
+			const percentage = Math.round(completed / total * 1000) / 10; 
 			return { completed, total, percentage };
 		},
 	}"
 >
-	<section class="topbar">
+	<section
+		class="topbar"
+		x-data="{
+			collapsed: $persist(true),
+			collapsible: getComputedStyle($el).getPropertyValue('--collapsible'),
+		}"
+		@resize.window="collapsible = getComputedStyle($el).getPropertyValue('--collapsible')"
+	>
 		<div class="bar-element" role="toolbar" aria-label="Quest filters & search">
 			<fieldset class="search" role="search">
 				<input
@@ -68,7 +75,19 @@ title: "BOTW: Quests"
 				/>
 			</fieldset>
 
-			<fieldset class="radio">
+			<button
+				class="settings"
+				x-show="collapsible != 1"
+				@click="collapsed = !collapsed"
+				:aria-expanded="collapsed ? 'false' : 'true'"
+				aria-label="Collapse settings"
+			></button>
+
+			<fieldset
+				class="radio"
+				x-collapse
+				x-show="collapsible == 1 || !collapsed"
+			>
 				{% for key, name in { 'asc': 'Ascending', 'desc': 'Descending', 'none':
 				'Index' } %}
 				<label for="sort-{{ key }}" title="Sort by {{ name }}">
@@ -85,7 +104,11 @@ title: "BOTW: Quests"
 			</fieldset>
 		</div>
 
-		<fieldset class="bar-element checkbox">
+		<fieldset
+			class="bar-element checkbox"
+			x-collapse
+			x-show="collapsible == 1 || !collapsed"
+		>
 			{% for key, text in { 'showCompleted': 'Show completed', 'showDLC':
 			'Include DLC', 'showLocation': 'Show location', 'compactMode': 'Compact
 			mode', 'completedLast': 'Completed last', 'checkboxMode': 'Checkboxes'} %}
@@ -109,7 +132,7 @@ title: "BOTW: Quests"
 					{'--percent': totalCompletion.percentage}
 				"
 				:class="{
-					'completed': totalCompletion.percentage === 100,
+					'completed': totalCompletion.percentage >= 99.999,
 				}"
 			>
 				<span x-text="totalCompletion.percentage + '%'"></span>
@@ -123,18 +146,27 @@ title: "BOTW: Quests"
 	<section class="content" aria-label="Quests">
 		<ul role="tablist">
 			{% for category in questData %}
-			<li role="tab" :aria-selected="isActiveTab('{{ category.type }}')">
+			<li
+				role="tab"
+				:aria-selected="isActiveTab('{{ category.type }}')"
+				class="{{ category.type }}"
+			>
 				<img src="{{ category.background }}" class="background" alt="" />
 				<a
 					href="#"
 					id="{{ category.type }}"
-					class="title {{ category.type }}"
+					class="title"
 					@click="activeTab = '{{ category.type }}'"
 					@click.prevent
 				>
 					<img src="{{ category.icon }}" alt="{{ category.name }}" />
 					<h2>{{ category.name }}</h2>
-					<div style="margin-left: 1em">
+					<div
+						class="completion text"
+						:class="{
+							'completed': {{ category.type }}Completion.percentage >= 99.999,
+						}"
+					>
 						<span x-text="{{ category.type }}Completion.completed"></span> /
 						<span x-text="{{ category.type }}Completion.total"></span>
 					</div>

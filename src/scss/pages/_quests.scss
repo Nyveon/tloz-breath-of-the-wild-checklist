@@ -1,4 +1,10 @@
 .quests {
+	@each $type, $color in $colors-quest {
+		.#{$type} {
+			--quest-color: #{$color};
+		}
+	}
+
 	[role="tabpanel"] {
 		list-style: none;
 		margin: 0;
@@ -16,17 +22,16 @@
 
 	[role="tablist"] {
 		[aria-selected="true"] {
-			@each $type, $color in $colors-quest {
-				a.#{$type} {
-					img {
-						filter: drop-shadow(0 0 0.5px $color) drop-shadow(0 0 1px $color);
-					}
+			a {
+				img {
+					filter: drop-shadow(0 0 0.5px var(--quest-color))
+						drop-shadow(0 0 1px var(--quest-color));
+				}
 
-					h2::after {
-						background-color: $color;
-						transition: transform 0.25s ease-in-out;
-						transform: scaleX(1);
-					}
+				h2::after {
+					background-color: var(--quest-color);
+					transition: transform 0.25s ease-in-out;
+					transform: scaleX(1);
 				}
 			}
 
@@ -51,11 +56,3 @@
 		}
 	}
 }
-
-// .quest-completion {
-// 	@include flex(column, center, center);
-// 	text-align: center;
-// 	div {
-// 		width: 100%;
-// 	}
-// }

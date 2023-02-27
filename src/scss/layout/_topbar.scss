@@ -5,7 +5,7 @@
 	align-items: center;
 
 	.bar-element:nth-child(1) {
-		justify-self: start;
+		justify-self: end;
 	}
 
 	.bar-element:nth-child(2) {
@@ -13,17 +13,31 @@
 	}
 
 	.bar-element:nth-child(3) {
-		justify-self: end;
+		justify-self: start;
+	}
+
+	padding-inline: $small;
+
+	@media screen and (max-width: $breakpoint-desktop) {
+		padding-inline: 1%;
 	}
 
 	@media screen and (max-width: $breakpoint-tablet) {
+		padding-inline: 0%;
+
 		grid-template-columns: 1fr;
 		grid-template-rows: repeat(3, auto);
 		grid-gap: $very-small;
 
 		.bar-element {
+			align-items: center;
 			justify-self: center !important;
 		}
+	}
+
+	--collapsible: 1;
+	@media screen and (max-width: $breakpoint-mobile) {
+		--collapsible: 0;
 	}
 }
 

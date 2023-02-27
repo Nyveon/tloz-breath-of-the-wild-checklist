@@ -55,7 +55,7 @@ Quest screen:
   
 ## Quests
 
-- [x] Make responsive (check this again lateR)
+- [x] Make responsive
 
 - Tabs
   - [x] Main Data
@@ -83,14 +83,14 @@ Quest screen:
   - [x] Show quest completion counters per type
   - [x] Show total completion percentage
   - [x] Circular progress bar for total
-  - [ ] Special effect for total completion when 100%
-  - [ ] Proper placement for quest category completion
-  - [ ] Special effect for quest category completion when 100%
+  - [x] Special effect for total completion when 100%
+  - [x] Proper placement for quest category completion
+  - [x] Special effect for quest category completion when 100%
 
 - Future improvements
   - [ ] Show quest giver toggle
   - [ ] Include subtitle in search toggle
-  - [ ] Particle effects when marking as done
+  - [ ] Particle effects when marking as done?
   - [x] Swoosh animation when marking as done (shine ltr)
 
 ## Welcome/Credits page

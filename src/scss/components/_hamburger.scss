@@ -1,0 +1,18 @@
+// this is the settings hamburger gewar icon toggle button
+button.settings {
+	@include size($large, $large);
+
+	background-image: url("/img/gear.svg");
+	background-size: cover;
+
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+
+	transform: rotate(0deg);
+	transition: transform 0.3s ease-in-out;
+
+	&[aria-expanded="true"] {
+		transform: rotate(180deg);
+	}
+}

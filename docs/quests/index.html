@@ -20,6 +20,10 @@
 		></script>
 		<script
 			defer
+			src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+		></script>
+		<script
+			defer
 			src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
 		></script>
 		<script src="/js/index.js"></script>
@@ -1766,12 +1770,19 @@
 			completed += this.memoryCompletion.completed;
 			total += this.memoryCompletion.total;
 			
-			const percentage = Math.round(completed / total * 100); 
+			const percentage = Math.round(completed / total * 1000) / 10; 
 			return { completed, total, percentage };
 		},
 	}"
 >
-	<section class="topbar">
+	<section
+		class="topbar"
+		x-data="{
+			collapsed: $persist(true),
+			collapsible: getComputedStyle($el).getPropertyValue('--collapsible'),
+		}"
+		@resize.window="collapsible = getComputedStyle($el).getPropertyValue('--collapsible')"
+	>
 		<div class="bar-element" role="toolbar" aria-label="Quest filters & search">
 			<fieldset class="search" role="search">
 				<input
@@ -1782,7 +1793,19 @@
 				/>
 			</fieldset>
 
-			<fieldset class="radio">
+			<button
+				class="settings"
+				x-show="collapsible != 1"
+				@click="collapsed = !collapsed"
+				:aria-expanded="collapsed ? 'false' : 'true'"
+				aria-label="Collapse settings"
+			></button>
+
+			<fieldset
+				class="radio"
+				x-collapse
+				x-show="collapsible == 1 || !collapsed"
+			>
 				
 				<label for="sort-asc" title="Sort by Ascending">
 					<input
@@ -1820,7 +1843,11 @@
 			</fieldset>
 		</div>
 
-		<fieldset class="bar-element checkbox">
+		<fieldset
+			class="bar-element checkbox"
+			x-collapse
+			x-show="collapsible == 1 || !collapsed"
+		>
 			
 			<label for="showCompleted" title="Show completed">
 				<input
@@ -1894,7 +1921,7 @@
 					{'--percent': totalCompletion.percentage}
 				"
 				:class="{
-					'completed': totalCompletion.percentage === 100,
+					'completed': totalCompletion.percentage >= 99.999,
 				}"
 			>
 				<span x-text="totalCompletion.percentage + '%'"></span>
@@ -1908,72 +1935,108 @@
 	<section class="content" aria-label="Quests">
 		<ul role="tablist">
 			
-			<li role="tab" :aria-selected="isActiveTab('main')">
+			<li
+				role="tab"
+				:aria-selected="isActiveTab('main')"
+				class="main"
+			>
 				<img src="/img/illustration-main.svg" class="background" alt="" />
 				<a
 					href="#"
 					id="main"
-					class="title main"
+					class="title"
 					@click="activeTab = 'main'"
 					@click.prevent
 				>
 					<img src="/img/quest-main.svg" alt="Main Quests" />
 					<h2>Main Quests</h2>
-					<div style="margin-left: 1em">
+					<div
+						class="completion text"
+						:class="{
+							'completed': mainCompletion.percentage >= 99.999,
+						}"
+					>
 						<span x-text="mainCompletion.completed"></span> /
 						<span x-text="mainCompletion.total"></span>
 					</div>
 				</a>
 			</li>
 			
-			<li role="tab" :aria-selected="isActiveTab('side')">
+			<li
+				role="tab"
+				:aria-selected="isActiveTab('side')"
+				class="side"
+			>
 				<img src="/img/illustration-side.svg" class="background" alt="" />
 				<a
 					href="#"
 					id="side"
-					class="title side"
+					class="title"
 					@click="activeTab = 'side'"
 					@click.prevent
 				>
 					<img src="/img/quest-side.svg" alt="Side Quests" />
 					<h2>Side Quests</h2>
-					<div style="margin-left: 1em">
+					<div
+						class="completion text"
+						:class="{
+							'completed': sideCompletion.percentage >= 99.999,
+						}"
+					>
 						<span x-text="sideCompletion.completed"></span> /
 						<span x-text="sideCompletion.total"></span>
 					</div>
 				</a>
 			</li>
 			
-			<li role="tab" :aria-selected="isActiveTab('shrine')">
+			<li
+				role="tab"
+				:aria-selected="isActiveTab('shrine')"
+				class="shrine"
+			>
 				<img src="/img/illustration-shrine.svg" class="background" alt="" />
 				<a
 					href="#"
 					id="shrine"
-					class="title shrine"
+					class="title"
 					@click="activeTab = 'shrine'"
 					@click.prevent
 				>
 					<img src="/img/quest-shrine.svg" alt="Shrine Quests" />
 					<h2>Shrine Quests</h2>
-					<div style="margin-left: 1em">
+					<div
+						class="completion text"
+						:class="{
+							'completed': shrineCompletion.percentage >= 99.999,
+						}"
+					>
 						<span x-text="shrineCompletion.completed"></span> /
 						<span x-text="shrineCompletion.total"></span>
 					</div>
 				</a>
 			</li>
 			
-			<li role="tab" :aria-selected="isActiveTab('memory')">
+			<li
+				role="tab"
+				:aria-selected="isActiveTab('memory')"
+				class="memory"
+			>
 				<img src="/img/illustration-memory.svg" class="background" alt="" />
 				<a
 					href="#"
 					id="memory"
-					class="title memory"
+					class="title"
 					@click="activeTab = 'memory'"
 					@click.prevent
 				>
 					<img src="/img/quest-memory.svg" alt="Memories" />
 					<h2>Memories</h2>
-					<div style="margin-left: 1em">
+					<div
+						class="completion text"
+						:class="{
+							'completed': memoryCompletion.percentage >= 99.999,
+						}"
+					>
 						<span x-text="memoryCompletion.completed"></span> /
 						<span x-text="memoryCompletion.total"></span>
 					</div>
