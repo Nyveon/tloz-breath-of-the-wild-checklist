@@ -37,9 +37,11 @@
 
 			<nav>
 				<ul>
-					{% for page in ['Quests', 'Compendium', 'Completion', 'Settings'] %}
+					{% for key, img in {'Quests': 'quest-main.svg', 'Compendium':
+					'sheikah.svg', 'Other': 'triforce.svg'} %}
 					<li>
-						<a href="/{{ page | lower }}">{{ page }}</a>
+						<img src="/img/{{ img }}" alt="" />
+						<a href="/{{ key | lower }}">{{ key }}</a>
 					</li>
 					{% endfor %}
 				</ul>

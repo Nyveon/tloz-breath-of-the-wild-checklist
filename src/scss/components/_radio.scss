@@ -3,7 +3,7 @@
 	cursor: pointer;
 
 	input {
-		@include size($medium, $medium);
+		@include size($medium);
 
 		-webkit-appearance: none;
 		appearance: none;

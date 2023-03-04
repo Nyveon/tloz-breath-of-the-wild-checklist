@@ -21,7 +21,7 @@
 	inset: $top $right $bottom $left;
 }
 
-@mixin size($width, $height) {
+@mixin size($width, $height: $width) {
 	width: $width;
 	height: $height;
 }

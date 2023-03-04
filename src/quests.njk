@@ -59,6 +59,7 @@ title: "BOTW: Quests"
 >
 	<section
 		class="topbar"
+		x-cloak
 		x-data="{
 			collapsed: $persist(true),
 			collapsible: getComputedStyle($el).getPropertyValue('--collapsible'),
@@ -83,11 +84,7 @@ title: "BOTW: Quests"
 				aria-label="Collapse settings"
 			></button>
 
-			<fieldset
-				class="radio"
-				x-collapse
-				x-show="collapsible == 1 || !collapsed"
-			>
+			<fieldset class="radio" x-show="collapsible == 1 || !collapsed">
 				{% for key, name in { 'asc': 'Ascending', 'desc': 'Descending', 'none':
 				'Index' } %}
 				<label for="sort-{{ key }}" title="Sort by {{ name }}">

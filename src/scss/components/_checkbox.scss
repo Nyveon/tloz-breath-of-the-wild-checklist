@@ -17,7 +17,7 @@
 }
 
 input[type="checkbox"] {
-	@include size($medium, $medium);
+	@include size($medium);
 	position: relative;
 	display: inline-block;
 
@@ -38,7 +38,7 @@ input[type="checkbox"] {
 
 	&::before {
 		$check-size: $very-small;
-		@include size($check-size, $check-size);
+		@include size($check-size);
 		@include absolute(calc($check-size / 4), auto, auto, calc($check-size / 4));
 		content: "";
 		transform: scale(0);

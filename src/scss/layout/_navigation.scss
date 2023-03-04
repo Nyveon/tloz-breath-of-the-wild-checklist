@@ -8,12 +8,21 @@ nav {
 			display: inline-block;
 			margin: 0 1em;
 
-			a {
-				color: $color-primary;
-				text-decoration: none;
+			a:hover {
+				color: $color-link;
+			}
 
-				&:hover {
-					color: $color-highlight;
+			img {
+				@include size($large);
+
+				transition: scale 0.2s ease-in-out;
+			}
+
+			&:hover {
+				@include glow-text($color-glow);
+
+				img {
+					scale: 0.9;
 				}
 			}
 		}

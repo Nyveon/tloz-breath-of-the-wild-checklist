@@ -15,7 +15,7 @@
 
 	img {
 		$icon-size: $quest-card-height * 0.85;
-		@include size($icon-size, $icon-size);
+		@include size($icon-size);
 	}
 
 	hgroup {

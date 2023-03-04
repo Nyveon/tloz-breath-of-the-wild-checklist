@@ -49,7 +49,7 @@ fieldset {
 	border: none;
 
 	label img {
-		@include size($large, $large);
+		@include size($large);
 	}
 
 	@media screen and (max-width: $breakpoint-tablet) {

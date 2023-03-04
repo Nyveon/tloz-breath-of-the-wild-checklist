@@ -43,7 +43,7 @@ main {
 				transition: filter 0.2s ease-in-out;
 
 				img {
-					@include size($very-large, $very-large);
+					@include size($very-large);
 					margin-inline: $medium;
 				}
 

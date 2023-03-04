@@ -39,19 +39,18 @@
 				<ul>
 					
 					<li>
+						<img src="/img/quest-main.svg" alt="" />
 						<a href="/quests">Quests</a>
 					</li>
 					
 					<li>
+						<img src="/img/sheikah.svg" alt="" />
 						<a href="/compendium">Compendium</a>
 					</li>
 					
 					<li>
-						<a href="/completion">Completion</a>
-					</li>
-					
-					<li>
-						<a href="/settings">Settings</a>
+						<img src="/img/triforce.svg" alt="" />
+						<a href="/other">Other</a>
 					</li>
 					
 				</ul>
@@ -1777,6 +1776,7 @@
 >
 	<section
 		class="topbar"
+		x-cloak
 		x-data="{
 			collapsed: $persist(true),
 			collapsible: getComputedStyle($el).getPropertyValue('--collapsible'),
@@ -1801,11 +1801,7 @@
 				aria-label="Collapse settings"
 			></button>
 
-			<fieldset
-				class="radio"
-				x-collapse
-				x-show="collapsible == 1 || !collapsed"
-			>
+			<fieldset class="radio" x-show="collapsible == 1 || !collapsed">
 				
 				<label for="sort-asc" title="Sort by Ascending">
 					<input

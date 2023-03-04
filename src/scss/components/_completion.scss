@@ -14,7 +14,7 @@
 
 			&::after {
 				content: "✓";
-				@include size($check-size, $check-size);
+				@include size($check-size);
 				@include absolute(0, 0, 0, 0);
 				font-size: $check-size;
 				font-weight: bold;
@@ -24,7 +24,7 @@
 
 			&::before {
 				content: "";
-				@include size($check-size, $check-size);
+				@include size($check-size);
 				@include absolute(0, 0, 0, 0);
 				border: 1px solid $color-border;
 				border-radius: 50%;
@@ -40,14 +40,14 @@
 		$cutoutAA: 0.75%;
 		$conicAA: 0.75deg;
 
-		@include size($size, $size);
+		@include size($size);
 
 		position: relative;
 
 		&::before {
 			content: "";
 			@include absolute(0, 0, 0, 0);
-			@include size(100%, 100%);
+			@include size(100%);
 
 			border-radius: 50%;
 
