@@ -50,7 +50,7 @@
 
 		.background {
 			@include fixed(0, 0, auto, auto);
-			@include size(auto, 100%);
+			@include size(auto, 100vh);
 			z-index: -1;
 			visibility: hidden;
 		}
