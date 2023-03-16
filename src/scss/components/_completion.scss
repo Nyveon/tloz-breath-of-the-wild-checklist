@@ -52,7 +52,7 @@
 			border-radius: 50%;
 
 			background-image: conic-gradient(
-				$color-highlight calc(3.6deg * var(--percent) - $conicAA),
+				$color-incomplete calc(3.6deg * var(--percent) - $conicAA),
 				$color-frame calc(3.6deg * var(--percent) + $conicAA)
 			);
 

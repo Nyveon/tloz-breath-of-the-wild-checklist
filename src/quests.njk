@@ -73,6 +73,7 @@ title: "BOTW: Quests"
 					x-model="search"
 					type="search"
 					placeholder="Search for a quest..."
+					aria-label="Search for a quest"
 				/>
 			</fieldset>
 
@@ -200,7 +201,12 @@ title: "BOTW: Quests"
 						}"
 					>
 						<template x-if="checkboxMode">
-							<input type="checkbox" x-model="quest.completed" @click.stop />
+							<input
+								type="checkbox"
+								x-model="quest.completed"
+								@click.stop
+								aria-label="Mark quest"
+							/>
 						</template>
 						<template x-if="!checkboxMode">
 							<img src="{{ category.icon }}" alt="" />

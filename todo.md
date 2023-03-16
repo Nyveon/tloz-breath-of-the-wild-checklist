@@ -18,14 +18,14 @@
   - Medals of Honor
   - Completion stats
 
-TODO: 15 Main Quests + Destroy Ganon
-TODO: DLC 5 Champions Ballad Main Quests
-TODO: 76 Side Quests
-TODO: DLC 7 Master Trials Side Quests
-TODO: DLC 1 Xenoblade Side Quest
-TODO: DLC 6 Champions Ballad Side Quests
-TODO: 42 Shrine Quests
-TODO: 18 Recovered Memories
+//: 15 Main Quests + Destroy Ganon
+//: DLC 5 Champions Ballad Main Quests
+//: 76 Side Quests
+//: DLC 7 Master Trials Side Quests
+//: DLC 1 Xenoblade Side Quest
+//: DLC 6 Champions Ballad Side Quests
+//: 42 Shrine Quests
+//: 18 Recovered Memories
 TODO: 385 Hyrule Compendium Entries
 TODO: 15 Sheikah towers
 TODO: 120 Spirit Orbs
@@ -36,15 +36,6 @@ TODO: All amiibo-excsluive gear
 TODO: All Armor (With upgrade tiers)
 
 spoiler mode: switch to sheikah font and swap the letter randomly
-
-Quest screen:
-
-- 4 Categories
-  - Switch tabs?
-- Search by name
-- Complete quests
-- Hide completed option
-- Include DLC quests
 
 ## General
 
@@ -99,4 +90,4 @@ Quest screen:
 
 ## Summary page
 
-- [ ] Stats summary with image export option/share to social media (birlliant idea for getting exposure for the project!!)
+- [ ] Stats summary with image export option/share to social media (great idea for getting exposure for the project)

@@ -452,256 +452,244 @@
 				"index": 49
 			},
 			{
-				"name": "Destroy Ganon",
-				"npc": "King Rhoam",
-				"location": "Great Plateau",
-				"index": 50
-			},
-			{
 				"name": "The Search for Barta",
 				"npc": "Liana",
 				"location": "Gerudo Town",
-				"index": 51
+				"index": 50
 			},
 			{
 				"name": "Medicinal Molduga",
 				"npc": "Malena",
 				"location": "Gerudo Town",
-				"index": 52
+				"index": 51
 			},
 			{
 				"name": "The Eighth Heroine",
 				"npc": "Bozai",
 				"location": "Gerudo Desert",
-				"index": 53
+				"index": 52
 			},
 			{
 				"name": "The Mystery Polluter",
 				"npc": "Dalia",
 				"location": "Gerudo Town",
-				"index": 54
+				"index": 53
 			},
 			{
 				"name": "The Secret Club's Secret",
 				"npc": "Greta",
 				"location": "Gerudo Town",
-				"index": 55
+				"index": 54
 			},
 			{
 				"name": "Tools of the Trade",
 				"npc": "Isha",
 				"location": "Gerudo Town",
-				"index": 56
+				"index": 55
 			},
 			{
 				"name": "The Forgotten Sword",
 				"npc": "Bozai",
 				"location": "Gerudo Desert",
-				"index": 57
+				"index": 56
 			},
 			{
 				"name": "Missing in Action",
 				"npc": "Sesami",
 				"location": "Gerudo Canyon Stable",
-				"index": 58
+				"index": 57
 			},
 			{
 				"name": "Rushroom Rush!",
 				"npc": "Pirou",
 				"location": "Gerudo Canyon Stable",
-				"index": 59
+				"index": 58
 			},
 			{
 				"name": "Good-Sized Horse",
 				"npc": "Zyle",
 				"location": "Gerudo Canyon",
-				"index": 60
+				"index": 59
 			},
 			{
 				"name": "An Ice Guy",
 				"npc": "Guy",
 				"location": "Kara Kara Bazaar",
-				"index": 61
+				"index": 60
 			},
 			{
 				"name": "A Freezing Rod",
 				"npc": "Kula",
 				"location": "Great Hyrule Forest",
-				"index": 62
+				"index": 61
 			},
 			{
 				"name": "The Korok Trials",
 				"npc": "Chio",
 				"location": "Great Hyrule Forest",
-				"index": 63
+				"index": 62
 			},
 			{
 				"name": "Riddles of Hyrule",
 				"npc": "Walton",
 				"location": "Great Hyrule Forest",
-				"index": 64
+				"index": 63
 			},
 			{
 				"name": "Legendary Rabbit Trial",
 				"npc": "Peeks",
 				"location": "Great Hyrule Forest",
-				"index": 65
+				"index": 64
 			},
 			{
 				"name": "Special Delivery",
 				"npc": "Finley",
 				"location": "Bank of Wishes",
-				"index": 66
+				"index": 65
 			},
 			{
 				"name": "Lynel Safari",
 				"npc": "Laflat",
 				"location": "Zora's Domain",
-				"index": 67
+				"index": 66
 			},
 			{
 				"name": "The Giant of Ralis Pond",
 				"npc": "Torfeau",
 				"location": "Zora's Domain",
-				"index": 68
+				"index": 67
 			},
 			{
 				"name": "Frog Catching",
 				"npc": "Tumbo",
 				"location": "Zora's Domain",
-				"index": 69
+				"index": 68
 			},
 			{
 				"name": "Zora Stone Monuments",
 				"npc": "Jiahto",
 				"location": "Zora's Domain",
-				"index": 70
+				"index": 69
 			},
 			{
 				"name": "Diving is Beauty!",
 				"npc": "Gruve",
 				"location": "Zora's Domain",
-				"index": 71
+				"index": 70
 			},
 			{
 				"name": "Luminous Stone Gathering",
 				"npc": "Ledo",
 				"location": "Zora's Domain",
-				"index": 72
+				"index": 71
 			},
 			{
 				"name": "A Wife Washed Away",
 				"npc": "Fronk",
 				"location": "Zora's Domain",
-				"index": 73
+				"index": 72
 			},
 			{
 				"name": "A Gift from the Monks",
 				"npc": "Monk",
 				"location": "Ancient Shrine",
-				"index": 74
+				"index": 73
 			},
 			{
 				"name": "The Hero's Cache",
 				"npc": "Kass",
 				"location": "Kitano Bay",
-				"index": 75
+				"index": 74
 			},
 			{
 				"name": "Misko, the Great Bandit",
 				"npc": "Domidak",
 				"location": "Dueling Peaks Stable",
-				"index": 76
+				"index": 75
 			},
 			{
 				"name": "Wild Horses",
 				"npc": "Rensa",
 				"location": "Dueling Peaks Stable",
-				"index": 77
+				"index": 76
 			},
 			{
 				"name": "A Gift of Nightshade",
 				"npc": "Wabbin",
 				"location": "Faron",
-				"index": 78
+				"index": 77
 			},
 			{
 				"name": "Hunt for the Giant Horse",
 				"npc": "Straia",
 				"location": "Mounted Archery Camp",
-				"index": 79
+				"index": 78
 			},
 			{
 				"name": "The Horseback Hoodlums",
 				"npc": "Perosa",
 				"location": "Highland Stable",
-				"index": 80
+				"index": 79
 			},
 			{
 				"name": "Thunder Magnet",
 				"npc": "Cima",
 				"location": "Lakeside Stable",
-				"index": 81
+				"index": 80
 			},
 			{
 				"name": "A Gift for the Great Fairy",
 				"npc": "Toren",
 				"location": "Tabantha Bridge Stable",
-				"index": 82
-			},
-			{
-				"name": "Destroy Ganon",
-				"npc": "King Rhoam",
-				"location": "Great Plateau",
-				"index": 83
+				"index": 81
 			},
 			{
 				"name": "Leviathan Bones",
 				"npc": "Akrah",
 				"location": "Serenne Stable",
-				"index": 84
+				"index": 82
 			},
 			{
 				"name": "The Royal Guard's Gear",
 				"npc": "Parcy",
 				"location": "Riverside Stable",
-				"index": 85
+				"index": 83
 			},
 			{
 				"name": "A Royal Recipe",
 				"npc": "Gotter",
 				"location": "Riverside Stable",
-				"index": 86
+				"index": 84
 			},
 			{
 				"name": "Riverbed Reward",
 				"npc": "Izra",
 				"location": "Wetland Stable",
-				"index": 87
+				"index": 85
 			},
 			{
 				"name": "My Hero",
 				"npc": "Aliza",
 				"location": "Outskirt Stable",
-				"index": 88
+				"index": 86
 			},
 			{
 				"name": "A Rare Find",
 				"npc": "Trott",
 				"location": "Outskirt Stable",
-				"index": 89
+				"index": 87
 			},
 			{
 				"name": "The Royal White Stallion",
 				"npc": "Toffa",
 				"location": "Outskirt Stable",
-				"index": 90
+				"index": 88
 			},
 			{
 				"name": "[Xenoblade Chronicles 2]",
 				"npc": "",
 				"location": "",
-				"index": 91
+				"index": 89
 			}
 		]
 	},

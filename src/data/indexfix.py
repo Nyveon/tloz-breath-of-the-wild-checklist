@@ -5,12 +5,10 @@ import os
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
 # open index.json
-with open('index.json', 'r') as f:
+with open('questData.json', 'r') as f:
     index = json.load(f)
-    categories = index['categories']
-    # for each category in index
-    for category in categories:
-        # add the index of each quest in the category
+    categories = []
+    for category in index:
         for i, quest in enumerate(category['quests']):
             quest['index'] = i
     # write the new index.json
