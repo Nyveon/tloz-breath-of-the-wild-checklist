@@ -1,7 +1,52 @@
 footer {
-	@include size(100%, 10vh);
-	@include flex(row, center, center);
+	@include size(100%);
+	@include flex(column, center, center);
 
 	background-color: $color-frame;
 	border-top: $border-thickness solid $color-border;
+
+	padding-inline: $large;
+	padding-block: $small;
+
+	section.info {
+		@include flex(row, space-between, center);
+		@include size(100%);
+		margin-bottom: $small;
+
+		div {
+			@include flex(column, center, flex);
+			text-align: center;
+
+			&:first-child {
+				justify-self: left;
+				text-align: left;
+			}
+
+			&:last-child {
+				justify-self: right;
+				text-align: right;
+			}
+
+			@media screen and (max-width: $breakpoint-tablet) {
+				justify-self: center !important;
+				text-align: center !important;
+
+				padding-bottom: $small;
+			}
+		}
+
+		img {
+			@include size(1.5em);
+			margin-right: $small;
+		}
+
+		@media screen and (max-width: $breakpoint-tablet) {
+			@include flex(column, center, center);
+		}
+	}
+
+	section.disclaimer {
+		text-align: center;
+		font-size: $small;
+	}
 }

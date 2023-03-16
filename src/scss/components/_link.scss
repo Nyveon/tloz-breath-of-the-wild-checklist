@@ -1,0 +1,19 @@
+a.link {
+	color: $color-link;
+
+	img {
+		transition: scale 0.2s ease-in-out;
+	}
+
+	&:hover {
+		text-decoration: underline;
+
+		img {
+			scale: 0.9;
+		}
+	}
+
+	&:visited {
+		color: $color-link-visited;
+	}
+}

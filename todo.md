@@ -86,8 +86,17 @@ spoiler mode: switch to sheikah font and swap the letter randomly
 
 ## Welcome/Credits page
 
+This one goes last, all the credits and such.
+
 ## Compendium
 
 ## Summary page
 
 - [ ] Stats summary with image export option/share to social media (great idea for getting exposure for the project)
+
+## Footer
+
+- [ ] Github link
+- [ ] Github issues link
+- [ ] My name/link to portfolio page
+- [ ] Reddit link
