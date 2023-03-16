@@ -3,18 +3,39 @@
 
 	padding-inline: $very-large;
 
+	text-shadow: 0 0 4px #000;
+
 	@media screen and (max-width: $breakpoint-tablet) {
 		padding-inline: $large;
 	}
 
 	ul {
-		list-style: square;
+		list-style: none;
+		padding: 0;
+
+		li {
+			margin-bottom: $small;
+			padding-left: $medium + $small;
+
+			background-image: url("/img/ornament.svg");
+			background-repeat: no-repeat;
+			background-position: left center;
+			background-size: $medium;
+		}
 	}
 
-	img.background {
+	.background {
 		@include fixed(0, 0, auto, auto);
-		@include size(auto, 100%);
-		opacity: 0.05;
+		@include size(100%, 100%);
+
+		opacity: 0.3;
 		z-index: -1;
+
+		background-image: url("/img/titlebg.webp");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+
+		filter: blur(10px);
 	}
 }

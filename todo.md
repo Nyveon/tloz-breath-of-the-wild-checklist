@@ -88,11 +88,21 @@ spoiler mode: switch to sheikah font and swap the letter randomly
 
 This one goes last, all the credits and such.
 
+- [x] Draft
+- [ ] Final
+
 ## Compendium
 
 ## Summary page
 
 - [ ] Stats summary with image export option/share to social media (great idea for getting exposure for the project)
+
+## Other page
+
+- [ ] Kilton's medals of honor checklist
+- [ ] Sheikah tower checklist
+- [ ] Inventory expansion counters
+- [ ] Spirit orb counters
 
 ## Footer
 
