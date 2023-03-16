@@ -1,6 +1,7 @@
 footer {
 	@include size(100%);
 	@include flex(column, center, center);
+	@include link;
 
 	background-color: $color-frame;
 	border-top: $border-thickness solid $color-border;

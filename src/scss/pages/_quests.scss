@@ -1,4 +1,4 @@
-.quests {
+#page-quests {
 	@each $type, $color in $colors-quest {
 		.#{$type} {
 			--quest-color: #{$color};

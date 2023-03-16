@@ -96,7 +96,9 @@ This one goes last, all the credits and such.
 
 ## Footer
 
-- [ ] Github link
-- [ ] Github issues link
-- [ ] My name/link to portfolio page
-- [ ] Reddit link
+- [x] Github link
+- [x] Github issues link
+- [x] My name/link to portfolio page
+- [x] Reddit link
+- [x] Legal disclaimer
+- [x] Data disclaimer

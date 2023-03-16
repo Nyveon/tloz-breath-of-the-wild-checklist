@@ -1,0 +1,20 @@
+#page-index {
+	@include link;
+
+	padding-inline: $very-large;
+
+	@media screen and (max-width: $breakpoint-tablet) {
+		padding-inline: $large;
+	}
+
+	ul {
+		list-style: square;
+	}
+
+	img.background {
+		@include fixed(0, 0, auto, auto);
+		@include size(auto, 100%);
+		opacity: 0.05;
+		z-index: -1;
+	}
+}
