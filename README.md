@@ -6,6 +6,8 @@ Checklist website for tracking 100%+ completion of The Legend of Zelda: Breath o
 - 🚧 Compendium Photos (Creatures, Monsters, Materials, Equipment, Treasure).
 - 🚧 Sheikah Towers, Inventory Expansions, Spirit Orbs & Kilton's Medals of Honor.
 
+→ <https://botw.eri.cl> ←
+
 ## Credits
 
 Inspired by [The Legend of Zelda: Breath of the Wild Cheat Sheet](https://iversc.github.io/breath-of-the-wild-cheat-sheet/)
