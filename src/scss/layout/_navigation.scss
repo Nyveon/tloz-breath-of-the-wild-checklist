@@ -9,21 +9,20 @@ nav {
 			margin: 0 1em;
 
 			a:hover {
+				@include glow-text($color-glow);
 				color: $color-link;
+
+				img {
+					scale: 0.9;
+				}
 			}
 
 			img {
 				@include size($large);
 
+				margin-right: $small;
+
 				transition: scale 0.2s ease-in-out;
-			}
-
-			&:hover {
-				@include glow-text($color-glow);
-
-				img {
-					scale: 0.9;
-				}
 			}
 		}
 	}

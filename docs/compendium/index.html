@@ -1,6 +1,3 @@
----
-date: git Last Modified
----
 
 <!DOCTYPE html>
 <html data-theme="dark" lang="en">
@@ -16,7 +13,7 @@ date: git Last Modified
 			content="BOTW, TLOZ, Breath of the Wild, Checklist, Cheat Sheet"
 		/>
 		<meta name="author" content="Nyveon (Eric K.)" />
-		<title>{{ title }}</title>
+		<title>BOTW: Compendium</title>
 
 		<script
 			defer
@@ -39,24 +36,37 @@ date: git Last Modified
 		<header>
 			<h1><a href="/">The Legend of Zelda: Breath of the Wild Checklist</a></h1>
 
-			{% if name != 'index' %}
+			
 			<nav>
 				<ul>
-					{% for key, img in {'Quests': 'quest-main.svg', 'Compendium':
-					'sheikah.svg', 'Other': 'triforce.svg'} %}
+					
 					<li>
-						<a href="/{{ key | lower }}"
-							><img src="/img/{{ img }}" alt="" />{{ key }}</a
+						<a href="/quests"
+							><img src="/img/quest-main.svg" alt="" />Quests</a
 						>
 					</li>
-					{% endfor %}
+					
+					<li>
+						<a href="/compendium"
+							><img src="/img/sheikah.svg" alt="" />Compendium</a
+						>
+					</li>
+					
+					<li>
+						<a href="/other"
+							><img src="/img/triforce.svg" alt="" />Other</a
+						>
+					</li>
+					
 				</ul>
 			</nav>
-			{% endif %}
+			
 		</header>
 
-		<main id="page-{{ name }}">
-			{{ content | safe }}
+		<main id="page-compendium">
+			
+Under construction.
+
 		</main>
 
 		<footer>
@@ -96,7 +106,7 @@ date: git Last Modified
 				</div>
 			</section>
 			<section class="disclaimer">
-				<em>Last Updated: {{ page.date | date }}</em>
+				<em>Last Updated: March 16, 2023</em>
 				<br />
 				<em>
 					This is a fan-made website dedicated to the Legend of Zelda series.
