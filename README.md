@@ -1,5 +1,9 @@
 # The Legend of Zelda: Breath of the Wild Checklist
 
+⚠️ I won't be working on this project anymore. <https://www.zeldadungeon.net/breath-of-the-wild-interactive-map/> is a good alternative for most of the implemented and planned features. ⚠️
+
+---
+
 Checklist website for tracking 100%+ completion of The Legend of Zelda: Breath of The Wild. Mark completion of:
 
 - ✅ Quests (Main Quests, Side Quests, Shrine Quests, Memories).
